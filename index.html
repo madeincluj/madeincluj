@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<title>Made In Cluj</title>
+
+	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+ <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+ <![endif]-->
+ <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+
+		body {
+			font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+		}
+
+		#header {
+			position:absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			padding: 1em;
+		}
+
+		#header h1 {
+			font-size: 2em;
+			margin: 0;
+		}
+
+		#map {
+			position:absolute;
+			left: 0;
+			right: 0;
+			top: 6em;
+			bottom: 0;
+			background: #eee;
+		}
+	</style>
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			var map = L.map('map');
+			var layer = new L.StamenTileLayer("toner");	
+			map.setView([46.7667, 23.5569], 16);
+			map.addLayer(layer);
+
+		}
+	</script>
+</head>
+<body>
+
+	<div id='header'>
+		<h1>Made in Cluj</h1>
+	</div>
+	<div id='map'></div>
+
+</body>
+</html>
