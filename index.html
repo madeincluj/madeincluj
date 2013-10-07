@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Made In Cluj</title>
+	<title>madeincluj</title>
 
 	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
  <!--[if lte IE 8]>
@@ -36,18 +36,26 @@
 			top: 0;
 			bottom: 0;
 			background: #eee;
+			z-index: 1;
 		}
 
 		#map .leaflet-control-zoom { margin-top: 8em; }
+
+		#map .leaflet-control-attribution a { color: #000; }
 	</style>
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
 	<script type="text/javascript">
 		window.onload = function() {
-			var map = L.map('map');
+			var map = L.map('map', {
+				center: [46.7667, 23.5569],
+				zoom: 16,
+				minZoom: 13,
+				maxZoom: 20,
+				maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
+			});
 			var layer = new L.StamenTileLayer("toner");	
-			map.setView([46.7667, 23.5569], 16);
 			map.addLayer(layer);
 
 		}
