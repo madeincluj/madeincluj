@@ -44,8 +44,8 @@
 		#map .leaflet-control-attribution a { color: #000; }
 	</style>
 
-	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+	<script src="js/lib/leaflet.js"></script>
+	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
 			var map = L.map('map', {
@@ -55,7 +55,10 @@
 				maxZoom: 20,
 				maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
 			});
-			var layer = new L.StamenTileLayer("toner");	
+			var layer = new L.StamenTileLayer("toner", {
+
+				detectRetina: true
+			});	
 			map.addLayer(layer);
 
 		}
