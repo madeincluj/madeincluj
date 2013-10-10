@@ -2118,7 +2118,7 @@ function setZoom(z) {
     zoom = z;
     size = MAP_TILE_SIZE <<zoom;
 
-    zoomAlpha = 1 - fromRange(zoom, minZoom, maxZoom, 0, 0.3);
+    zoomAlpha = 1;
 
     wallColorAlpha = defaultWallColor.setAlpha(zoomAlpha) + '';
     altColorAlpha  = defaultAltColor.setAlpha( zoomAlpha) + '';

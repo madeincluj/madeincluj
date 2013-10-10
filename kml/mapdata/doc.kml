@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>~GE1F6B.kmz</name>
+	<Style id="sn_ylw-pushpin">
+		<LineStyle>
+			<color>19919191</color>
+			<width>0.3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>ff00aaff</color>
+			<outline>0</outline>
+		</PolyStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<LineStyle>
+			<color>19919191</color>
+			<width>0.3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>b2133fec</color>
+		</PolyStyle>
+	</Style>
+	<Folder>
+		<name>descriptions</name>
+		<open>1</open>
+		<Placemark>
+			<name></name>
+			<description>
+			<![CDATA[
+			      <iframe src="http://www.zoo.nsw.gov.au/" width="100%" height="300" frameborder="0" SCROLLING=AUTO >
+			              Taronga Zoo Website
+				            </iframe>
+			]]>
+			</description>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+			<MultiGeometry>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590132,46.77079499999999,0 23.590028,46.770976,0 23.590534,46.771137,0 23.590654,46.77093300000001,0 23.590132,46.77079499999999,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</MultiGeometry>
+		</Placemark>
+		<Placemark>
+			<name>2</name>
+			<description>next to melody hotel</description>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+			<gx:balloonVisibility>1</gx:balloonVisibility>
+			<MultiGeometry>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590204,46.770637,0 23.5902,46.770643,0 23.590215,46.770648,0 23.590204,46.770637,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590219,46.77059500000001,0 23.590196,46.770635,0 23.590204,46.770637,0 23.590219,46.77059500000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590219,46.77059500000001,0 23.590204,46.770637,0 23.590215,46.770648,0 23.590219,46.77059500000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590246,46.77054800000001,0 23.590219,46.77059500000001,0 23.590215,46.770648,0 23.590246,46.77054800000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590265,46.77051199999999,0 23.590246,46.77054800000001,0 23.590215,46.770648,0 23.590265,46.77051199999999,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590279,46.770516,0 23.590265,46.77051199999999,0 23.590215,46.770648,0 23.590279,46.770516,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590283,46.77050899999999,0 23.590279,46.770516,0 23.590215,46.770648,0 23.590283,46.77050899999999,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590296,46.77051199999999,0 23.590283,46.77050899999999,0 23.590215,46.770648,0 23.590296,46.77051199999999,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590296,46.77051199999999,0 23.590215,46.770648,0 23.590132,46.77079499999999,0 23.590296,46.77051199999999,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590411,46.77077600000001,0 23.59036,46.7704,0 23.590296,46.77051199999999,0 23.590411,46.77077600000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590411,46.77077600000001,0 23.590296,46.77051199999999,0 23.590132,46.77079499999999,0 23.590411,46.77077600000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.59036,46.7704,0 23.590411,46.77077600000001,0 23.590543,46.770553,0 23.59036,46.7704,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590737,46.770863,0 23.590411,46.77077600000001,0 23.590132,46.77079499999999,0 23.590737,46.770863,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.59036,46.7704,0 23.590543,46.770553,0 23.590863,46.77064,0 23.59036,46.7704,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590737,46.770863,0 23.590132,46.77079499999999,0 23.590929,46.771006,0 23.590737,46.770863,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.590863,46.77064,0 23.590737,46.770863,0 23.590929,46.771006,0 23.590863,46.77064,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.591146,46.77062000000001,0 23.59036,46.7704,0 23.590863,46.77064,0 23.591146,46.77062000000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+				<Polygon>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+23.591146,46.77062000000001,0 23.590863,46.77064,0 23.590929,46.771006,0 23.591146,46.77062000000001,0 </coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</MultiGeometry>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
