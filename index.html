@@ -48,15 +48,30 @@
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
   <script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
+	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
+	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
+	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 	<script type="text/javascript">
 
     var geojson;
+    var latoffset = 0.000319661965654916 + 0.000037661515271736334;
+    var lngoffset = -0.00035941600799560547 + 0.00006973743438720703;
     function load(data) {
       geojson = data;
       geojson.features.forEach(function(feature) {
-        feature.properties.height = 100;
+        feature.properties.height = 20;
         feature.properties.minHeight = 0;
+        if (feature.geometry && feature.geometry.coordinates) {
+        	var coords = feature.geometry.coordinates;
+        	coords[0].forEach(function(c) {
+        		c[0] += latoffset;
+        		c[1] += lngoffset;
+        		c.length = 2;
+        	});
+        }
       });
+
+    	// geojson.features = geojson.features.slice(5011, 5013);
     };
 
 		window.onload = function() {
@@ -71,13 +86,28 @@
 
 				detectRetina: true
 			});	
-			map.addLayer(layer);
+			// map.addLayer(layer);
+
+			var ggl = new L.Google('ROADMAP');
+			map.addLayer(ggl);
+
+
+			// var track = new L.KML("kml/cluj3D.kml", {async: true});
+			// track.on("loaded", function(e) { map.fitBounds(e.target.getBounds()); });
+			// map.addLayer(track);
 
 			var osmb = new OSMBuildings(map);
 
 			osmb.setData(geojson).setStyle({
-				shadows: false
+				// shadows: false
 			});
+
+			var coords = window.coords = [];
+			map.on('click', function(e) {
+				coords.push(e.latlng);
+			});
+
+
 
 		}
 	</script>
