@@ -50,6 +50,7 @@
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
+	<script type="text/javascript" src="js/lib/L.TileLayer.Zoomify.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 	<script type="text/javascript">
 
@@ -107,8 +108,27 @@
 				coords.push(e.latlng);
 			});
 
+			/* Strike 1: Simple image layer */
+			var imageUrl = 'img/centru_cluj.jpg',
+					imageBounds = new L.LatLngBounds([46.775568,23.581883], [46.766265,23.602299]);
+			L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
+			/* Strike 2: Use tile layers to display images */
 
+			// L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			//     bounds: imageBounds,
+			// }).addTo(map);
+
+			// L.tileLayer('img/centru_cluj/TileGroup0/{z}-{x}-{y}.jpg', {
+			//     zoomOffset: -16,
+			//     bounds: imageBounds,
+			// }).addTo(map);
+
+			// L.tileLayer.zoomify('img/centru_cluj/', {
+			//     width: 843,
+			//     height: 619,
+			//     tolerance: 0.8,
+			// }).addTo(map);
 		}
 	</script>
 
