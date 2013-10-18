@@ -1,0 +1,13 @@
+all {
+  hue: #2DB5E2;
+  saturation: -20;
+}
+
+:labels {
+  visibility: off;
+}
+
+road:geometry {
+	lightness: 100;
+	visibility: simplified;
+}

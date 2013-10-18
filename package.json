@@ -1,0 +1,7 @@
+{
+  "name": "made-in-cluj",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gmaps-css": "~0.1.2"
+  }
+}
