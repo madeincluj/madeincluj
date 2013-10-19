@@ -1,0 +1,9 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+	 <g>
+		<clipPath id="bubble-mask">
+			<path d="M94.5,45.239c0-24.577-19.923-44.5-44.5-44.5c-24.576,0-44.5,19.923-44.5,44.5c0,22.495,16.694,41.08,38.368,44.069l5.834,10.109l5.79-10.028C77.476,86.683,94.5,67.955,94.5,45.239z"/>
+		</clipPath>
+	 </g>
+	 <image clip-path="url(#bubble-mask)" height="100%" width="100%" xlink:href="https://secure.gravatar.com/avatar/c70822569ff3459a2d82a5033d401dc8?d=mm&amp;s=204" />
+</svg>
