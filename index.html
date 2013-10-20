@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<meta charset='utf-8'>
 	<title>madeincluj</title>
 
 	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
@@ -58,6 +59,39 @@
 			-moz-transform: translate(-50px, -100px);
 			-webkit-transform: translate(-50px, -100px);
 		}
+
+		.instagram-marker {
+			position: absolute;
+		}
+
+		.instagram-marker .photo img {
+			display: block;
+			width: 50px;
+			height: 50px;
+		}
+
+		.instagram-marker.plus::after,
+		.instagram-marker.minus::after {
+			position:absolute;
+			top:0;bottom:0;right:0;left:0;
+			background:rgba(0,0,0,0.2);
+			color:#fff;
+			font-weight: bold;
+			text-align: center;
+			font-size: 3em;
+			line-height: 50px;
+		}
+
+		.instagram-marker.plus::after {
+			content: '+';
+		}
+
+		.instagram-marker.minus::after {
+			content: '−';
+		}
+
+		.instagram-item {}
+	
 	</style>
 
 	<script src="js/lib/leaflet.js"></script>
@@ -67,6 +101,10 @@
 	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
 	<script type="text/javascript" src="js/lib/L.TileLayer.Zoomify.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/lib/handlebars.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/layer.instagram.js"></script>
 	<script type="text/javascript" src="js/gmaps.js"></script>
 
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
@@ -209,15 +247,37 @@
 		<h1><img src='img/logo.png'/> madeincluj</h1>
 	</div>
 	<div id='map'></div>
-	<svg id='bubble-butt' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-	 <g>
-		<clipPath id="bubble-mask">
-			<path d="M94.5,45.239c0-24.577-19.923-44.5-44.5-44.5c-24.576,0-44.5,19.923-44.5,44.5c0,22.495,16.694,41.08,38.368,44.069l5.834,10.109l5.79-10.028C77.476,86.683,94.5,67.955,94.5,45.239z"/>
-		</clipPath>
-	 </g>
-	 <image clip-path="url(#bubble-mask)" height="100%" width="100%" xlink:href="https://secure.gravatar.com/avatar/c70822569ff3459a2d82a5033d401dc8?d=mm&amp;s=204" />
-	</svg>
+
+	<script id='tmpl-building-photo-marker' type='text/x-handlebars'>
+
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+		 <g>
+			<clipPath id="bubble-mask">
+				<path d="M94.5,45.239c0-24.577-19.923-44.5-44.5-44.5c-24.576,0-44.5,19.923-44.5,44.5c0,22.495,16.694,41.08,38.368,44.069l5.834,10.109l5.79-10.028C77.476,86.683,94.5,67.955,94.5,45.239z"/>
+			</clipPath>
+		 </g>
+		 <image clip-path="url(#bubble-mask)" height="100%" width="100%" xlink:href="https://secure.gravatar.com/avatar/c70822569ff3459a2d82a5033d401dc8?d=mm&amp;s=204" />
+		</svg>
+
+	</script>
+
+	<script id='tmpl-instagram-marker' type='text/x-handlebars'>
+		<div class='instagram-marker {{type}}'>
+			<div class='photo'>
+				<img src="{{images.thumbnail.url}}" width="{{images.thumbnail.width}}" height="{{images.thumbnail.height}}"/>
+			</div>
+		</div>
+	</script>
+
+	<script id='tmpl-instagram-item' type='text/x-handlebars'>
+		<div class='instagram-item'>
+			<div class='photo'>
+				<img src="{{images.high_resolution.url}}" width="{{images.high_resolution.width}}" height="{{images.high_resolution.height}}"/>
+				<span>{{caption}}</span>
+			</div>
+			<div class='meta'><img src="{{user_photo}}"/> {{user_name}}, {{created}}</div>
+		</div>
+	</script>
 
 </body>
 </html>
