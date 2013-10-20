@@ -94,13 +94,14 @@
 	
 	</style>
 
-	<script src="js/lib/leaflet.js"></script>
+	<script src="js/lib/leaflet-src.js"></script>
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
   <script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
 	<script type="text/javascript" src="js/lib/L.TileLayer.Zoomify.js"></script>
+	<script type="text/javascript" src="js/lib/leaflet.photomarker-src.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
@@ -173,11 +174,11 @@
 			// track.on("loaded", function(e) { map.fitBounds(e.target.getBounds()); });
 			// map.addLayer(track);
 
-			var osmb = new OSMBuildings(map);
+			// var osmb = new OSMBuildings(map);
 
-			osmb.setData(geojson).setStyle({
-				// shadows: false
-			});
+			// osmb.setData(geojson).setStyle({
+			// 	// shadows: false
+			// });
 
 			// osmb.loadData();
 	

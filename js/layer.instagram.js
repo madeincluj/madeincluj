@@ -77,7 +77,16 @@ MIC.InstagramLayer = {
 	},
 
 	renderItems: function(photos) {
+		var markers = photos.map(function(photo) {
+			return L.photoMarker([photo.location.latitude, photo.location.longitude], {
+				src: photo.images.thumbnail.url,
+				size: [photo.images.thumbnail.width, photo.images.thumbnail.height],
+				smallestSizeZoom: 13,
+          		largestSizeZoom: 18
+			});
+		});
 
+		L.featureGroup(markers).addTo(map);
 	}
 
 };
