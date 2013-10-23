@@ -102,6 +102,7 @@
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
 	<script type="text/javascript" src="js/lib/L.TileLayer.Zoomify.js"></script>
 	<script type="text/javascript" src="js/lib/leaflet.photomarker-src.js"></script>
+	<script type="text/javascript" src="js/lib/leaflet-hash.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
@@ -208,11 +209,13 @@
 			//     height: 619,
 			//     tolerance: 0.8,
 			// }).addTo(map);
+
+			var hash = L.hash(map);
 		}
 	</script>
 
 
-  <script type="text/javascript" src="geojson/osm_buildings.geojson"></script>
+  <!--<script type="text/javascript" src="geojson/osm_buildings.geojson"></script>-->
 
 <!--
   <script type="text/javascript" src="osm-buildings.json"></script>

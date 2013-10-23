@@ -1,4 +1,4 @@
-loadgeojson({
+{
   "type": "FeatureCollection",
   "features": [
     {
@@ -171242,4 +171242,4 @@ loadgeojson({
       }
     }
   ]
-});
+}
