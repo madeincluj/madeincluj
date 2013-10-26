@@ -11,89 +11,7 @@
  <script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	<style type="text/css">
-
-		body {
-			font-family: 'freight-text-pro', 'Helvetica', 'Arial', sans-serif;
-		}
-
-		#header {
-			position:absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			padding: 1em;
-			z-index: 2;
-		}
-
-		#header h1 {
-			font-size: 2em;
-			margin: 0;
-		}
-
-		#map {
-			position:absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			background: #eee;
-			z-index: 1;
-		}
-
-		#map .leaflet-control-zoom { margin-top: 8em; }
-
-		#map .leaflet-control-attribution a { color: #000; }
-
-		#bubble-butt {
-			z-index:1000;
-			position: absolute;
-			-moz-transition: 0.2s all;
-			-webkit-transition: 0.2s all;
-			left: 50%;
-			top: 50%;
-		}
-
-		#bubble-butt:hover {
-			width: 200px;
-			height: 200px;
-			-moz-transform: translate(-50px, -100px);
-			-webkit-transform: translate(-50px, -100px);
-		}
-
-		.instagram-marker {
-			position: absolute;
-		}
-
-		.instagram-marker .photo img {
-			display: block;
-			width: 50px;
-			height: 50px;
-		}
-
-		.instagram-marker.plus::after,
-		.instagram-marker.minus::after {
-			position:absolute;
-			top:0;bottom:0;right:0;left:0;
-			background:rgba(0,0,0,0.2);
-			color:#fff;
-			font-weight: bold;
-			text-align: center;
-			font-size: 3em;
-			line-height: 50px;
-		}
-
-		.instagram-marker.plus::after {
-			content: '+';
-		}
-
-		.instagram-marker.minus::after {
-			content: '−';
-		}
-
-		.instagram-item {}
-	
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
 
 	<script src="js/lib/leaflet-src.js"></script>
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
@@ -147,8 +65,8 @@
 
 		window.onload = function() {
 			var map = L.map('map', {
-				center: [46.7667, 23.5569],
-				zoom: 16,
+				center: [46.7684, 23.5919],
+				zoom: 15,
 				minZoom: 13,
 				maxZoom: 20,
 				maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
@@ -249,9 +167,19 @@
 <body>
 
 	<div id='header'>
-		<h1><img src='img/logo.png'/> madeincluj</h1>
+		<h1>madeincluj</h1>
+		<ul id='nav'>
+			<li><a href='#'>Despre proiect</a></li>
+			<li><a href='#'>Echipa</a></li>
+			<li><a href='#'>Contact</a></li>
+		</div>
 	</div>
-	<div id='map'></div>
+	<div id='map-container'>
+		<div id='map'></div>
+	</div>
+	<div id='footer'></div>
+
+	<!-- templates -->
 
 	<script id='tmpl-building-photo-marker' type='text/x-handlebars'>
 
