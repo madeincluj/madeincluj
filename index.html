@@ -4,18 +4,18 @@
 	<meta charset='utf-8'>
 	<title>madeincluj</title>
 
-	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
- <!--[if lte IE 8]>
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
- <![endif]-->
- <script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+	
+	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	<script src="js/lib/leaflet-src.js"></script>
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
-  <script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
+	<script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
@@ -31,37 +31,36 @@
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 	<script type="text/javascript">
 
-    var geojson;
-    var latoffset = 0.000319661965654916 + 0.000037661515271736334;
-    var lngoffset = -0.00035941600799560547 + 0.00006973743438720703;
-    function load(data) {
-      geojson = data;
-      geojson.features.forEach(function(feature) {
-        feature.properties.height = 20;
-        feature.properties.minHeight = 0;
-        if (feature.geometry && feature.geometry.coordinates) {
-        	var coords = feature.geometry.coordinates;
-        	coords[0].forEach(function(c) {
-        		c[0] += latoffset;
-        		c[1] += lngoffset;
-        		c.length = 2;
-        	});
-        }
-      });
+		var geojson;
+		var latoffset = 0.000319661965654916 + 0.000037661515271736334;
+		var lngoffset = -0.00035941600799560547 + 0.00006973743438720703;
+		function load(data) {
+			geojson = data;
+			geojson.features.forEach(function(feature) {
+				feature.properties.height = 20;
+				feature.properties.minHeight = 0;
+				if (feature.geometry && feature.geometry.coordinates) {
+					var coords = feature.geometry.coordinates;
+					coords[0].forEach(function(c) {
+						c[0] += latoffset;
+						c[1] += lngoffset;
+						c.length = 2;
+					});
+				}
+			});
+			// geojson.features = geojson.features.slice(5011, 5013);
+		};
 
-    	// geojson.features = geojson.features.slice(5011, 5013);
-    };
-
-    function loadgeojson(data) {
-    	console.log(data);
-    	geojson = data;
-    	geojson.features.forEach(function(f) {
-    		f.properties.height = 20;
-    		var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-    		f.properties.roofColor = color;
-    		f.properties.wallColor = color;
-    	});
-    };
+		function loadgeojson(data) {
+			console.log(data);
+			geojson = data;
+			geojson.features.forEach(function(f) {
+				f.properties.height = 20;
+				var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
+				f.properties.roofColor = color;
+				f.properties.wallColor = color;
+			});
+		};
 
 		window.onload = function() {
 			var map = L.map('map', {
@@ -101,7 +100,7 @@
 			// });
 
 			// osmb.loadData();
-	
+
 			var coords = window.coords = [];
 			map.on('click', function(e) {
 				coords.push(e.latlng);
@@ -112,32 +111,32 @@
 	</script>
 
 
-  <!--<script type="text/javascript" src="geojson/osm_buildings.geojson"></script>-->
+<!--<script type="text/javascript" src="geojson/osm_buildings.geojson"></script>-->
 
 <!--
   <script type="text/javascript" src="osm-buildings.json"></script>
 
   <script type='text/javascript'>
-  	var osm_geojson = {
-  		type: 'FeatureCollection',
-  		features: buildings.map(function(building) {
-  			var coords = [];
-  			for (var i =0; i < building.footprint.length; i+=2) {
-  				coords.push([ building.footprint[i+1], building.footprint[i]]);
-  			}
-  			return {
-  				type: 'Feature',
-  				properties: {
-  					height: building.height,
-  					id: building.id
-  				},
-  				geometry: {
-  					type: 'Polygon',
-  					coordinates: [coords]
-  				}
-  			};
-  		})
-  	};
+	var osm_geojson = {
+		type: 'FeatureCollection',
+		features: buildings.map(function(building) {
+			var coords = [];
+			for (var i =0; i < building.footprint.length; i+=2) {
+				coords.push([ building.footprint[i+1], building.footprint[i]]);
+			}
+			return {
+				type: 'Feature',
+				properties: {
+					height: building.height,
+					id: building.id
+				},
+				geometry: {
+					type: 'Polygon',
+					coordinates: [coords]
+				}
+			};
+		})
+	};
   </script>
 
 -->
