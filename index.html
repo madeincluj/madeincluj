@@ -115,16 +115,12 @@
 			};
 			var historicalLayer = L.tileLayer(historicalTiles, options);
 
-			var baseMaps = {
-				"Google": ggl,
-				"Stamen": stamenLayer
-			};
-
 			var overlayMaps = {
 				"Historical Maps": historicalLayer
+				// add more layers here as they are integrated
 			};
 
-			L.control.layers(baseMaps, overlayMaps).addTo(map);
+			L.control.layers(null, overlayMaps).addTo(map);
 		}
 	</script>
 
