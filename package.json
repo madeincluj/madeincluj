@@ -2,6 +2,10 @@
   "name": "made-in-cluj",
   "version": "0.1.0",
   "devDependencies": {
-    "gmaps-css": "~0.1.2"
+    "gmaps-css": "~0.1.2",
+    "marked": "~0.2.9",
+    "yaml-front-matter": "~2.1.11",
+    "ejs": "~0.8.4",
+    "fs-extra": "~0.8.1"
   }
 }
