@@ -6,6 +6,7 @@
     "marked": "~0.2.9",
     "yaml-front-matter": "~2.1.11",
     "ejs": "~0.8.4",
-    "fs-extra": "~0.8.1"
+    "fs-extra": "~0.8.1",
+    "slug": "~0.3.3"
   }
 }
