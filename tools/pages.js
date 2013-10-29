@@ -6,7 +6,7 @@ var ejs = require('ejs');
 var markdown_pages_dir = 'content/md/';
 var html_pages_dir = 'content/html/';
 var templates_dir = 'templates/';
-var output_dir = './';
+var output_dir = 'site/';
 
 var md_pages = fs.readdirSync(markdown_pages_dir);
 
