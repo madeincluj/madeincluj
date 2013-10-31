@@ -77,15 +77,19 @@ MIC.InstagramLayer = {
 	},
 
 	renderItems: function(photos) {
+		var that = this;
 		var markers = photos.map(function(photo) {
+			var popup = MIC.handlebars_templates[that.item_template](photo);
 			return L.photoMarker([photo.location.latitude, photo.location.longitude], {
 				src: photo.images.thumbnail.url,
 				size: [photo.images.thumbnail.width, photo.images.thumbnail.height],
 				smallestSizeZoom: 13,
-          		largestSizeZoom: 18
-			});
+				largestSizeZoom: 18,
+				matrix: { 13: 0.125, 15: 0.25, 17: 0.5, 18: 0.75 }
+			}).bindPopup(popup, {maxWidth: "auto"});
 		});
 
+		// TODO: Group should not be added to map from here.
 		L.featureGroup(markers).addTo(map);
 	}
 

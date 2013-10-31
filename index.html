@@ -13,13 +13,12 @@
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	<script src="js/lib/leaflet-src.js"></script>
+	<script type="text/javascript" src="js/lib/leaflet-src.js"></script>
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
 	<script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-KML.js"></script>
 	<script type="text/javascript" src="js/lib/Leaflet-Google.js"></script>	
-	<script type="text/javascript" src="js/lib/L.TileLayer.Zoomify.js"></script>
 	<script type="text/javascript" src="js/lib/leaflet.photomarker-src.js"></script>
 	<script type="text/javascript" src="js/lib/leaflet-hash.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
@@ -121,6 +120,9 @@
 			};
 
 			L.control.layers(null, overlayMaps).addTo(map);
+
+			MIC.InstagramLayer.enable();
+			// var instagram = MIC.InstagramLayer().enable();
 		}
 	</script>
 
@@ -196,10 +198,13 @@
 	<script id='tmpl-instagram-item' type='text/x-handlebars'>
 		<div class='instagram-item'>
 			<div class='photo'>
-				<img src="{{images.high_resolution.url}}" width="{{images.high_resolution.width}}" height="{{images.high_resolution.height}}"/>
-				<span>{{caption}}</span>
+				<img src="{{images.standard_resolution.url}}" width="{{images.standard_resolution.width}}" height="{{images.standard_resolution.height}}"/>
+				<div>{{caption}}</div>
 			</div>
-			<div class='meta'><img src="{{user_photo}}"/> {{user_name}}, {{created}}</div>
+			<div class='meta'>
+				<img src="{{user_photo}}"/>
+				<div>{{user_name}}, {{created}}</div>
+			</div>
 		</div>
 	</script>
 
