@@ -50,7 +50,6 @@
 		};
 
 		function loadgeojson(data) {
-			console.log(data);
 			geojson = data;
 			geojson.features.forEach(function(f) {
 				f.properties.height = 20;
@@ -113,15 +112,16 @@
 				tms: true
 			};
 			var historicalLayer = L.tileLayer(historicalTiles, options);
+			var instaLayer = MIC.InstagramLayer.enable();
 
 			var overlayMaps = {
-				"Historical Maps": historicalLayer
+				"Historical Maps": historicalLayer,
+        "instagram": instaLayer
 				// add more layers here as they are integrated
 			};
 
 			L.control.layers(null, overlayMaps).addTo(map);
 
-			MIC.InstagramLayer.enable();
 			// var instagram = MIC.InstagramLayer().enable();
 		}
 	</script>

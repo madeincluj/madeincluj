@@ -10,8 +10,8 @@ MIC.InstagramLayer = {
 	item_template: 'tmpl-instagram-item',
 
 	enable: function() {
-		this.initialize(); 
 		this.enabled = true;
+		return this.initialize(); 
 	},
 
 	disable: function() {
@@ -22,8 +22,10 @@ MIC.InstagramLayer = {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
+      this.featureGroup = new L.FeatureGroup();
 			this.fetch();
 			this.initialized = true;
+      return this.featureGroup;
 		}
 	},
 
@@ -68,7 +70,7 @@ MIC.InstagramLayer = {
 				type: type,
 				created: item.created_time ? new Date(item.created_time * 1000) : null,
 				caption: item.caption && item.caption.text ? item.caption.text : ''
-			}
+			};
 		});
 		this.photos = this.photos.concat(photos);
 		if (this.enabled) {
@@ -78,19 +80,20 @@ MIC.InstagramLayer = {
 
 	renderItems: function(photos) {
 		var that = this;
-		var markers = photos.map(function(photo) {
+    photos.map(function(photo) {
 			var popup = MIC.handlebars_templates[that.item_template](photo);
-			return L.photoMarker([photo.location.latitude, photo.location.longitude], {
+			var marker =  L.photoMarker([photo.location.latitude, photo.location.longitude], {
 				src: photo.images.thumbnail.url,
 				size: [photo.images.thumbnail.width, photo.images.thumbnail.height],
 				smallestSizeZoom: 13,
 				largestSizeZoom: 18,
 				matrix: { 13: 0.125, 15: 0.25, 17: 0.5, 18: 0.75 }
 			}).bindPopup(popup, {maxWidth: "auto"});
+      that.featureGroup.addLayer(marker);
 		});
 
 		// TODO: Group should not be added to map from here.
-		L.featureGroup(markers).addTo(map);
+		this.featureGroup.addTo(map);
 	}
 
 };
