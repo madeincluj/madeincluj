@@ -5,13 +5,14 @@ MIC.InstagramLayer = {
 
 	photos: [],
 	max_photos: 30,
+	excluded: [],
 
 	marker_template: 'tmpl-instagram-marker',
 	item_template: 'tmpl-instagram-item',
 
 	enable: function() {
 		this.enabled = true;
-		this.initialize(); 
+		this.initialize();
 		return this;
 	},
 
@@ -24,12 +25,28 @@ MIC.InstagramLayer = {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
-      		this.featureGroup = new L.FeatureGroup();
+			this.featureGroup = new L.FeatureGroup();
 			this.map = map;
-			this.fetch();
+			this.loadExclusions();
 			this.initialized = true;
 		}
 		return this;
+	},
+
+	loadExclusions: function() {
+		var that = this;
+		$.ajax({
+			cache: false,
+			url: 'json/instagram-excluded.json',
+			dataType: 'json',
+			error: function(value) {
+				that.fetch();
+			},
+			success: function(resp) {
+				that.excluded = resp;
+				that.fetch();
+			}
+		});
 	},
 
 	url: function() {
@@ -55,8 +72,9 @@ MIC.InstagramLayer = {
 	},
 
 	load: function(data) {
+		var that = this;
 		var photos = data.filter(function(item) {
-			return item.location && item.type === 'image';
+			return item.location && item.type === 'image' && that.excluded.indexOf(item.id) < 0;
 		}).map(function(item) {
 			var type = 'neutral';
 			if (item.tags.indexOf('plus') > -1) {
@@ -96,6 +114,7 @@ MIC.InstagramLayer = {
 		var that = this;
 
 		photos.map(function(photo) {
+			console.log(photo);
 			recomputeSize( photo.images.standard_resolution);
 			var popup = MIC.handlebars_templates[that.item_template](photo);
 			var marker =  L.photoMarker([photo.location.latitude, photo.location.longitude], {
