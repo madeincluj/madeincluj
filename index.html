@@ -118,6 +118,8 @@
 			var instaLayer = MIC.InstagramLayer.initialize(map).enable();
 			var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(map).enable();
 
+			instaLayer.featureGroup.addTo(map);
+
 			var overlayMaps = {
 				"Hărți istorice": historicalLayer,
         		"Instagram #madeincluj": instaLayer.featureGroup,
@@ -128,8 +130,6 @@
 			L.control.layers(null, overlayMaps).addTo(map);
 
 			MIC.initialize();
-
-			// var instagram = MIC.InstagramLayer().enable();
 		}
 	</script>
 </head>
@@ -180,11 +180,12 @@
 	<script id='tmpl-instagram-item' type='text/x-handlebars'>
 		<div class='instagram-item'>
 			<div class='photo'>
-				<img src="{{images.standard_resolution.url}}" width="{{images.standard_resolution.width}}" height="{{images.standard_resolution.height}}"/>
+				<img src="{{images.standard_resolution.url}}" height="{{images.standard_resolution.height}}"
+				width="{{images.standard_resolution.width}}"/>
 			</div>
 			<div class='meta'>
-				<img src="{{user_photo}}" height="25" width="25"/>
-				<span><a href="http://instagram.com/{{user_name}}">{{user_name}}</a>, {{caption}}</span>
+				<img src="{{user.photo}}" height="25" width="25"/>
+				<span><a href="{{user.url}}">{{user.name}}</a>, {{caption}}</span>
 			</div>
 		</div>
 	</script>
