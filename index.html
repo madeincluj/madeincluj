@@ -14,6 +14,7 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	<script type="text/javascript" src="js/lib/leaflet-src.js"></script>
+	<script type="text/javascript" src="js/lib/d3.js"></script>
 	<script type="text/javascript" src="js/lib/tile.stamen.js"></script>
 	<script type="text/javascript" src="js/lib/OSMBuildings-Leaflet.js"></script>
 	<script type="text/javascript" src="js/lib/underscore-min.js"></script>
@@ -23,6 +24,7 @@
 	<script type="text/javascript" src="js/lib/leaflet-hash.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
+	<script type="text/javascript" src="js/lib/leaflet.d3.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/layer.instagram.js"></script>
 	<script type="text/javascript" src="js/layer.building-photos.js"></script>
@@ -32,104 +34,9 @@
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 	<script type="text/javascript">
 
-		var geojson;
-		var latoffset = 0.000319661965654916 + 0.000037661515271736334;
-		var lngoffset = -0.00035941600799560547 + 0.00006973743438720703;
-		function load(data) {
-			geojson = data;
-			geojson.features.forEach(function(feature) {
-				feature.properties.height = 20;
-				feature.properties.minHeight = 0;
-				if (feature.geometry && feature.geometry.coordinates) {
-					var coords = feature.geometry.coordinates;
-					coords[0].forEach(function(c) {
-						c[0] += latoffset;
-						c[1] += lngoffset;
-						c.length = 2;
-					});
-				}
-			});
-			// geojson.features = geojson.features.slice(5011, 5013);
-		};
-
-		function loadgeojson(data) {
-			geojson = data;
-			geojson.features.forEach(function(f) {
-				f.properties.height = 20;
-				var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-				f.properties.roofColor = color;
-				f.properties.wallColor = color;
-			});
-		};
-
 		window.onload = function() {
-			var map = L.map('map', {
-				center: [46.7684, 23.5919],
-				zoom: 15,
-				minZoom: 13,
-				maxZoom: 20,
-				maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
-			});
-			var stamenLayer = new L.StamenTileLayer("toner", {
-				detectRetina: true,
-				reuseTiles: true
-			});	
-			// map.addLayer(stamenLayer);
-
-			window.stamen = stamenLayer;
-
-			window.map = map;
-
-			var ggl = new L.Google('ROADMAP', {
-				mapOptions: {
-					styles: GMAPS_STYLES
-				}
-			});
-			map.addLayer(ggl);
-
-
-			// var track = new L.KML("kml/cluj3D.kml", {async: true});
-			// track.on("loaded", function(e) { map.fitBounds(e.target.getBounds()); });
-			// map.addLayer(track);
-
-			// var osmb = new OSMBuildings(map);
-
-			// osmb.setData(geojson).setStyle({
-			// 	// shadows: false
-			// });
-
-			// osmb.loadData();
-
-			var coords = window.coords = [];
-			map.on('click', function(e) {
-				coords.push(e.latlng);
-			});
-			var hash = L.hash(map);
-
-			// Layer toggle controls
-			var historicalTiles = '../historical-maps/img/1869/{z}/{x}/{y}.png';
-			var options = {
-				minZoom: 13,
-				maxZoom: 17,
-				opacity: 0.7,
-				tms: true
-			};
-			var historicalLayer = L.tileLayer(historicalTiles, options);
-			var instaLayer = MIC.InstagramLayer.initialize(map).enable();
-			var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(map).enable();
-
-			var overlayMaps = {
-				"Hărți istorice": historicalLayer,
-        		"Instagram #madeincluj": instaLayer.featureGroup,
-        		"Clădiri '60-'80": buildingPhotosLayer.featureGroup
-				// add more layers here as they are integrated
-			};
-
-			L.control.layers(null, overlayMaps).addTo(map);
 
 			MIC.initialize();
-
-			// var instagram = MIC.InstagramLayer().enable();
 		}
 	</script>
 </head>
@@ -216,6 +123,16 @@
 				<div class='item-description'>{{ description }}</div>
 			</div>
 
+		</div>
+
+	</script>
+
+	<!-- Stret name popup template -->
+	<script id='tmpl-street-name-item' type='text/x-handlebars'>
+
+		<div class='street-item'>
+			<h2>{{name}}</h2>
+			<p>{{description}}</p>
 		</div>
 
 	</script>

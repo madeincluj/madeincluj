@@ -232,3 +232,27 @@ a:hover {
 	display: inline-block;
 	vertical-align: top;
 }
+
+
+#svg-streets path {
+  fill: none;
+  stroke: rgba(204,0,0,1);
+}
+
+#svg-streets path:hover {
+  stroke: rgba(0,0,0,1);
+  cursor: pointer;
+}
+
+#svg-streets .highway-residential { stroke-width: 1px; }
+#svg-streets .highway-primary { stroke-width: 4px; }
+#svg-streets .highway-secondary { stroke-width: 3px; }
+#svg-streets .highway-tertiary { stroke-width: 2px; }
+
+#svg-streets.zoom-16 .highway-primary {stroke-width: 3px;}
+#svg-streets.zoom-17 .highway-primary {stroke-width: 2px;}
+#svg-streets.zoom-18 .highway-primary {stroke-width: 1px;}
+#svg-streets.zoom-17 .highway-secondary {stroke-width: 1px;}
+#svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
+#svg-streets.zoom-17 .highway-tertiary {stroke-width: 0.8px;}
+#svg-streets.zoom-18 .highway-tertiary {stroke-width: 0.7px;}

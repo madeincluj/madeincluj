@@ -109,7 +109,7 @@ MIC.InstagramLayer = {
 		});
 
 		// TODO: Group should not be added to map from here.
-		this.featureGroup.addTo(map);
+		this.featureGroup.addTo(this.map);
 	}
 
 };
