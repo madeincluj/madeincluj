@@ -19,7 +19,6 @@ fs.removeSync(output_dir);
 
 jsons.forEach(function(filepath) {
 	var json = JSON.parse(fs.readFileSync(json_dir + filepath), 'utf8');
-	console.log(json);
 	var output = ejs.render(tmpl, {
 		building: json
 	});

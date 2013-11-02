@@ -127,6 +127,8 @@
 
 			L.control.layers(null, overlayMaps).addTo(map);
 
+			MIC.initialize();
+
 			// var instagram = MIC.InstagramLayer().enable();
 		}
 	</script>
@@ -145,6 +147,11 @@
 		<div id='map'></div>
 	</div>
 	<div id='footer'></div>
+
+	<div id='popup-container'>
+		<a href='#' class='close-popup'>&times;</a>
+		<div class='popup-content'></div>
+	</div>
 
 	<!-- templates -->
 
@@ -190,9 +197,15 @@
 
 			<div class='item-gallery'>
 
+				<div class='item-gallery-view'>
+					<img src={{ photos.0.large }}/>
+				</div>
+				
+				<div class='item-gallery-thumbs'>
 				{{#each photos}}
-					<img src='{{thumb}}'/>
+					<img src='{{thumb}}' data-large='{{large}}'/>
 				{{/each}}
+				</div>
 
 			</div>
 

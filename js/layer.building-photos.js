@@ -76,8 +76,16 @@ MIC.BuildingPhotosLayer = {
 
 	render: function() {
 		var markers = this.geojson.features.map(function(feature) {
-			return L.geoJson(feature);
-		});
+			var src = this.img_base_url + this.thumb_dir + feature.properties.id.replace('way/', '') + '/0.jpg';
+			var marker = L.photoMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
+				src: src,
+				size: [100, 100],
+				smallestSizeZoom: 13,
+				largestSizeZoom: 18
+			});
+			marker.feature = feature;
+			return marker;
+		}, this);
 		markers.forEach(function(marker) {
 			this.featureGroup.addLayer(marker);
 		}, this);
@@ -96,13 +104,7 @@ MIC.BuildingPhotosLayer = {
 		var feature = e.layer.feature;
 		var json = this.loaded_buildings[feature.properties.id];
 		var html = MIC.handlebars_templates[this.item_template](json);
-		L.popup({
-			width: '500px',
-			height: '500px'
-		})
-		.setContent(html)
-		.setLatLng(e.latlng)
-		.addTo(this.map);
+		MIC.showPopup(html);
 	}
 
 };

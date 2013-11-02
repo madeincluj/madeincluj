@@ -159,3 +159,76 @@ a:hover {
 	-moz-border-radius: 100%;
 	border-radius: 100%;
 }
+
+
+#popup-container {
+	position:absolute;
+	z-index: 1000;
+	top: 10%;
+	bottom: 10%;
+	left: 10%;
+	right: 10%;
+	background: #fff;
+	padding: 1em;
+	display: none;
+	box-shadow: 0px 5px 10px #000;
+}
+
+#popup-container .popup-content {
+	overflow: auto;
+	position: absolute;
+	top: 3em;
+	bottom: 1em;
+	left:1em;
+	right: 1em;
+}
+
+#popup-container a {
+	color: #333;
+}
+
+#popup-container .close-popup {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.building-item {}
+
+.building-item .item-gallery {
+	display: inline-block;
+	width: 50%;
+	margin-right: 2%;
+	vertical-align: top;
+}
+
+.building-item .item-info {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+}
+
+.building-item .item-gallery-view {
+	text-align: center;
+	background:#eee;
+	height: 30em;
+	line-height: 30em;
+}
+
+.building-item .item-gallery-view img {
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+	vertical-align: middle;
+}
+
+.building-item .item-gallery-thumbs {
+	margin: 1em 0;
+}
+
+.building-item .item-gallery-thumbs img {
+	max-width:100px;
+	max-height:100px;
+	display: inline-block;
+	vertical-align: top;
+}
