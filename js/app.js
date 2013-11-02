@@ -13,47 +13,47 @@ var MIC = {
 	},
 
 	initialize: function() {
+		this._initMap();
+		this._initLayers();
+		this._initUI();	
+	},
 
-
-		var map = this.map = L.map('map', {
+	_initMap: function() {
+		this.map = L.map('map', {
 			center: [46.7684, 23.5919],
 			zoom: 15,
 			minZoom: 13,
 			maxZoom: 20,
 			maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
 		});
-			
-		var ggl = new L.Google('ROADMAP', {
+
+		var hash = L.hash(this.map);
+	},
+
+	_initLayers: function() {
+		var ggl = new L.Google('ROADMAP', {		
 			mapOptions: {
 				styles: GMAPS_STYLES
 			}
 		});
-		map.addLayer(ggl);	
-		var hash = L.hash(map);
+		this.map.addLayer(ggl);	
 
-		// Layer toggle controls
-		var historicalTiles = '../historical-maps/img/1869/{z}/{x}/{y}.png';
-		var options = {
-			minZoom: 13,
-			maxZoom: 17,
-			opacity: 0.7,
-			tms: true
-		};
-		var historicalLayer = L.tileLayer(historicalTiles, options);
-		var instaLayer = MIC.InstagramLayer.initialize(map).enable();
-		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(map).enable();
-		var streetNamesLayer = MIC.StreetNamesLayer.initialize(map).enable();
+		var historicalLayer = MIC.HistoricalMapsLayer.initialize(this.map).enable();
+		var instaLayer = MIC.InstagramLayer.initialize(this.map).enable();
+		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
+		var streetNamesLayer = MIC.StreetNamesLayer.initialize(this.map).enable();
 
 		var overlayMaps = {
-			"Hărți istorice": historicalLayer,
+			"Hărți istorice": historicalLayer.layer,
     		"Instagram #madeincluj": instaLayer.featureGroup,
     		"Clădiri '60-'80": buildingPhotosLayer.featureGroup
 			// add more layers here as they are integrated
 		};
 
-		L.control.layers(null, overlayMaps).addTo(map);
+		L.control.layers(null, overlayMaps).addTo(this.map);
+	},
 
-
+	_initUI: function() {
 		var popup = this.popup = $("#popup-container");
 		this.popup.on('click', '.close-popup', function() {
 			popup.hide();
