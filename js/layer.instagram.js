@@ -1,7 +1,7 @@
 MIC.InstagramLayer = {
 	client_id: '8622b4a74c4643bbb092478bb30b6c31',
 	api_base: 'https://api.instagram.com/v1/',
-	tag: 'cluj',
+	tag: 'madeincluj',
 
 	photos: [],
 	max_photos: 30,
@@ -11,22 +11,25 @@ MIC.InstagramLayer = {
 
 	enable: function() {
 		this.enabled = true;
-		return this.initialize(); 
+		this.initialize(); 
+		return this;
 	},
 
 	disable: function() {
 		this.enabled = false;
+		return this;
 	},
 
-	initialize: function() {
+	initialize: function(map) {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
-      this.featureGroup = new L.FeatureGroup();
+      		this.featureGroup = new L.FeatureGroup();
+			this.map = map;
 			this.fetch();
 			this.initialized = true;
-      return this.featureGroup;
 		}
+		return this;
 	},
 
 	url: function() {
@@ -80,7 +83,7 @@ MIC.InstagramLayer = {
 
 	renderItems: function(photos) {
 		var that = this;
-    photos.map(function(photo) {
+		photos.map(function(photo) {
 			var popup = MIC.handlebars_templates[that.item_template](photo);
 			var marker =  L.photoMarker([photo.location.latitude, photo.location.longitude], {
 				src: photo.images.thumbnail.url,
@@ -89,7 +92,7 @@ MIC.InstagramLayer = {
 				largestSizeZoom: 18,
 				matrix: { 13: 0.125, 15: 0.25, 17: 0.5, 18: 0.75 }
 			}).bindPopup(popup, {maxWidth: "auto"});
-      that.featureGroup.addLayer(marker);
+			that.featureGroup.addLayer(marker);
 		});
 
 		// TODO: Group should not be added to map from here.
