@@ -5,13 +5,14 @@ MIC.InstagramLayer = {
 
 	photos: [],
 	max_photos: 30,
+	excluded: [],
 
 	marker_template: 'tmpl-instagram-marker',
 	item_template: 'tmpl-instagram-item',
 
 	enable: function() {
 		this.enabled = true;
-		this.initialize(); 
+		this.initialize();
 		return this;
 	},
 
@@ -24,25 +25,46 @@ MIC.InstagramLayer = {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
-      		this.featureGroup = new L.FeatureGroup();
+			this.featureGroup = new L.FeatureGroup();
 			this.map = map;
-			this.fetch();
+			this.fetchExclusions();
 			this.initialized = true;
 		}
 		return this;
+	},
+
+	fetchExclusions: function() {
+		var that = this;
+		$.ajax({
+			cache: false,
+			url: 'json/instagram-excluded.json',
+			dataType: 'json',
+			error: function(value) {
+				that.fetch();
+			},
+			success: function(resp) {
+				that.excluded = resp;
+				that.fetch();
+			}
+		});
+	},
+
+	fetch: function() {
+		this.fetchInstagram();
+		this.fetchHardcoded();
 	},
 
 	url: function() {
 		return this.api_base + 'tags/' + this.tag + '/media/recent?client_id=' + this.client_id + '&callback=?';
 	},
 
-	fetch: function() {
+	fetchInstagram: function() {
 		var that = this;
 		var xhr = $.getJSON(this.url());
 		function responseHandler(response) {
 			if (response) {
 				if (response.data) {
-					that.load(response.data);
+					that.loadInstagram(response.data);
 				}
 
 				if (response.pagination && response.pagination.next_max_tag_id && that.photos.length < that.max_photos) {
@@ -54,10 +76,22 @@ MIC.InstagramLayer = {
 		xhr.done(responseHandler);
 	},
 
-	load: function(data) {
+	fetchHardcoded: function() {
+		var that = this;
+		$.ajax({
+			cache: false,
+			url: 'json/hardcoded-pictures.json',
+			dataType: 'json',
+			success: function(resp) {
+				that.loadHardcoded(resp);
+			}
+		});
+	},
+
+	loadInstagram: function(data) {
 		var photos = data.filter(function(item) {
-			return item.location && item.type === 'image';
-		}).map(function(item) {
+			return item.location && item.type === 'image' && this.excluded.indexOf(item.id) < 0;
+		}, this).map(function(item) {
 			var type = 'neutral';
 			if (item.tags.indexOf('plus') > -1) {
 				type = 'plus';
@@ -65,8 +99,11 @@ MIC.InstagramLayer = {
 				type = 'minus';
 			}
 			return {
-				user_name: item.user ? item.user.full_name || item.user.username : 'Anonim',
-				user_photo: item.user ? item.user.profile_picture : null,
+				user: {
+					name: item.user ? item.user.full_name || item.user.username : 'Anonim',
+					photo: item.user ? item.user.profile_picture : null,
+					url: item.user.username ? "http://instagram.com/" + item.user.username : ''
+				},
 				images: item.images,
 				link: item.link, 
 				location: item.location,
@@ -81,20 +118,45 @@ MIC.InstagramLayer = {
 		}
 	},
 
+	loadHardcoded: function(data) {
+		var photos = data.map(function(item) {
+			return {
+				user: {
+					name: item.user.name ? item.user.name : 'Anonim',
+					photo: item.user.photo ? item.user.photo : null,
+					url:  item.user.url ? item.user.url : '#'
+				},
+				images: {
+					thumbnail: {
+						url: item.image.url,
+						height: 150,
+						width: 150
+					},
+					standard_resolution: {
+						url: item.image.url,
+						height: item.image.height,
+						width: item.image.width
+					}
+				},
+				location: item.location,
+				caption: item.caption
+			};
+		});
+		this.renderItems(photos);
+	},
+
 	renderItems: function(photos) {
 
 		recomputeSize = function(photo) {
-			// remove additional pixels for margins and such
-			var maxHeight = that.map._size.y - 100;
+			var maxHeight = that.map._size.y - 100; // margins and such
 			if (maxHeight < photo.height) {
-				// photos are squares
+				var proportion = maxHeight / photo.height;
 				photo.height = maxHeight;
-				photo.width = maxHeight;
+				photo.width = proportion * photo.width;
 			}
 		}
 
 		var that = this;
-
 		photos.map(function(photo) {
 			recomputeSize( photo.images.standard_resolution);
 			var popup = MIC.handlebars_templates[that.item_template](photo);
@@ -107,9 +169,5 @@ MIC.InstagramLayer = {
 			}).bindPopup(popup, {maxWidth: "auto"});
 			that.featureGroup.addLayer(marker);
 		});
-
-		// TODO: Group should not be added to map from here.
-		this.featureGroup.addTo(this.map);
 	}
-
 };
