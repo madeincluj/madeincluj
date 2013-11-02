@@ -4,7 +4,10 @@ MIC.BuildingPhotosLayer = {
 	item_template: 'tmpl-building-item',
 
 	geojson_url: '../collection/dg/json/buildings.json',
-	img_base_url: '../colleciton/dg/img/',
+	img_base_url: '../s3/collection/dg/',
+	thumb_dir: 'thumb/',
+	large_dir: 'large/',
+	original_dir: 'original/',
 	
 	item_url : function(feature) {
 		return '../collection/dg/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
@@ -61,6 +64,14 @@ MIC.BuildingPhotosLayer = {
 
 	loadItem: function(feature, json) {
 		this.loaded_buildings[feature.properties.id] = json;
+		var id = json.id;
+		json.photos = json.photos.map(function(photo) {
+			return {
+				thumb: this.img_base_url + this.thumb_dir + id + '/' + photo,
+				large: this.img_base_url + this.large_dir + id + '/' + photo,
+				original: this.img_base_url + this.original_dir + id + '/' + photo
+			};
+		}, this);
 	},
 
 	render: function() {
@@ -74,22 +85,24 @@ MIC.BuildingPhotosLayer = {
 	},
 
 	onclick: function(e) {
-		console.log(arguments);
-		var feature = e.layer.feature;
-		var xhr = this.fetchItem(feature);
+		var xhr = this.fetchItem(e.layer.feature);
 		var that = this;
 		xhr.done(function() {
-			that.showPopup(feature);
+			that.showPopup(e);
 		});
 	},
 
-	showPopup: function(feature) {
+	showPopup: function(e) {
+		var feature = e.layer.feature;
 		var json = this.loaded_buildings[feature.properties.id];
 		var html = MIC.handlebars_templates[this.item_template](json);
-		var popup = L.popup(html, {
-			maxWidth: 'auto'
-		});
-		popup.addTo(this.map);
+		L.popup({
+			width: '500px',
+			height: '500px'
+		})
+		.setContent(html)
+		.setLatLng(e.latlng)
+		.addTo(this.map);
 	}
 
 };
