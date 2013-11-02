@@ -82,8 +82,21 @@ MIC.InstagramLayer = {
 	},
 
 	renderItems: function(photos) {
+
+		recomputeSize = function(photo) {
+			// remove additional pixels for margins and such
+			var maxHeight = that.map._size.y - 100;
+			if (maxHeight < photo.height) {
+				// photos are squares
+				photo.height = maxHeight;
+				photo.width = maxHeight;
+			}
+		}
+
 		var that = this;
+
 		photos.map(function(photo) {
+			recomputeSize( photo.images.standard_resolution);
 			var popup = MIC.handlebars_templates[that.item_template](photo);
 			var marker =  L.photoMarker([photo.location.latitude, photo.location.longitude], {
 				src: photo.images.thumbnail.url,

@@ -172,11 +172,10 @@
 		<div class='instagram-item'>
 			<div class='photo'>
 				<img src="{{images.standard_resolution.url}}" width="{{images.standard_resolution.width}}" height="{{images.standard_resolution.height}}"/>
-				<div>{{caption}}</div>
 			</div>
 			<div class='meta'>
-				<img src="{{user_photo}}"/>
-				<div>{{user_name}}, {{created}}</div>
+				<img src="{{user_photo}}" height="25" width="25"/>
+				<span><a href="http://instagram.com/{{user_name}}">{{user_name}}</a>, {{caption}}</span>
 			</div>
 		</div>
 	</script>

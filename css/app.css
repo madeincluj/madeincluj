@@ -128,20 +128,22 @@ a:hover {
 	content: '−';
 }
 
-.instagram-item {
-	width: 100%;
+.instagram-item .meta {
 	display: table;
 }
 
-.instagram-item .photo {
-	display: table-cell;
-	width: 100%;
+.instagram-item .meta img {
+	padding-top: 2px;
 }
 
-.instagram-item .meta {
+.instagram-item .meta span {
 	display: table-cell;
-	vertical-align: top;
-	padding-left: 20px;
+	vertical-align: middle;
+	padding-left: 8px;
+}
+
+.instagram-item .meta a:hover {
+	color: #ccc
 }
 
 .leaflet-photomarker-container .leaflet-photomarker-img {
