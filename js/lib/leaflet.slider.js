@@ -117,13 +117,8 @@ L.Control.Slider = (function () {
 			this.options = extend({}, this.defaults, options);
 			this._steps = this._steps();
 			L.Util.setOptions(this, this.options);
-		},
-
-		onAdd: function (map) {
-			this._map = map;
 
 			this._ui = this._createUI();
-
 			this._knob = new Knob(this._ui.knob, {
 				knobSize: this.options.knobSize,
 				orientation: this.options.orientation,
@@ -133,11 +128,14 @@ L.Control.Slider = (function () {
 				max: this.options.max,
 				step: this.options.step,
 			});
+			this._knob.setValue(this.options.value);
+		},
 
+		onAdd: function (map) {
+			this._map = map;
 			map.whenReady(this._updateSize, this)
-				.whenReady(this._initKnob, this)
-				.whenReady(this._initEvents, this);
-			
+			   .whenReady(this._initKnob, this)
+			   .whenReady(this._initEvents, this);
 			return this._ui.wrap;
 		},
 
@@ -169,7 +167,6 @@ L.Control.Slider = (function () {
 
 		_initKnob: function () {
 			this._knob.enable();
-			this._knob.setValue(this.options.value);
 		},
 
 		_initEvents: function (map) {

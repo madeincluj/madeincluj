@@ -39,7 +39,9 @@ MIC.HistoricalMapsLayer = {
 			this.layer.onAdd = function(map) {
 				layerOnAdd.apply(this, Array.prototype.slice.call(arguments));
 				map.addControl(that.slider);
-				if (this._url.length < 1) {
+				if (this._url.length > 0) {
+					$('#opacity-slider').show();
+				} else {
 					$('#opacity-slider').hide();
 				}
 			}
@@ -75,13 +77,16 @@ MIC.HistoricalMapsLayer = {
 		var map = this.maps.filter(function(map) {
 			return map.year == year;
 		})[0];
+
 		if (map) {
 			this.layer.setUrl(map.local_url);
 			var mapBounds = new L.LatLngBounds(map.bounds[0], map.bounds[1]);
 			this.layer.options.bounds = mapBounds;
 			$('#opacity-slider').show();
+
 		} else {
 			this.layer.setUrl('');
-			$('#opacity-slider').hide();		}
+			$('#opacity-slider').hide();
+		}
 	}
 };
