@@ -17,21 +17,39 @@ MIC.HistoricalMapsLayer = {
 	initialize: function(map) {
 		if (!this.initialized) {
 			this.map = map;
+
 			this.layer = L.tileLayer('', {
 				minZoom: 13,
 				maxZoom: 20,
 				opacity: 0.7,
 				tms: true
 			});
-			// TOOD: init opacity & time sliders
-			// this.slider = new L.Control.Slider({
-			// 	value: this.layer.options.opacity,
-			// 	slider: function(value) {
-			// 		value = value.toFixed(1);
-			// 		this.layer.setOpacity(value);
-			// 	}
-			// });
-			// map.addControl(control);
+
+			var that = this;
+			this.slider = new L.Control.Slider({
+				id: 'opacity-slider',
+				value: this.layer.options.opacity,
+				slider: function(value) {
+					value = value.toFixed(1);
+					that.layer.setOpacity(value);
+				}
+			});
+
+			var layerOnAdd = this.layer.onAdd;
+			this.layer.onAdd = function(map) {
+				layerOnAdd.apply(this, Array.prototype.slice.call(arguments));
+				map.addControl(that.slider);
+				if (this._url.length < 1) {
+					$('#opacity-slider').hide();
+				}
+			}
+
+			var layerOnRemove = this.layer.onRemove;
+			this.layer.onRemove = function(map) {
+				layerOnRemove.apply(this, Array.prototype.slice.call(arguments));
+				map.removeControl(that.slider);
+			}
+
 			this.fetch();
 			this.initialized = true;
 		}
@@ -61,8 +79,9 @@ MIC.HistoricalMapsLayer = {
 			this.layer.setUrl(map.local_url);
 			var mapBounds = new L.LatLngBounds(map.bounds[0], map.bounds[1]);
 			this.layer.options.bounds = mapBounds;
+			$('#opacity-slider').show();
 		} else {
 			this.layer.setUrl('');
-		}
+			$('#opacity-slider').hide();		}
 	}
 };
