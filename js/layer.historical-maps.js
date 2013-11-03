@@ -49,16 +49,20 @@ MIC.HistoricalMapsLayer = {
 
 	load: function(data) {
 		this.maps = data.maps;
-		this.loadMap(data.default);
+		var selectedYear = $("#nav-time li.selected a").first().attr('year');
+		this.loadMap(selectedYear);
 	},
 
-	loadMap: function(id) {
+	loadMap: function(year) {
 		var map = this.maps.filter(function(map) {
-			return map.id == id;
+			return map.year == year;
 		})[0];
-		var mapBounds = new L.LatLngBounds(map.bounds[0], map.bounds[1]);
-		this.layer.setUrl(map.local_url);
-		this.layer.options.bounds = mapBounds;
+		if (map) {
+			this.layer.setUrl(map.local_url);
+			var mapBounds = new L.LatLngBounds(map.bounds[0], map.bounds[1]);
+			this.layer.options.bounds = mapBounds;
+		} else {
+			this.layer.setUrl('');
+		}
 	}
-
 };

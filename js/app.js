@@ -45,8 +45,8 @@ var MIC = {
 
 		var overlayMaps = {
 			"Hărți istorice": historicalLayer.layer,
-    		"Instagram #madeincluj": instaLayer.featureGroup,
-    		"Clădiri '60-'80": buildingPhotosLayer.featureGroup
+			"Instagram #madeincluj": instaLayer.featureGroup,
+			"Clădiri '60-'80": buildingPhotosLayer.featureGroup
 			// add more layers here as they are integrated
 		};
 
@@ -54,6 +54,13 @@ var MIC = {
 	},
 
 	_initUI: function() {
+		$("#nav-time li a").on('click', function () {
+			var year = $(this).attr('year');
+			$(this).parent().siblings().removeClass('selected');
+			$(this).parent().addClass('selected');
+			MIC.HistoricalMapsLayer.loadMap(year);
+		});
+
 		var popup = this.popup = $("#popup-container");
 		this.popup.on('click', '.close-popup', function() {
 			popup.hide();
