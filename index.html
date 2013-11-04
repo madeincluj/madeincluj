@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="css/adobe-blank.css"/>
+	<link rel="stylesheet" href="css/leaflet.slider.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css"/>
 	
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
@@ -24,6 +25,7 @@
 	<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
 	<script type="text/javascript" src="js/lib/leaflet.d3.js"></script>
+	<script type="text/javascript" src="js/lib/leaflet.slider.js"></script>
 	<!-- endbuild -->
 
 	<!-- build:js app.js -->
@@ -41,6 +43,12 @@
 
 	<div id='header'>
 		<h1>madeincluj</h1>
+		<ul id="nav-time">
+			<li><a href='#'></a></li><!--
+		 --><li class="selected"><a href='#' year="1848">1848</a></li><!--
+		 --><li><a href='#' year="1941">1941</a></li><!--
+		 --><li><a href='#' year="1990">1990</a></li>
+		</ul>
 		<ul id='nav'>
 			<li><a href='#'>Despre proiect</a></li>
 			<li><a href='#'>Echipa</a></li>
