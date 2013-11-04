@@ -239,6 +239,17 @@ a:hover {
 }
 
 
+.collection-item {
+	text-align: center;
+	padding: 1em;
+}
+
+.colection-item-photo {
+	display: inline-block;
+	max-width: 30em;
+	max-height: 20em;
+}
+
 #svg-streets path {
   fill: none;
   stroke: rgba(204,0,0, 0.2);

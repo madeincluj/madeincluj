@@ -137,7 +137,10 @@
 
 	<!-- Collection popup template -->
 	<script id='tmpl-collection-item' type='text/x-handlebars'>
-		Wow, such history!
+		<div class='collection-item'>
+			<div class='collection-item-photo'><img src='{{properties.photo.large}}'/></div>
+			<div class='collection-item-caption'><strong>{{properties.year}}</strong> {{properties.description}}</div>
+		</div>
 	</script>
 
 	<script type="text/javascript">

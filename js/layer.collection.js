@@ -59,6 +59,13 @@ MIC.CollectionLayer = {
 
 	load: function(collection, json) {
 		collection.json = json;
+		collection.json.features.forEach(function(feature) {
+			feature.properties.photo = {
+				thumb: collection.img_base_url + collection.thumb_dir + feature.properties.id + '.jpg',
+				large: collection.img_base_url + collection.large_dir + feature.properties.id + '.jpg',
+				original: collection.img_base_url + collection.original_dir + feature.properties.id + '.jpg'
+			};
+		}, this);
 		this.render(collection);
 	},
 
@@ -80,5 +87,9 @@ MIC.CollectionLayer = {
 		collection.layer.on('click', this.onclick, this);
 	},
 
-	onclick: function(e) {}
+	onclick: function(e) {
+		var feature = e.layer.feature;
+		var html = MIC.handlebars_templates[this.item_template](feature);
+		MIC.showPopup(html);
+	}
 };
