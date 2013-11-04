@@ -1,5 +1,9 @@
 body {
 	font-family: 'brandon-grotesque', 'Helvetica', 'Arial', sans-serif;
+	background: #111;
+	color: #eee;
+	margin: 0;
+	padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +19,15 @@ a:hover {
 	color:#fff;
 }
 
-#header, #footer {
+.cf:after {
+	clear: both;
+	content: '.';
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+#header {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -23,13 +35,6 @@ a:hover {
 }
 
 #header {
-	position:absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	height: 3em;
-	background: #111;
-	color: #eee;
 	padding: 0 1em;
 }
 
@@ -96,22 +101,8 @@ a:hover {
 	margin-left: 0;
 }
 
-#footer {
-	position:absolute;
-	left: 0; 
-	right: 0;
-	bottom: 0;
-	height: 3em;
-	background: #111;
-	color: #eee;
-}
-
 #map-container {
-	position:absolute;
-	left: 0;
-	right: 0;
-	top: 3em;
-	bottom: 3em;
+	height: 40em;
 	background: #eee;
 }
 
@@ -205,7 +196,6 @@ a:hover {
 	position:absolute;
 	z-index: 1000;
 	top: 10%;
-	bottom: 10%;
 	left: 10%;
 	right: 10%;
 	background: #fff;
@@ -234,20 +224,12 @@ a:hover {
 	vertical-align: top;
 	font-family: AdobeBlank;
 	background: #222;
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
 }
 
 .building-item .item-info {
 	display: inline-block;
 	width: 45%;
 	vertical-align: top;
-	position: absolute;
-	top:1em;
-	right:2em;
-	bottom: 1em;
 }
 
 .building-item .item-gallery-view {
@@ -291,14 +273,32 @@ a:hover {
 }
 
 .street-item {
-	padding: 1em;
+	padding: 2em;
+	background: #5dafdf;
+	color: #fff;
+	font-size: 1.4em;
+}
+
+.street-item h2 {
+	margin: 0;
+	font-size: 2em;
+}
+
+.street-item-description {
+	font-size: 0.8em;
 }
 
 .street-item-history {
 	margin:1em 0;
 	padding:0;
 	list-style-type:none;
-	font-size: 1.2em;
+	font-size: 1.1em;
+}
+
+.street-item-history strong {
+	display: inline-block;
+	min-width: 3em;
+	font-size: 1.6em;
 }
 
 #svg-streets path {
