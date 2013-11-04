@@ -42,6 +42,7 @@ var MIC = {
 		var instaLayer = MIC.InstagramLayer.initialize(this.map).enable();
 		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
 		var streetNamesLayer = MIC.StreetNamesLayer.initialize(this.map).enable();
+		var collectionLayer = MIC.CollectionLayer.initialize(this.map).enable();
 
 		var overlayMaps = {
 			"Hărți istorice": historicalLayer.layer,
@@ -60,7 +61,7 @@ var MIC = {
 			return false;
 		}).on('click', '.item-gallery-thumbs img', function() {
 			var src = $(this).data('large');
-			var img = popup.find('.item-gallery-view'); 
+			var img = popup.find('.item-gallery-view img'); 
 			img.fadeOut('fast', function() {
 				img.attr('src', src);
 				img.fadeIn('fast');

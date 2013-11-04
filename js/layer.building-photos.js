@@ -3,7 +3,7 @@ MIC.BuildingPhotosLayer = {
 	marker_template: 'tmpl-building-photo-marker',
 	item_template: 'tmpl-building-item',
 
-	geojson_url: '../collection/dg/json/buildings.json',
+	geojson_url: '../collection/dg/json/dg.json',
 	img_base_url: '../s3/collection/dg/',
 	thumb_dir: 'thumb/',
 	large_dir: 'large/',
@@ -65,6 +65,9 @@ MIC.BuildingPhotosLayer = {
 	loadItem: function(feature, json) {
 		this.loaded_buildings[feature.properties.id] = json;
 		var id = json.id;
+		json.year = json.year || 1911;
+		json.architect = json.architect || 'Peter Zumthor';
+		json.description = json.description || "PBR fingerstache hella, squid cray Portland qui Marfa cliche. High Life twee tempor, in hoodie meggings put a bird on it retro. Fixie fugiat scenester aliqua dreamcatcher. Tempor American Apparel High Life, voluptate fap whatever quinoa PBR drinking vinegar consequat vinyl Pinterest et do. 8-bit small batch Neutra, next level delectus irony VHS aliqua. Hashtag blog irure, Echo Park readymade in fugiat chambray aesthetic nostrud tempor PBR&B paleo ethical food truck. Paleo flannel exercitation Blue Bottle Thundercats.";
 		json.photos = json.photos.map(function(photo) {
 			return {
 				thumb: this.img_base_url + this.thumb_dir + id + '/' + photo,

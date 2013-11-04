@@ -1,9 +1,9 @@
 body {
-	font-family: 'freight-sans-pro', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'freight-text-pro', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 a {
@@ -169,18 +169,9 @@ a:hover {
 	left: 10%;
 	right: 10%;
 	background: #fff;
-	padding: 1em;
 	display: none;
-	box-shadow: 0px 5px 10px #000;
-}
-
-#popup-container .popup-content {
-	overflow: auto;
-	position: absolute;
-	top: 3em;
-	bottom: 1em;
-	left:1em;
-	right: 1em;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+	color: #555;
 }
 
 #popup-container a {
@@ -189,8 +180,10 @@ a:hover {
 
 #popup-container .close-popup {
 	position: absolute;
-	top: 1em;
-	right: 1em;
+	top: 0.3em;
+	right: 0.3em;
+	font-size:3em;
+	line-height:1;
 }
 
 .building-item {}
@@ -198,21 +191,30 @@ a:hover {
 .building-item .item-gallery {
 	display: inline-block;
 	width: 50%;
-	margin-right: 2%;
 	vertical-align: top;
+	font-family: AdobeBlank;
+	background: #222;
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
 }
 
 .building-item .item-info {
 	display: inline-block;
 	width: 45%;
 	vertical-align: top;
+	position: absolute;
+	top:1em;
+	right:2em;
+	bottom: 1em;
 }
 
 .building-item .item-gallery-view {
 	text-align: center;
-	background:#eee;
 	height: 30em;
 	line-height: 30em;
+	overflow: hidden;
 }
 
 .building-item .item-gallery-view img {
@@ -223,25 +225,28 @@ a:hover {
 }
 
 .building-item .item-gallery-thumbs {
-	margin: 1em 0;
+	margin-top: 3px;
+	margin-left: 3px;
+	text-align: center;
 }
 
 .building-item .item-gallery-thumbs img {
-	max-width:100px;
-	max-height:100px;
+	max-height:60px;
 	display: inline-block;
 	vertical-align: top;
+	margin-right:3px;
+	margin-bottom:3px;
 }
 
 
 #svg-streets path {
   fill: none;
-  stroke: rgba(204,0,0,1);
+  stroke: rgba(204,0,0, 0.2);
+  cursor: pointer;
 }
 
 #svg-streets path:hover {
-  stroke: rgba(0,0,0,1);
-  cursor: pointer;
+  stroke: rgba(204,0,0, 1);
 }
 
 #svg-streets .highway-residential { stroke-width: 1px; }
@@ -251,8 +256,8 @@ a:hover {
 
 #svg-streets.zoom-16 .highway-primary {stroke-width: 3px;}
 #svg-streets.zoom-17 .highway-primary {stroke-width: 2px;}
-#svg-streets.zoom-18 .highway-primary {stroke-width: 1px;}
 #svg-streets.zoom-17 .highway-secondary {stroke-width: 1px;}
-#svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
 #svg-streets.zoom-17 .highway-tertiary {stroke-width: 0.8px;}
+#svg-streets.zoom-18 .highway-primary {stroke-width: 1px;}
+#svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
 #svg-streets.zoom-18 .highway-tertiary {stroke-width: 0.7px;}
