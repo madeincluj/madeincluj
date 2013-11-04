@@ -74,5 +74,10 @@ var MIC = {
 				img.fadeIn('fast');
 			});
 		});
+
+		var layerBtn = $("#nav-layers"), layerNav = $("#layers");
+		layerBtn.on('click', function() {
+			layerNav.toggle();
+		});
 	}
 };

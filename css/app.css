@@ -1,9 +1,9 @@
 body {
-	font-family: 'Helvetica', 'Arial', sans-serif;
+	font-family: 'brandon-grotesque', 'Helvetica', 'Arial', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Helvetica', 'Arial', sans-serif;
+	font-family: 'brandon-grotesque', 'Helvetica', 'Arial', sans-serif;
 }
 
 a {
@@ -323,3 +323,40 @@ a:hover {
 #svg-streets.zoom-18 .highway-primary {stroke-width: 1px;}
 #svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
 #svg-streets.zoom-18 .highway-tertiary {stroke-width: 0.7px;}
+
+#nav-layers {
+	float: right;
+}
+
+#layers {
+	position:absolute;
+	z-index: 2000;
+	background: #222;
+	color: #ccc;
+	right: 0;
+	top: 3em;
+	display: none;
+}
+
+#layers .layer {
+	cursor: pointer;
+	padding: 0.5em 1.5em;
+	font-size:0.8em;
+}
+
+#layers .layer:hover,
+#layers .layer.active:hover {
+	background: #fff;
+	color: #222;
+}
+
+#layers .layer.active {
+	background: #c00;
+	color: #222;
+}
+
+#layers .layer h3, 
+#layers .layer h4,
+#layers .layer p {
+	margin: 0;
+}
