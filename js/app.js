@@ -42,7 +42,7 @@ var MIC = {
 		var instaLayer = MIC.InstagramLayer.initialize(this.map).enable();
 		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
 		var streetNamesLayer = MIC.StreetNamesLayer.initialize(this.map).enable();
-		var collectionLayer = MIC.CollectionLayer.initialize(this.map).enable();
+		// var collectionLayer = MIC.CollectionLayer.initialize(this.map).enable();
 
 		var overlayMaps = {
 			"Hărți istorice": historicalLayer.layer,

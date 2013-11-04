@@ -137,8 +137,15 @@
 	<script id='tmpl-street-name-item' type='text/x-handlebars'>
 
 		<div class='street-item'>
-			<h2>{{name}}</h2>
-			<p>{{description}}</p>
+			<h2>{{ name }}</h2>
+			<div class='street-item-description'>
+				{{ description.ro }}
+			</div>
+			<ul class='street-item-history'>
+				{{#each historical_names}}
+				<li><strong>{{ year }}</strong> {{ ro }}</li>
+				{{/each}}
+			</ul>
 		</div>
 
 	</script>

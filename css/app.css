@@ -290,6 +290,17 @@ a:hover {
 	max-height: 20em;
 }
 
+.street-item {
+	padding: 1em;
+}
+
+.street-item-history {
+	margin:1em 0;
+	padding:0;
+	list-style-type:none;
+	font-size: 1.2em;
+}
+
 #svg-streets path {
   fill: none;
   stroke: rgba(204,0,0, 0.2);
