@@ -34,6 +34,8 @@ jsons.forEach(function(filepath) {
 		return feature.properties.id = 'way/' + json.id;
 	})[0];
 
+	json.description = '<p>\n' + json.description.replace(/(\r?\n)+/gm, '</p>\n<p>') + '</p>'; 
+
 	json.photos = json.photos.map(function(photo) { 
 		return {
 			thumb: img_base_url + thumb_dir + photo,
