@@ -27,7 +27,7 @@ jsons.forEach(function(filepath) {
 	} catch (e) {
 		output = '';
 	}
-	var slug_path = slug(json.name.ro || json.name || json.id.replace('way/', '')).toLowerCase();
+	var slug_path = json.slug || slug(json.name.ro || json.name || json.id.replace('way/', '')).toLowerCase();
 	var output_path = output_dir + slug_path + '/index.html';
 	fs.outputFile(output_path, output);
 });
