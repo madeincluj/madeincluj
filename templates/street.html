@@ -19,21 +19,23 @@
 
 		<div class='container'>
 
-			<div id='map-container'>
-				<div id='map'></div>
-			</div>
-
 			<h1><%= street.name.ro ? street.name.ro : street.name %></h1>
-
-			<div class='street-item-description'>
+		
+			<div class='street-description'>
 				<%= street.description ? street.description.ro : '' %>
 			</div>
 
-			<ul class='street-item-history'>
+			
+			<div id='map'></div>
+
+			<div class='street-history'>
 			<% for (var i = 0; i < street.historical_names.length; i++) { %>
-				<li><strong><%= street.historical_names[i].year %></strong> <%= street.historical_names[i].ro %></li>
+				<div class='street-history-item'>
+					<h3><strong class='street-history-year'><%= street.historical_names[i].year %></strong> <%= street.historical_names[i].ro %></h3>
+				</div>
 			<% } %>
-			</ul>
+			</div>
+
 		</div>
 
 	</div>

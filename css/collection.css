@@ -16,15 +16,10 @@ body {
 	color: #ccc;
 }
 
-#map-container {
-	background: #eee;
-	display: inline-block;
-	float: right;
-}
-
 #map {
-	width: 200px;
 	height: 200px;
+	background: #eee;
+	margin: 1em 0;
 }
 
 .container {
@@ -67,4 +62,16 @@ body {
 .gallery-item-large img {
 	margin: 1em auto;
 	display: block;
+}
+
+.street-history {
+	background: #fff;
+	padding: 0.5em 1.5em;
+	margin: 2em 0;
+}
+
+.street-history-year {
+	color: #5dafdf;
+	display: inline-block;
+	margin-right: 0.5em;
 }
