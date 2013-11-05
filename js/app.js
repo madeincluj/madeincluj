@@ -10,6 +10,19 @@ var MIC = {
 
 	showPopup: function(content) {
 		this.popup.show().find('.popup-content').html(content);
+		$(document).on('keyup', this.escHandler);
+	},
+
+	escHandler: function(e) {
+		if (e.keyCode === 27) {
+			MIC.hidePopup();
+			return false;
+		}
+	},
+
+	hidePopup: function() {
+		this.popup.hide();
+		$(document).off('keyup', this.escHandler);
 	},
 
 	initialize: function() {
@@ -63,9 +76,11 @@ var MIC = {
 			MIC.HistoricalMapsLayer.loadMap(year);
 		});
 
+		var that = this;
+
 		var popup = this.popup = $("#popup-container");
 		this.popup.on('click', '.close-popup', function() {
-			popup.hide();
+			that.hidePopup();
 			return false;
 		}).on('click', '.item-gallery-thumbs img', function() {
 			var src = $(this).data('large');
