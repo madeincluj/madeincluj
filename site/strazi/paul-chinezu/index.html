@@ -4,13 +4,17 @@
 	<meta charset='utf-8'>
 	<title>Strada Paul Chinezu &middot; madeincluj</title>
 
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<script type="text/javascript" src="../../../js/lib/leaflet.js"></script>
+	<script type="text/javascript" src="../../../js/lib/Leaflet-Google.js"></script>
+	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+	<script type="text/javascript" src="../../../js/feature-map.js"></script>
+
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-
 	<link rel="stylesheet" type="text/css" href="../../../css/adobe-blank.css"/>
 	<link rel="stylesheet" type="text/css" href="../../../css/collection.css">
-
 </head>
 <body>
 
@@ -20,35 +24,49 @@
 		</div>
 	</div>
 	<div id='content'>
+
 		<div class='container'>
+			
+			<div id='map-container'>
+				<div id='map'></div>
+			</div>
 
 			<h1>Strada Paul Chinezu</h1>
 
 			<div class='street-item-description'>
-				La fel cum numele vechi al străzii Bisericii Ortodoxe, Ulița Grecilor, mai apoi Strada Bisericii Grecești este stâns legată de stabilirea unor comunități de greci în oraș la începutul secolului al XVIII.-lea, așa și Strada Kandia păstrează numele maghiar al insulei Creta. Numele apare  deja în anul 1744 și poate să se refere peiorativ și la locuitorii întorși din Grecia unde fuseseră prizonieri care acum locuiau în condiții mizere.
+				La fel cum numele vechi al străzii Bisericii Ortodoxe, Ulița Grecilor, 
+mai apoi Strada Bisericii Grecești este stâns legată de stabilirea unor comunități de greci în oraș 
+la începutul secolului al XVIII.-lea, așa și Strada Kandia păstrează numele maghiar al insulei Creta. 
+Numele apare deja în anul 1744 și poate să se refere peiorativ și la locuitorii întorși din Grecia 
+unde fuseseră prizonieri care acum locuiau în condiții mizere.
+
 			</div>
 
 			<ul class='street-item-history'>
 			
-				<li><strong>1734</strong> null</li>
+				<li><strong>1734</strong> Kandia utca (Strada Kandia)</li>
 			
-				<li><strong>1899</strong> Strada Kinizsi</li>
+				<li><strong>1899</strong> Kinizsi utca (Strada Kinizsi)</li>
 			
 				<li><strong>1923</strong> Strada Paul Chinez</li>
 			
-				<li><strong>1941</strong> Strada Kinizsi</li>
+				<li><strong>1941</strong> Kinizsi utca (Strada Kinizsi)</li>
 			
 				<li><strong>1945</strong> Kinizsi utca, Strada Chinezu Paul</li>
 			
 				<li><strong>1964</strong> Strada Paul Chinezu</li>
 			
 			</ul>
-
 		</div>
 
 	</div>
+
 	<div id='footer'>
 	<div class='container'>madeincluj</div>
 </div>
+
+	<script type="text/javascript">
+		FeatureMap.enable({"type":"Feature","properties":{"id":"way/177921036","name":"Strada Paul Chinezu","highway":"residential"},"geometry":{"type":"MultiLineString","coordinates":[[[23.5855931,46.771201],[23.5858578,46.7707586],[23.5860193,46.7703085]]]}});
+	</script>
 </body>
 </html>

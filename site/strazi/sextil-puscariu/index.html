@@ -4,13 +4,17 @@
 	<meta charset='utf-8'>
 	<title>Strada Sextil Pușcariu &middot; madeincluj</title>
 
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<script type="text/javascript" src="../../../js/lib/leaflet.js"></script>
+	<script type="text/javascript" src="../../../js/lib/Leaflet-Google.js"></script>
+	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+	<script type="text/javascript" src="../../../js/feature-map.js"></script>
+
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-
 	<link rel="stylesheet" type="text/css" href="../../../css/adobe-blank.css"/>
 	<link rel="stylesheet" type="text/css" href="../../../css/collection.css">
-
 </head>
 <body>
 
@@ -20,39 +24,53 @@
 		</div>
 	</div>
 	<div id='content'>
+
 		<div class='container'>
+			
+			<div id='map-container'>
+				<div id='map'></div>
+			</div>
 
 			<h1>Strada Sextil Pușcariu</h1>
 
 			<div class='street-item-description'>
-				Încă din epoca cetății vechi, strada turnului pornea dintre casa Bocskai și casa Matei Corvin. Numele l-a primit datorită turnului sud-estic situat în cotitura străzii, care a fost construit în prima parte a secolului al XIII.-lea și era parte componentă a zidului vechi al cetății. Când orașul a început să se dezvolte în jurul bisericii Sfântul Mihail la începuturile secolului al XV.-lea, turnul a fost cuprins de ziduri noi, pierzându-și astfel rolul inițial și devenind temniță.
+				Încă din epoca cetății vechi, strada turnului pornea dintre casa Bocskai și casa Matei Corvin. 
+Numele l-a primit datorită turnului sud-estic situat în cotitura străzii, 
+care a fost construit în prima parte a secolului al XIII-lea și era parte componentă a zidului vechi al cetății. 
+Când orașul a început să se dezvolte în jurul bisericii Sfântul Mihail la începuturile secolului al XV-lea, 
+turnul a fost cuprins de ziduri noi, pierzându-și astfel rolul inițial și devenind temniță.
+
 			</div>
 
 			<ul class='street-item-history'>
 			
-				<li><strong>1852</strong> Strada Turnului</li>
+				<li><strong>1852</strong> Torony utca (Strada turnului)</li>
 			
-				<li><strong>1899</strong> Strada Bocskay</li>
+				<li><strong>1899</strong> Bocskay utca (Strada Bocskay)</li>
 			
 				<li><strong>1923</strong> Strada Ion Radu</li>
 			
-				<li><strong>1941</strong> Strada Bocskay</li>
+				<li><strong>1941</strong> Bocskai utca (Strada Bocskay)</li>
 			
-				<li><strong>1945</strong> Bocskai utca, Strada Ion Radu</li>
+				<li><strong>1945</strong> Strada Ion Radu</li>
 			
-				<li><strong>1948</strong> null</li>
+				<li><strong>1948</strong> Strada Bernát Andor</li>
 			
 				<li><strong>1964</strong> Strada Toplița</li>
 			
 				<li><strong>1999</strong> Strada Sextil Pușcariu</li>
 			
 			</ul>
-
 		</div>
 
 	</div>
+
 	<div id='footer'>
 	<div class='container'>madeincluj</div>
 </div>
+
+	<script type="text/javascript">
+		FeatureMap.enable({"type":"Feature","properties":{"id":"way/177921037","name":"Strada Sextil Pușcariu","highway":"residential"},"geometry":{"type":"MultiLineString","coordinates":[[[23.5878651,46.7710659],[23.5885918,46.7713339],[23.5883872,46.7718434]]]}});
+	</script>
 </body>
 </html>
