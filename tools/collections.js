@@ -29,12 +29,14 @@ var collections = {
 };
 
 var output_dir = 'site/colectie/';
-var collection_tmpl = 'templates/collection.html';
+var collection_tmpl_file = 'templates/collection.html';
+var item_tmpl_file = 'templates/collection_item.html';
 
 for (var slug in collections) {
 	var collection = collections[slug];
 	var json = JSON.parse(fs.readFileSync(collection.json, 'utf8'));
-	var tmpl = fs.readFileSync(collection_tmpl, 'utf8');
+	var tmpl = fs.readFileSync(collection_tmpl_file, 'utf8');
+	var item_tmpl = fs.readFileSync(item_tmpl_file, 'utf8');
 
 	json.features.forEach(function(feature) {
 		feature.properties.photo = {
@@ -42,6 +44,12 @@ for (var slug in collections) {
 			large: collection.img_base_url + collection.large_path + feature.properties.id + '.jpg',
 			thumb: collection.img_base_url + collection.thumb_path + feature.properties.id + '.jpg'
 		};
+
+		var itemOutput = ejs.render(item_tmpl, {
+			feature: feature
+		});
+
+		fs.outputFile(output_dir + slug + '/' + feature.properties.id + '/index.html', itemOutput);
 	});
 
 	var output = ejs.render(tmpl, {
