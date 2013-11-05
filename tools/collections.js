@@ -38,6 +38,14 @@ for (var slug in collections) {
 	var tmpl = fs.readFileSync(collection_tmpl_file, 'utf8');
 	var item_tmpl = fs.readFileSync(item_tmpl_file, 'utf8');
 
+	var item_tmpl_f = ejs.compile(item_tmpl, {
+			filename: 'templates/collection_item.html'
+	});
+
+	var tmpl_f = ejs.compile(tmpl, {
+		filename: 'templates/collection.html'
+	});
+
 	json.features.forEach(function(feature) {
 		feature.properties.photo = {
 			original: collection.img_base_url + collection.original_path + feature.properties.id + '.jpg',
@@ -45,14 +53,14 @@ for (var slug in collections) {
 			thumb: collection.img_base_url + collection.thumb_path + feature.properties.id + '.jpg'
 		};
 
-		var itemOutput = ejs.render(item_tmpl, {
+		var itemOutput = item_tmpl_f({
 			feature: feature
 		});
 
 		fs.outputFile(output_dir + slug + '/' + feature.properties.id + '/index.html', itemOutput);
 	});
 
-	var output = ejs.render(tmpl, {
+	var output = tmpl_f({
 		collection: json
 	});
 	fs.outputFile(output_dir + slug + '/index.html', output);
