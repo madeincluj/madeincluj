@@ -9,6 +9,7 @@ MIC.InstagramLayer = {
 
 	marker_template: 'tmpl-instagram-marker',
 	item_template: 'tmpl-instagram-item',
+	locations: [],
 
 	enable: function() {
 		this.enabled = true;
@@ -85,9 +86,9 @@ MIC.InstagramLayer = {
 			success: function(resp) {
 				var doSetTimeout = function(i) {
 					setTimeout(function(){
-						that.loadHardcoded(resp.slice(i, i+10))
-					}, 10);
-				}
+						that.loadHardcoded(resp.slice(i, i+10));
+					}, 0);
+				};
 				for (var i = 0; i < resp.length; i += 10 ) {
 					doSetTimeout(i);
 				}
@@ -112,7 +113,7 @@ MIC.InstagramLayer = {
 					url: item.user.username ? "http://instagram.com/" + item.user.username : ''
 				},
 				images: item.images,
-				link: item.link, 
+				link: item.link,
 				location: item.location,
 				type: type,
 				created: item.created_time ? new Date(item.created_time * 1000) : null,
@@ -149,18 +150,31 @@ MIC.InstagramLayer = {
 	},
 
 	renderItems: function(photos) {
-		recomputeSize = function(photo) {
+
+		var recomputeSize = function(photo) {
 			var maxHeight = that.map._size.y - 100; // margins and such
 			if (maxHeight < photo.height) {
 				var proportion = maxHeight / photo.height;
 				photo.height = maxHeight;
 				photo.width = proportion * photo.width;
 			}
-		}
+		};
+
+		// If two photos overlap, move one a bit to the right.
+		var recomputeLocation = function(photo) {
+			for (var i = 0; i < that.locations.length; i++) {
+				var loc = that.locations[i];
+				if (loc.latitude == photo.location.latitude && loc.longitude == photo.location.longitude) {
+					photo.location.longitude = loc.longitude + 0.0006;
+				}
+			}
+			that.locations.push (photo.location);
+		};
 
 		var that = this;
 		photos.map(function(photo) {
 			recomputeSize( photo.images.standard_resolution);
+			recomputeLocation(photo);
 			var popup = MIC.handlebars_templates[that.item_template](photo);
 			var marker =  L.photoMarker([photo.location.latitude, photo.location.longitude], {
 				src: photo.images.thumbnail.url,
