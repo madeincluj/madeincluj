@@ -4,7 +4,7 @@ MIC.InstagramLayer = {
 	tag: 'madeincluj',
 
 	photos: [],
-	max_photos: 30,
+	max_photos: 100,
 	excluded: [],
 
 	marker_template: 'tmpl-instagram-marker',
@@ -27,10 +27,15 @@ MIC.InstagramLayer = {
 			MIC.compileTemplate(this.item_template);
 			this.featureGroup = new L.FeatureGroup();
 			this.map = map;
-			this.fetchExclusions();
+			this.fetch();
 			this.initialized = true;
 		}
 		return this;
+	},
+
+	fetch: function() {
+		this.fetchHardcoded();
+		// this.fetchExclusions();
 	},
 
 	fetchExclusions: function() {
@@ -40,18 +45,13 @@ MIC.InstagramLayer = {
 			url: 'json/instagram-excluded.json',
 			dataType: 'json',
 			error: function(value) {
-				that.fetch();
+				this.fetchInstagram();
 			},
 			success: function(resp) {
 				that.excluded = resp;
-				that.fetch();
+				this.fetchInstagram();
 			}
 		});
-	},
-
-	fetch: function() {
-		this.fetchInstagram();
-		this.fetchHardcoded();
 	},
 
 	url: function() {
@@ -83,7 +83,14 @@ MIC.InstagramLayer = {
 			url: 'json/hardcoded-pictures.json',
 			dataType: 'json',
 			success: function(resp) {
-				that.loadHardcoded(resp);
+				var doSetTimeout = function(i) {
+					setTimeout(function(){
+						that.loadHardcoded(resp.slice(i, i+10))
+					}, 10);
+				}
+				for (var i = 0; i < resp.length; i += 10 ) {
+					doSetTimeout(i);
+				}
 			}
 		});
 	},
@@ -128,15 +135,11 @@ MIC.InstagramLayer = {
 				},
 				images: {
 					thumbnail: {
-						url: item.image.url,
-						height: 150,
-						width: 150
+						url: item.images.thumbnail ? item.images.thumbnail.url : item.images.standard_resolution.url,
+						height: item.images.thumbnail ? item.images.thumbnail.height : 150,
+						width: item.images.thumbnail ? item.images.thumbnail.width : 150
 					},
-					standard_resolution: {
-						url: item.image.url,
-						height: item.image.height,
-						width: item.image.width
-					}
+					standard_resolution: item.images.standard_resolution
 				},
 				location: item.location,
 				caption: item.caption
@@ -146,7 +149,6 @@ MIC.InstagramLayer = {
 	},
 
 	renderItems: function(photos) {
-
 		recomputeSize = function(photo) {
 			var maxHeight = that.map._size.y - 100; // margins and such
 			if (maxHeight < photo.height) {

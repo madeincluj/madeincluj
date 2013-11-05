@@ -1,0 +1,25 @@
+- caption: '#madeincluj'
+  image: 
+    url: 'http://distilleryimage8.s3.amazonaws.com/a2000e78455711e3aba922000ab5ba87_8.jpg'
+    height: 640
+    width: 640
+  location:
+    latitude: 
+    longitude: 
+  user:
+    name: freelancears
+    photo: 'http://images.ak.instagram.com/profiles/anonymousUser.jpg'
+    url: 'http://instagram.com/freelancears'
+
+- caption: '#madeincluj'
+  image: 
+    url: 'http://distilleryimage11.s3.amazonaws.com/70ef4890454c11e38fec22000aeb222c_8.jpg'
+    height: 640
+    width: 640
+  location:
+    latitude: 
+    longitude: 
+  user:
+    name: de ni
+    photo: 'http://images.ak.instagram.com/profiles/anonymousUser.jpg'
+    url: 'http://instagram.com/scrijelit'
