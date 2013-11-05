@@ -1,5 +1,6 @@
 MIC.HistoricalMapsLayer = {
 
+	use_local_maps: true,
 	maps: {},
 	data_url: '../historical-maps/json/maps.json',
 
@@ -79,7 +80,11 @@ MIC.HistoricalMapsLayer = {
 		})[0];
 
 		if (map) {
-			this.layer.setUrl(map.local_url);
+			if (this.use_local_maps) {
+				this.layer.setUrl(map.local_url);
+			} else {
+				this.layer.setUrl(map.s3_url);
+			}
 			var mapBounds = new L.LatLngBounds(map.bounds[0], map.bounds[1]);
 			this.layer.options.bounds = mapBounds;
 			$('#opacity-slider').show();
