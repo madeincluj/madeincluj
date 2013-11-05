@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title><%= street.name.ro || street.name %> &middot; madeincluj</title>
+	<title>Strada Napoca &middot; madeincluj</title>
 
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -42,16 +42,18 @@
 	<div id='content'>
 		<div class='container'>
 
-			<h1><%= street.name.ro ? street.name.ro : street.name %></h1>
+			<h1>Strada Napoca</h1>
 
 			<div class='street-item-description'>
-				<%= street.description ? street.description.ro : '' %>
+				
 			</div>
 
 			<ul class='street-item-history'>
-			<% for (var i = 0; i < street.historical_names.length; i++) { %>
-				<li><strong><%= street.historical_names[i].year %></strong> <%= street.historical_names[i].ro %></li>
-			<% } %>
+			
+				<li><strong>undefined</strong> null</li>
+			
+				<li><strong>undefined</strong> null</li>
+			
 			</ul>
 
 		</div>

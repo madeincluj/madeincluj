@@ -20,10 +20,14 @@ fs.removeSync(output_dir);
 jsons.forEach(function(filepath) {
 	var json = JSON.parse(fs.readFileSync(streets_json_dir + filepath), 'utf8');
 	console.log(json);
-	var output = ejs.render(tmpl, {
-		street: json
-	});
-	var slug_path = slug(json.name || json.id.replace('way/', '')).toLowerCase();
+	try {
+		var output = ejs.render(tmpl, {
+			street: json
+		});
+	} catch (e) {
+		output = '';
+	}
+	var slug_path = slug(json.name.ro || json.name || json.id.replace('way/', '')).toLowerCase();
 	var output_path = output_dir + slug_path + '/index.html';
 	fs.outputFile(output_path, output);
 });
