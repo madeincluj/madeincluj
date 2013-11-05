@@ -2,8 +2,19 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title><%= building.name %></title>
+	<title>madeincluj</title>
+
+	<% include includes/head.html %>
 </head>
 <body>
+	<% include includes/header.html %>
+
+	<div id='content'>
+		<div class='container'>
+			<h1><%= building.name %></h1>
+		</div>
+	</div>
+
+	<% include includes/footer.html %>
 </body>
 </html>
