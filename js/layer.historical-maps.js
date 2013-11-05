@@ -20,7 +20,7 @@ MIC.HistoricalMapsLayer = {
 
 			this.layer = L.tileLayer('', {
 				minZoom: 13,
-				maxZoom: 20,
+				maxZoom: 17,
 				opacity: 0.7,
 				tms: true
 			});
