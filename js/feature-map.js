@@ -9,7 +9,8 @@ var FeatureMap = {
 
 	_initFeature: function(feature) {
 		this.featureLayer = L.geoJson(feature);
-		this.center = this.featureLayer.getBounds().getCenter();
+		this.bounds = this.featureLayer.getBounds();
+		this.center = this.bounds.getCenter();
 	},
 
 	_initMap: function() {
@@ -20,7 +21,7 @@ var FeatureMap = {
 			minZoom: 13,
 			maxZoom: 20,
 			maxBounds: new L.LatLngBounds([46.3,23], [47, 24]),
-		});
+		}).fitBounds(this.bounds);
 	},
 
 	_initBase: function() {
