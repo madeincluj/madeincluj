@@ -11,18 +11,29 @@ slug.charmap['î'] = 'i';
 var streets_json_dir = '../street-names/json/metadata/';
 var output_dir = 'site/strazi/';
 var template = 'templates/street.html';
+var geojson = JSON.parse(fs.readFileSync('../street-names/json/selected-streets.json', 'utf8'));
 
 var jsons = fs.readdirSync(streets_json_dir);
 var tmpl = fs.readFileSync(template, 'utf8');
+var tmpl_f = ejs.compile(tmpl, {
+	filename: template
+})
 
 fs.removeSync(output_dir);
 
 jsons.forEach(function(filepath) {
 	var json = JSON.parse(fs.readFileSync(streets_json_dir + filepath), 'utf8');
-	console.log(json);
+	var feature = geojson.features.filter(function(feature) {
+		return feature.properties.id === 'way/' + json.id;
+	})[0];
+
+	console.log(feature);
+
 	try {
-		var output = ejs.render(tmpl, {
-			street: json
+		var output = tmpl_f({
+			street: json,
+			feature: feature,
+			root: '../../..'
 		});
 	} catch (e) {
 		output = '';

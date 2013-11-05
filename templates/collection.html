@@ -3,28 +3,31 @@
 <head>
 	<meta charset='utf-8'>
 	<title>madeincluj</title>
-	<% include _head.html %>
+	<% include includes/head.html %>
 </head>
 <body>
-	<% include _header.html %>
+	<% include includes/header.html %>
 	<div id='content'>
 		<div class='container'>
 
+			<h1><%= collection.properties.name %></h1>
+			<p><%= collection.properties.description %></p>
+			<p><%= collection.features.length %> fotografii.</p>
 			<div class='gallery'>
 				<% 
 					for (var i = 0; i < collection.features.length; i++) {
 						var feature = collection.features[i];
 				%>
-					<div class='gallery-item'>
+					<a class='gallery-item' href='<%=feature.properties.id%>/'>
 						<img src='<%=feature.properties.photo.thumb %>'/>
-						<a href='<%=feature.properties.id%>/' target='_blank'><%=feature.properties.description%>, <%=feature.properties.year%></a>
-					</div>
+						<%=feature.properties.description%>, <%=feature.properties.year%>
+					</a>
 				<% 
 					} 
 				%>
 			</div>
 		</div>
 	</div>
-	<% include _footer.html %>
+	<% include includes/footer.html %>
 </body>
 </html>
