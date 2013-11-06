@@ -40,10 +40,10 @@ html_pages.forEach(function(filepath) {
 	var output_path = output_dir + filepath.replace('.html', '') + '/index.html';
 	var html = fs.readFileSync(html_pages_dir + filepath, 'utf8');
 	var tmpl = ejs.compile(html, {
-		filename: html_pages_dir + filepath
+		filename: 'templates/' + filepath
 	});
 	var output = tmpl({
-		root: '../../..'
+		root: '../..'
 	});
 	fs.outputFile(output_path, output);
 });

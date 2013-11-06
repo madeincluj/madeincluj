@@ -16,9 +16,29 @@
 			<h1>Lista străzilor</h1>
 			<ul class='street-index'>
 			<%
+				var map = {};
 				for (var i = 0; i < collection.length; i++) {
+					var initial = collection[i].name.replace(/Strada|Aleea|Piața|Bulevardul/, '').trim().charAt(0);
+					if (!map[initial]) {
+						map[initial] = [];
+					}
+					map[initial].push(collection[i]);
+				}
+
+				var keys = Object.keys(map).sort();
 			%>
-				<li><a href='<%= collection[i].slug %>/'><%= collection[i].name %></a></li>
+			<%
+				for (var i = 0; i < keys.length; i++) {
+					var streets = map[keys[i]];
+			%>
+				<span class='street-initial'><%= keys[i] %></span>
+				<% 
+					for (var j = 0; j < streets.length; j++) {
+				%>
+					<a href='<%= streets[j].slug %>/'><%= streets[j].name %></a>
+				<%
+					}
+				%>
 			<%
 				}
 			%>

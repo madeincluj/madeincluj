@@ -7,10 +7,15 @@ body {
 	padding: 0;
 }
 
-#header, #footer {
+#header {
 	background: #ccc;
 	color: #777;
 	border: 1px solid transparent;
+}
+
+#footer {
+	color: #999;
+	text-align: center;
 }
 
 #map {
@@ -29,7 +34,7 @@ body {
 	font-family:AdobeBlank;
 }
 
-.gallery a {
+a {
 	color: #5dafdf;
 	text-decoration:none;
 }
@@ -106,10 +111,30 @@ body {
 	right: 0;
 }
 
-.partners img {
+.street-index {
+	font-size: 1.4em;
+}
+
+.street-index a {
 	display: inline-block;
-	max-width: 200px;
-	max-height: 100px;
+	margin-right: 0.5em;
+	color: #999;
+}
+
+.street-index a:hover {
+	color: #5dafdf;
+}
+
+#footer .container {
+	border-top: 1px solid #ddd;
+}
+
+#footer img {
+	display: inline-block;
+	max-height: 90px;
+	max-width: 140px;
+	vertical-align: middle;
+	margin-left: 2em;
 }
 
 .building-gallery {
@@ -163,6 +188,8 @@ body {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .u-1-2 {
@@ -171,4 +198,41 @@ body {
 
 .u-1-5 {
 	width: 20%;
+}
+
+.team {
+	font-size: 0.8em;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+.about-hero {
+	background: url(../img/blur-bg.jpg) center center;
+	background-size: cover;
+	padding: 2em 0;
+}
+
+.about-hero .grid {
+	font-size: 1.2em;
+}
+
+.about-hero .u {
+	padding-right: 3em;
+}
+
+
+.street-initial {
+	background: #5dafdf;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 50%;
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	margin-right: 0.5em;
 }
