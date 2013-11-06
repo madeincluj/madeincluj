@@ -75,3 +75,14 @@ body {
 	display: inline-block;
 	margin-right: 0.5em;
 }
+
+.street-index, .building-index {
+	padding: 0;
+	margin: 1em 0;
+	list-style: none;
+}
+
+.street-index li, .building-index li {
+	display: inline-block;
+	width: 48%;
+}

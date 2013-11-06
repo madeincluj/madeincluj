@@ -21,13 +21,15 @@ var tmpl_f = ejs.compile(tmpl, {
 
 fs.removeSync(output_dir);
 
+var collection = [];
+
 jsons.forEach(function(filepath) {
 	var json = JSON.parse(fs.readFileSync(streets_json_dir + filepath), 'utf8');
 	var feature = geojson.features.filter(function(feature) {
 		return feature.properties.id === 'way/' + json.id;
 	})[0];
 
-	console.log(feature);
+	collection.push(json);
 
 	try {
 		var output = tmpl_f({
@@ -42,3 +44,20 @@ jsons.forEach(function(filepath) {
 	var output_path = output_dir + slug_path + '/index.html';
 	fs.outputFile(output_path, output);
 });
+
+var street_index_template = 'templates/street-index.html';
+var street_index_tmpl = fs.readFileSync(street_index_template, 'utf8');
+var street_index_tmpl_f = ejs.compile(street_index_tmpl, {
+	filename: street_index_template
+});
+
+var index = street_index_tmpl_f({
+	collection: collection.sort(function(a, b) {
+		if (a.name > b.name) return 1;
+		if (b.name > a.name) return -1;
+		return 0;
+	}),
+	root: '../..'
+});
+
+fs.outputFile(output_dir + '/index.html', index);

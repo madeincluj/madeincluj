@@ -28,6 +28,8 @@ var tmpl_f = ejs.compile(tmpl, {
 
 fs.removeSync(output_dir);
 
+var collection = [];
+
 jsons.forEach(function(filepath) {
 	var json = JSON.parse(fs.readFileSync(json_dir + filepath), 'utf8');
 	var feature = geojson.features.filter(function(feature) {
@@ -44,6 +46,8 @@ jsons.forEach(function(filepath) {
 		}
 	});
 
+	collection.push(json);
+
 	var output = tmpl_f({
 		building: json,
 		feature: feature,
@@ -53,3 +57,20 @@ jsons.forEach(function(filepath) {
 	var output_path = output_dir + slug_path + '/index.html';
 	fs.outputFile(output_path, output);
 });
+
+var building_index_template = 'templates/building-index.html';
+var building_index_tmpl = fs.readFileSync(building_index_template, 'utf8');
+var building_index_tmpl_f = ejs.compile(building_index_tmpl, {
+	filename: building_index_template
+});
+
+var index = building_index_tmpl_f({
+	collection: collection.sort(function(a, b) {
+		if (a.name > b.name) return 1;
+		if (b.name > a.name) return -1;
+		return 0;
+	}),
+	root: '../..'
+});
+
+fs.outputFile(output_dir + '/index.html', index);
