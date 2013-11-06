@@ -13,12 +13,14 @@
 
 		<div class='container'>
 
-			<h1>Lista clădirilor</h1>
+			<h1>Clădiri construite în perioada 1960&ndash;1980</h1>
 			<ul class='building-index'>
 			<%
 				for (var i = 0; i < collection.length; i++) {
 			%>
-				<li><a href='<%= collection[i].slug %>/'><%= collection[i].name %></a></li>
+				<li style='background-image: url(<%= root + '/' + collection[i].photos[0].large %>)'>
+					<a href='<%= collection[i].slug %>/'><%= collection[i].name %></a>
+				</li>
 			<%
 				}
 			%>

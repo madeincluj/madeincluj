@@ -10,11 +10,22 @@
 	<% include includes/header.html %>
 
 	<div id='content'>
+
+		<div class='building-gallery'>
+			<div class='building-gallery-view' style='background-image:url(<%= root + '/' + building.photos[0].original %>)'>
+				<h1><%= building.name %></h1>
+			</div>
+			<div class='container'>
+				<ul class='building-gallery-thumbs'>
+				<% for (var i = 0; i < building.photos.length; i++) { %>
+					<li><img src='<%= root + '/' + building.photos[i].thumb %>' data-large='<%= root + '/' + building.photos[i].large %>'/></li>
+				<% } %>
+				</ul>
+			</div>
+		</div>
+
 		<div class='container'>
-			<h1><%= building.name %></h1>
-			<blockquote>
-				<%- building.description %>
-			</blockquote>
+			<%- building.description %>
 			<p><em>Sursa: <%- building.source %></em></p>
 		</div>
 	</div>

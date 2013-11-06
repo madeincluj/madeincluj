@@ -40,12 +40,12 @@ jsons.forEach(function(filepath) {
 
 	json.photos = json.photos.map(function(photo) { 
 		return {
-			thumb: img_base_url + thumb_dir + photo,
-			large: img_base_url + large_dir + photo,
-			original: img_base_url + original_dir + photo
+			thumb: img_base_url + thumb_dir + json.id  + '/' + photo,
+			large: img_base_url + large_dir + json.id  + '/'  + photo,
+			original: img_base_url + original_dir + json.id  + '/'  + photo
 		}
 	});
-
+	
 	collection.push(json);
 
 	var output = tmpl_f({
@@ -53,7 +53,7 @@ jsons.forEach(function(filepath) {
 		feature: feature,
 		root: '../../..'
 	});
-	var slug_path = json.slug || slug(json.name || json.id.replace('way/', '')).toLowerCase();
+	var slug_path = json.slug || slug(json.name || json.id).toLowerCase();
 	var output_path = output_dir + slug_path + '/index.html';
 	fs.outputFile(output_path, output);
 });

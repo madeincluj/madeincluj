@@ -2,18 +2,15 @@ body {
 	font-family: 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
 	font-size: 1.2em;
 	color: #222;
-	background: #f0f0f0;
+	background: #fff;
 	margin: 0;
 	padding: 0;
 }
 
-#header, #footer, #content {
-	padding: 1em;
-}
-
 #header, #footer {
-	background: #222;
-	color: #ccc;
+	background: #ccc;
+	color: #777;
+	border: 1px solid transparent;
 }
 
 #map {
@@ -25,6 +22,7 @@ body {
 .container {
 	max-width: 46em;
 	margin: 0 auto;
+	padding: 1em;
 }
 
 .gallery {
@@ -85,10 +83,72 @@ body {
 .street-index li, .building-index li {
 	display: inline-block;
 	width: 48%;
+	margin-right: 1%;
+}
+
+.building-index li {
+	height: 15em;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: none;
+	position: relative;
+	margin-bottom: 1em;
+}
+
+.building-index a {
+	text-decoration:none;
+	color: #fff;
+	background: rgba(0,0,0,0.8);
+	padding: 1em;
+	position: absolute;
+	bottom:0;
+	left: 0;
+	right: 0;
 }
 
 .partners img {
 	display: inline-block;
 	max-width: 200px;
 	max-height: 100px;
+}
+
+.building-gallery {
+	background: #111;
+}
+
+.building-gallery-view {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: none;
+	height: 20em;
+	line-height: 20em;
+	text-align: center;
+}
+
+.building-gallery-view h1 {
+	color: #fff;
+	font-size: 4em;
+	text-shadow: 0 2px 5px rgba(0,0,0,0.25);
+	margin: 0;
+}
+
+.building-gallery-thumbs {
+	list-style: none;
+	padding: 1em;
+	font-family: AdobeBlank;
+	margin: 0;
+	background: #111;
+}
+
+.building-gallery-thumbs li {
+	display: inline-block;
+	margin-right: 3px;
+	margin-bottom: 0.5em;
+	vertical-align: top;
+}
+
+.building-gallery-thumbs img {
+	display: block;
+	max-width: 100px;
+	max-height: 60px;
 }
