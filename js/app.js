@@ -67,7 +67,7 @@ var MIC = {
 
 	_initUI: function() {
 		$("#nav-time li a").on('click', function () {
-			var year = $(this).attr('year');
+			var year = $(this).attr('data-year');
 			$(this).parent().siblings().removeClass('selected');
 			$(this).parent().addClass('selected');
 			MIC.HistoricalMapsLayer.loadMap(year);
