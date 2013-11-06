@@ -4,17 +4,6 @@ MIC.LayerToggle = {
 
 	layers: {},
 
-	enable: function() {
-		this.initialize();
-		this.enabled = true;
-		return this;
-	},
-
-	disable: function() {
-		this.enabled = false;
-		return this;
-	},
-
 	initialize: function(map, trigger_id, container_id) {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.item_template);
@@ -29,7 +18,7 @@ MIC.LayerToggle = {
 		container_id = container_id || 'layers';
 		this._layerNav = $('#' + container_id);
 		this._layerNav.on('click', '.layer', {self: this}, this.onclick);
-		this.initToggle();
+		this.initToggle(trigger_id);
 	},
 
 	initToggle: function(trigger_id) {
@@ -39,12 +28,6 @@ MIC.LayerToggle = {
 		layerBtn.on('click', function() {
 			that._layerNav.toggle();
 		});
-	},
-
-	addLayer: function(layer, metadata) {
-		this.layers[metadata.data_name] = layer;
-		var html = MIC.handlebars_templates[this.item_template](metadata);
-		this._layerNav.append(html);
 	},
 
 	onclick: function(e) {
@@ -59,5 +42,11 @@ MIC.LayerToggle = {
 		} else {
 			map.removeLayer(layer);
 		}
+	},
+
+	addLayer: function(layer, metadata) {
+		this.layers[metadata.data_name] = layer;
+		var html = MIC.handlebars_templates[this.item_template](metadata);
+		this._layerNav.append(html);
 	}
 };

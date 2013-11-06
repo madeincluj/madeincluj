@@ -27,6 +27,7 @@ var MIC = {
 
 	initialize: function() {
 		this._initMap();
+		this._initToggle();
 		this._initLayers();
 		this._initUI();
 	},
@@ -44,6 +45,10 @@ var MIC = {
 		var hash = L.hash(this.map);
 	},
 
+	_initToggle: function() {
+		MIC.LayerToggle.initialize(this.map);
+	},
+
 	_initLayers: function() {
 		var ggl = new L.Google('ROADMAP', {
 			mapOptions: {
@@ -51,8 +56,6 @@ var MIC = {
 			}
 		});
 		this.map.addLayer(ggl);
-
-		MIC.LayerToggle.initialize(this.map);
 
 		var instaLayer = MIC.InstagramLayer.initialize(this.map).enable();
 		var streetNamesLayer = MIC.StreetNamesLayer.initialize(this.map).enable();
