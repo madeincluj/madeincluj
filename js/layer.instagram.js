@@ -3,6 +3,13 @@ MIC.InstagramLayer = {
 	api_base: 'https://api.instagram.com/v1/',
 	tag: 'madeincluj',
 
+	metadata: {
+		data_name: 'instagram',
+		title: '#madeincluj',
+		description: 'Concursul Instagram.',
+		thumbnail_src: '',
+	},
+
 	photos: [],
 	max_photos: 100,
 	excluded: [],
@@ -26,8 +33,9 @@ MIC.InstagramLayer = {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
-			this.featureGroup = new L.FeatureGroup();
 			this.map = map;
+			this.featureGroup = new L.FeatureGroup();
+			MIC.LayerToggle.addLayer(this.featureGroup, this.metadata);
 			this.fetch();
 			this.initialized = true;
 		}

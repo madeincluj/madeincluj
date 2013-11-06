@@ -10,17 +10,33 @@ MIC.CollectionLayer = {
 			thumb_dir: "thumb/",
 			large_dir: "large/",
 			original_dir: "original/"
-		}, 
+		},
 		{
 			name: "Fotografii istorice",
 			geojson_url: "../collection/historical-photography/json/historical-photography.json",
 			img_base_url: "../s3/collection/historical-photography/",
 			thumb_dir: "thumb/",
-			thumb_dir: "thumb/",
 			large_dir: "large/",
 			original_dir: "original/"
 		}
 	],
+
+	// TODO: merge metadata with collections?
+	metadata: {
+		data_name: 'collection',
+		title: 'Colecția de fotografie',
+		description: 'Imagini din arhivă.',
+		thumbnail_src: '',
+		sub_layers: [
+			{
+				title: 'Fortepan',
+				description: 'Descriere'
+			}, {
+				title: 'Arhiva madeincluj',
+				description: 'Descriere'
+			}
+		]
+	},
 
 	enable: function() {
 		this.initialize();
@@ -33,6 +49,7 @@ MIC.CollectionLayer = {
 		return this;
 	},
 
+	// TODO: add to toggle control.
 	initialize: function(map) {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.item_template);

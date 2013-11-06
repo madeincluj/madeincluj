@@ -28,7 +28,7 @@ var MIC = {
 	initialize: function() {
 		this._initMap();
 		this._initLayers();
-		this._initUI();	
+		this._initUI();
 	},
 
 	_initMap: function() {
@@ -45,27 +45,21 @@ var MIC = {
 	},
 
 	_initLayers: function() {
-		var ggl = new L.Google('ROADMAP', {		
+		var ggl = new L.Google('ROADMAP', {
 			mapOptions: {
 				styles: GMAPS_STYLES
 			}
 		});
-		this.map.addLayer(ggl);	
+		this.map.addLayer(ggl);
 
-		var historicalLayer = MIC.HistoricalMapsLayer.initialize(this.map).enable();
+		MIC.LayerToggle.initialize(this.map);
+
 		var instaLayer = MIC.InstagramLayer.initialize(this.map).enable();
-		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
 		var streetNamesLayer = MIC.StreetNamesLayer.initialize(this.map).enable();
+		var historicalLayer = MIC.HistoricalMapsLayer.initialize(this.map).enable();
+		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
+
 		// var collectionLayer = MIC.CollectionLayer.initialize(this.map).enable();
-
-		var overlayMaps = {
-			"Hărți istorice": historicalLayer.layer,
-			"Instagram #madeincluj": instaLayer.featureGroup,
-			"Clădiri '60-'80": buildingPhotosLayer.featureGroup
-			// add more layers here as they are integrated
-		};
-
-		L.control.layers(null, overlayMaps).addTo(this.map);
 	},
 
 	_initUI: function() {
@@ -89,11 +83,6 @@ var MIC = {
 				img.attr('src', src);
 				img.fadeIn('fast');
 			});
-		});
-
-		var layerBtn = $("#nav-layers"), layerNav = $("#layers");
-		layerBtn.on('click', function() {
-			layerNav.toggle();
 		});
 	}
 };

@@ -3,6 +3,13 @@ MIC.StreetNamesLayer = {
 	item_template: 'tmpl-street-name-item',
 	geojson_url: '../street-names/json/selected-streets.json',
 
+	metadata: {
+		data_name: 'street-names',
+		title: 'Istoria străzilor',
+		description: 'Evoluția străzilor din Cluj-Napoca.',
+		thumbnail_src: '',
+	},
+
 	geojson: null,
 
 	loaded_streets: {},
@@ -72,6 +79,7 @@ MIC.StreetNamesLayer = {
 				if (response) that.showPopup(feature);
 			});
 		});
+		// TODO: add to toggle control.
 		this.featureGroup.addTo(this.map);
 	},
 

@@ -4,6 +4,22 @@ MIC.HistoricalMapsLayer = {
 	maps: {},
 	data_url: '../historical-maps/json/maps.json',
 
+	metadata: {
+		data_name: 'historical-maps',
+		title: 'Hărți istorice',
+		description: 'Documente vechi suprapuse peste harta actuală',
+		thumbnail_src: '',
+		sub_layers: [
+			{
+				title: 'Hartă',
+				description: 'Descriere'
+			}, {
+				title: 'Hartă',
+				description: 'Descriere'
+			}
+		]
+	},
+
 	enable: function() {
 		this.initialize();
 		this.enabled = true;
@@ -45,13 +61,15 @@ MIC.HistoricalMapsLayer = {
 				} else {
 					$('#opacity-slider').hide();
 				}
-			}
+			};
 
 			var layerOnRemove = this.layer.onRemove;
 			this.layer.onRemove = function(map) {
 				layerOnRemove.apply(this, Array.prototype.slice.call(arguments));
 				map.removeControl(that.slider);
-			}
+			};
+
+			MIC.LayerToggle.addLayer(this.layer, this.metadata);
 
 			this.fetch();
 			this.initialized = true;

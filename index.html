@@ -35,6 +35,7 @@
 	<script type="text/javascript" src="js/layer.street-names.js"></script>
 	<script type="text/javascript" src="js/layer.historical-maps.js"></script>
 	<script type="text/javascript" src="js/layer.collection.js"></script>
+	<script type="text/javascript" src="js/layer.toggle.js"></script>
 	<script type="text/javascript" src="js/gmaps.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
 	<!-- endbuild -->
@@ -64,51 +65,7 @@
 	</div>
 
 	<div id='layers'>
-		<div class='layer' data-name='instagram'>
-			<img src=''/>
-			<h3>#madeincluj</h3>
-			<p>Concursul Instagram.</p>
-		</div>
-		<div class='layer' data-name='street-names'>
-			<img src=''/>
-			<h3>Istoria străzilor</h3>
-			<p>Evoluția străzilor din Cluj-Napoca.</p>
-		</div>
-		<div class='layer' data-name='building-photos'>
-			<img src=''/>
-			<h3>Arhitectură sub comunism</h3>
-			<p>Clădiri construite în perioada 1960-1980.</p>
-		</div>
-		<div class='layer active' data-name='historical-maps'>
-			<img src=''/>
-			<h3>Hărți istorice</h3>
-			<p>Documente vechi suprapuse peste harta actuală</p>
-			<div class='sub-layers'>
-				<div class='sub-layer'>
-					<h4>Hartă</h4>
-					<p>Descriere</p>
-				</div>
-				<div class='sub-layer'>
-					<h4>Hartă</h4>
-					<p>Descriere</p>
-				</div>
-			</div>
-		</div>
-		<div class='layer' data-name='collection'>
-			<img src=''/>
-			<h3>Colecția de fotografie</h3>
-			<p>Imagini din arhivă.</p>
-			<div class='sub-layers'>
-				<div class='sub-layer'>
-					<h4>Fortepan</h4>
-					<p>Descriere</p>
-				</div>
-				<div class='sub-layer'>
-					<h4>Arhiva madeincluj</h4>
-					<p>Descriere</p>
-				</div>
-			</div>
-		</div>
+
 	</div>
 
 	<div id='popup-container'>
@@ -208,6 +165,24 @@
 		<div class='collection-item'>
 			<div class='collection-item-photo'><img src='{{properties.photo.large}}'/></div>
 			<div class='collection-item-caption'><strong>{{properties.year}}</strong> {{properties.description}}</div>
+		</div>
+	</script>
+
+	<script id='tmpl-layer-toggle-item' type='text/x-handlebars'>
+		<div class='layer' data-name={{ data_name }}>
+			<img src='{{ thumbnail_src }}'/>
+			<h3>{{ title }}</h3>
+			<p>{{ description }}</p>
+			{{#if sub_layers}}
+				<div class='sub-layers'>
+					{{#each sub_layers}}
+						<div class='sub-layer'>
+							<h4>{{ title }}</h4>
+							<p>{{ description }}</p>
+						</div>
+					{{/each}}
+				</div>
+			{{/if}}
 		</div>
 	</script>
 

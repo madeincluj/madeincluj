@@ -8,6 +8,13 @@ MIC.BuildingPhotosLayer = {
 	thumb_dir: 'thumb/',
 	large_dir: 'large/',
 	original_dir: 'original/',
+
+	metadata: {
+		data_name: 'building-photos',
+		title: 'Arhitectură sub comunism',
+		description: 'Clădiri construite în perioada 1960-1980.',
+		thumbnail_src: '',
+	},
 	
 	item_url : function(feature) {
 		return '../collection/dg/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
@@ -33,6 +40,7 @@ MIC.BuildingPhotosLayer = {
 			MIC.compileTemplate(this.item_template);
 			this.map = map;
 			this.featureGroup = new L.FeatureGroup();
+			MIC.LayerToggle.addLayer(this.featureGroup, this.metadata);
 			this.initialized = true;
 			this.fetch();
 		}
