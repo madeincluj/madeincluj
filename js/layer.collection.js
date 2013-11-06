@@ -1,5 +1,6 @@
 MIC.CollectionLayer = {
 
+	marker_template: 'tmpl-round-photo-marker',
 	item_template: 'tmpl-collection-item',
 
 	collections: [
@@ -93,7 +94,8 @@ MIC.CollectionLayer = {
 				src: src,
 				size: [100, 100],
 				smallestSizeZoom: 13,
-				largestSizeZoom: 18
+				largestSizeZoom: 18,
+				iconTemplate: this.marker_template
 			});
 			marker.feature = feature;
 			return marker;

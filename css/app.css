@@ -178,8 +178,8 @@ a:hover {
 }
 
 .leaflet-photomarker-container .leaflet-photomarker-img {
-	border: solid white 2px;
-	background-color: white;
+/*	border: solid white 2px;
+	background-color: white;*/
 	-moz-transition: 0.2s all;
 	-webkit-transition: 0.2s all;
 	transition: 0.2s all;

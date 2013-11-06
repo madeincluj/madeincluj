@@ -109,10 +109,18 @@ L.PhotoIcon = L.Class.extend({
 
   _createImg: function (src) {
     var el;
+    var template = this.options.template;
+    if (template) {
+      var html = MIC.handlebars_templates[template]({
+        url: src
+      });
+      el = document.createElement('div');
+      el.innerHTML = html;
 
-    if (!L.Browser.ie6) {
+    } else if (!L.Browser.ie6) {
       el = document.createElement('img');
       el.src = src;
+
     } else {
       el = document.createElement('div');
       el.style.filter =
@@ -132,10 +140,14 @@ L.PhotoMarker = L.Marker.extend({
     riseOnHover: true,
     riseOffset: 250,
     // Default zoom matrix
-    matrix: { 11: 0.125, 12: 0.25, 14: 0.5, 16: 1 }
+    matrix: { 11: 0.125, 12: 0.25, 14: 0.5, 16: 1 },
   },
   initialize: function(latlng, options) {
-    options.icon = new L.PhotoIcon({src:options.src,size:options.size});
+    options.icon = new L.PhotoIcon({
+      src:options.src,
+      size:options.size,
+      template:options.iconTemplate
+    });
     L.Marker.prototype.initialize.call(this, latlng, options);
   },
   _initIcon: function() {
