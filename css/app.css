@@ -326,6 +326,7 @@ a:hover {
 
 #nav-layers {
 	float: right;
+	margin-top: 0.5em;
 }
 
 #layers {
@@ -359,4 +360,10 @@ a:hover {
 #layers .layer h4,
 #layers .layer p {
 	margin: 0;
+}
+
+#nav-3d {
+	float: right;
+	margin-top: 0.5em;
+	padding: 0 0.5em;
 }

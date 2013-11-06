@@ -88,7 +88,7 @@ MIC.HistoricalMapsLayer = {
 
 	load: function(data) {
 		this.maps = data.maps;
-		var selectedYear = $("#nav-time li.selected a").first().attr('year');
+		var selectedYear = $("#nav-time li.selected a").first().attr('data-year');
 		this.loadMap(selectedYear);
 	},
 

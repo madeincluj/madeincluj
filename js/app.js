@@ -30,6 +30,7 @@ var MIC = {
 		this._initToggle();
 		this._initLayers();
 		this._initUI();
+		this._init3DLink();
 	},
 
 	_initMap: function() {
@@ -66,15 +67,28 @@ var MIC = {
 	},
 
 	_initUI: function() {
+		this._initTimeSpans();
+		this._init3DLink();
+		this._initPopups();
+	},
+
+	_initTimeSpans: function() {
 		$("#nav-time li a").on('click', function () {
-			var year = $(this).attr('year');
+			var year = $(this).attr('data-year');
 			$(this).parent().siblings().removeClass('selected');
 			$(this).parent().addClass('selected');
 			MIC.HistoricalMapsLayer.loadMap(year);
 		});
+	},
 
+	_init3DLink: function() {
+		if (window.WebGLRenderingContext) {
+			$('#nav-3d').show();
+		}
+	},
+
+	_initPopups: function() {
 		var that = this;
-
 		var popup = this.popup = $("#popup-container");
 		this.popup.on('click', '.close-popup', function() {
 			that.hidePopup();
