@@ -21,6 +21,7 @@ var FeatureMap = {
 			minZoom: 13,
 			maxZoom: 20,
 			maxBounds: new L.LatLngBounds([46.3,23], [47, 24]),
+			scrollWheelZoom: false
 		}).fitBounds(this.bounds);
 	},
 
