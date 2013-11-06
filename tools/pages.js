@@ -38,5 +38,12 @@ var html_pages = fs.readdirSync(html_pages_dir);
 
 html_pages.forEach(function(filepath) {
 	var output_path = output_dir + filepath.replace('.html', '') + '/index.html';
-	fs.copy(html_pages_dir + filepath, output_path);
+	var html = fs.readFileSync(html_pages_dir + filepath, 'utf8');
+	var tmpl = ejs.compile(html, {
+		filename: html_pages_dir + filepath
+	});
+	var output = tmpl({
+		root: '../../..'
+	});
+	fs.outputFile(output_path, output);
 });
