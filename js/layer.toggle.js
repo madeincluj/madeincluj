@@ -134,10 +134,15 @@ MIC.LayerToggle = {
 		elements.addClass('active');
 	},
 
-	addLayer: function(layer, metadata) {
+	addLayer: function(layer, metadata, isEnabled) {
 		this.layers[metadata.data_name] = layer;
 		var html = MIC.handlebars_templates[this.item_template](metadata);
 		this._layerNav.append(html);
+		if (isEnabled) {
+			var elements = $('[data-name='+ metadata.data_name +']');
+			elements.addClass('active');
+			layer.addTo(this.map);
+		}
 	},
 
 	addLayerGroup: function(data) {
