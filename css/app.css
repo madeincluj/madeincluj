@@ -234,24 +234,67 @@ a:hover {
   fill: none;
   stroke: rgba(204,0,0, 0.2);
   cursor: pointer;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 5px;
 }
 
 #svg-streets path:hover {
   stroke: rgba(204,0,0, 1);
 }
 
-#svg-streets .highway-residential { stroke-width: 1px; }
 #svg-streets .highway-primary { stroke-width: 4px; }
 #svg-streets .highway-secondary { stroke-width: 3px; }
 #svg-streets .highway-tertiary { stroke-width: 2px; }
+#svg-streets .highway-residential { stroke-width: 2px; }
+#svg-streets .highway-pedestrian { stroke-width: 1px; }
 
-#svg-streets.zoom-16 .highway-primary {stroke-width: 3px;}
-#svg-streets.zoom-17 .highway-primary {stroke-width: 2px;}
-#svg-streets.zoom-17 .highway-secondary {stroke-width: 1px;}
-#svg-streets.zoom-17 .highway-tertiary {stroke-width: 0.8px;}
-#svg-streets.zoom-18 .highway-primary {stroke-width: 1px;}
-#svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
-#svg-streets.zoom-18 .highway-tertiary {stroke-width: 0.7px;}
+#svg-streets.zoom-13 .highway-primary { stroke-width: 3px; }
+#svg-streets.zoom-13 .highway-secondary { stroke-width: 2px; }
+#svg-streets.zoom-13 .highway-tertiary { stroke-width: 1px; }
+#svg-streets.zoom-13 .highway-residential { stroke-width: 1px; }
+#svg-streets.zoom-13 .highway-pedestrian { stroke-width: 0.5px; }
+
+#svg-streets.zoom-14 .highway-primary { stroke-width: 4px; }
+#svg-streets.zoom-14 .highway-secondary { stroke-width: 3px; }
+#svg-streets.zoom-14 .highway-tertiary { stroke-width: 2px; }
+#svg-streets.zoom-14 .highway-residential { stroke-width: 2px; }
+#svg-streets.zoom-14 .highway-pedestrian { stroke-width: 1px; }
+
+#svg-streets.zoom-15 .highway-primary { stroke-width: 6px; }
+#svg-streets.zoom-15 .highway-secondary { stroke-width: 5px; }
+#svg-streets.zoom-15 .highway-tertiary { stroke-width: 4px; }
+#svg-streets.zoom-15 .highway-residential { stroke-width: 4px; }
+#svg-streets.zoom-15 .highway-pedestrian { stroke-width: 2px; }
+
+#svg-streets.zoom-16 .highway-primary { stroke-width: 12px; }
+#svg-streets.zoom-16 .highway-secondary { stroke-width: 10px; }
+#svg-streets.zoom-16 .highway-tertiary { stroke-width: 8px; }
+#svg-streets.zoom-16 .highway-residential { stroke-width: 8px; }
+#svg-streets.zoom-16 .highway-pedestrian { stroke-width: 5px; }
+
+#svg-streets.zoom-17 .highway-primary { stroke-width: 16px; }
+#svg-streets.zoom-17 .highway-secondary { stroke-width: 14px; }
+#svg-streets.zoom-17 .highway-tertiary { stroke-width: 12px; }
+#svg-streets.zoom-17 .highway-residential { stroke-width: 12px; }
+#svg-streets.zoom-17 .highway-pedestrian { stroke-width: 8px; }
+
+#svg-streets.zoom-18 .highway-primary { stroke-width: 18px; }
+#svg-streets.zoom-18 .highway-secondary { stroke-width: 16px; }
+#svg-streets.zoom-18 .highway-tertiary { stroke-width: 12px; }
+#svg-streets.zoom-18 .highway-residential { stroke-width: 12px; }
+#svg-streets.zoom-18 .highway-pedestrian { stroke-width: 7px; }
+
+#svg-streets.zoom-19 .highway-primary { stroke-width: 16px; }
+#svg-streets.zoom-19 .highway-secondary { stroke-width: 14px; }
+#svg-streets.zoom-19 .highway-tertiary { stroke-width: 12px; }
+#svg-streets.zoom-19 .highway-residential { stroke-width: 12px; }
+#svg-streets.zoom-19 .highway-pedestrian { stroke-width: 8px; }
+
+#svg-streets.zoom-20 .highway-primary { stroke-width: 16px; }
+#svg-streets.zoom-20 .highway-secondary { stroke-width: 14px; }
+#svg-streets.zoom-20 .highway-tertiary { stroke-width: 14px; }
+#svg-streets.zoom-20 .highway-residential { stroke-width: 10px; }
+#svg-streets.zoom-20 .highway-pedestrian { stroke-width: 8px; }
 
 #nav-layers {
 	float: right;
