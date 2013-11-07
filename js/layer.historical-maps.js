@@ -7,7 +7,8 @@ MIC.HistoricalMapsLayer = {
 	metadata: {
 		name: 'Hărți istorice',
 		description: 'Documente vechi suprapuse peste harta actuală',
-		thumbnail_url: ''
+		thumbnail_url: '',
+		multiple: false
 	},
 
 	enable: function() {
@@ -92,10 +93,7 @@ MIC.HistoricalMapsLayer = {
 		if (this.metadata.layers[0]) {
 			this.metadata.data_name = this.metadata.layers[0].data_name;
 		}
-		MIC.LayerToggle.addLayerGroup(this.metadata, {
-			// prepend: true,
-			unique_selection: true
-		});
+		MIC.LayerToggle.addLayerGroup(this.metadata);
 	}
 
 	// load: function(data) {

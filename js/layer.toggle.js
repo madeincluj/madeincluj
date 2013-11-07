@@ -19,8 +19,8 @@ MIC.LayerToggle = {
 	initUI: function(trigger_id, container_id) {
 		container_id = container_id || 'layers';
 		this._layerNav = $('#' + container_id);
-		this._layerNav.on('click', '.sub-layer', {self: this}, this.sublayerClick);
-		this._layerNav.on('click', '.layer[data-name]', {self: this}, this.layerClick);
+		this._layerNav.on('click', '.sub-layer', this.sublayerClick);
+		this._layerNav.on('click', '.layer[data-name]', this.layerClick);
 		this.initToggle(trigger_id);
 	},
 
@@ -50,12 +50,12 @@ MIC.LayerToggle = {
 		return false;
 	},
 
-	sublayerClick: function(e) {
-		var that = e.data.self;
+	sublayerClick: function() {
+		var that = MIC.LayerToggle;
 		var data_name = $(this).attr('data-name');
 		var layer = that.layers[data_name];
 		var map = that.map;
-		var unique = e.data.unique;
+		var unique = $(this).data('multiple') !== 'true';
 
 		$(this).toggleClass('active');
 
@@ -80,7 +80,7 @@ MIC.LayerToggle = {
 	},
 
 	layerClick: function(e) {
-		var that = e.data.self;
+		var that = MIC.LayerToggle;
 		var data_name = $(this).attr('data-name');
 		var layer = that.layers[data_name];
 		var map = that.map;
@@ -140,21 +140,12 @@ MIC.LayerToggle = {
 		this._layerNav.append(html);
 	},
 
-	addLayerGroup: function(data, options) {
-		options = options || {};
+	addLayerGroup: function(data) {
 		for (var i=0; i < data.layers.length; i++) {
 			var layer = data.layers[i];
 			this.layers[layer.data_name] = layer.layer;
 		}
 		var html = MIC.handlebars_templates[this.item_template](data);
 		var element = $(html).appendTo(this._layerNav);
-
-		if (options.toggle_all) {
-			element.on('click', '.sub-layer', {self: this}, this.sublayerClick);
-			element.on('click', {self: this}, this.layerToggleAll);
-
-		} else if (options.unique_selection) {
-			element.on('click', '.sub-layer', {self: this, unique: true}, this.sublayerClick);
-		}
 	}
 };

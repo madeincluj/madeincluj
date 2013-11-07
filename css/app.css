@@ -305,14 +305,11 @@ a:hover {
 	right: 0;
 	top: 3em;
 	width: 30em;
-	opacity: 0;
-	-moz-transition: 0.1s opacity;
-	-webkit-transition: 0.1s opacity;
-	-o-transition: 0.1s opacity;
+	display: none;
 }
 
 #layers.visible {
-	opacity:1;
+	display: block;
 }
 
 #layers .layer {

@@ -174,7 +174,7 @@
 	</script>
 
 	<script id='tmpl-layer-toggle-item' type='text/x-handlebars'>
-		<div class='layer' {{#if data_name}} data-name={{ data_name }} {{/if}}>
+		<div class='layer' {{#if data_name}} data-name='{{ data_name }}' {{/if}} data-multiple='{{ multiple }}'>
 			{{#if thumbnail_url}}
 			<img src='{{ thumbnail_url }}'/>
 			{{/if}}
@@ -186,7 +186,7 @@
 			{{/if}}
 			{{#if layers}}
 				{{#each layers}}
-					<div class='sub-layer' data-name={{ data_name }}>
+					<div class='sub-layer' data-name='{{ data_name }}'>
 						<h4>{{ name }}</h4>
 						<p>{{ description }}</p>
 					</div>

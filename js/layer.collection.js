@@ -28,7 +28,8 @@ MIC.CollectionLayer = {
 				large_dir: "large/",
 				original_dir: "original/"
 			}
-		]
+		],
+		multiple: true
 	},
 
 	enable: function() {
@@ -45,6 +46,7 @@ MIC.CollectionLayer = {
 	// TODO: add to toggle control.
 	initialize: function(map) {
 		if (!this.initialized) {
+			MIC.compileTemplate(this.marker_template);
 			MIC.compileTemplate(this.item_template);
 			this.map = map;
 			for (var i = 0; i < this.metadata.layers.length; i++) {
@@ -52,9 +54,7 @@ MIC.CollectionLayer = {
 				collection.layer = new L.FeatureGroup();
 				this.fetch(collection);
 			}
-			MIC.LayerToggle.addLayerGroup(this.metadata, {
-				toggle_all: true,
-			});
+			MIC.LayerToggle.addLayerGroup(this.metadata);
 			this.initialized = true;
 		}
 		return this;
