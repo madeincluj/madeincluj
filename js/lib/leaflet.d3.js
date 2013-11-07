@@ -60,6 +60,7 @@ L.D3geoJSON = L.Class.extend({
   },
 
   onRemove: function(map) {
+      this._svg.remove();
       this._map.off('viewreset', this.reset, this);
   },
 
