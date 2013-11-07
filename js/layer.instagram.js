@@ -189,7 +189,7 @@ MIC.InstagramLayer = {
 				size: [photo.images.thumbnail.width, photo.images.thumbnail.height],
 				smallestSizeZoom: 13,
 				largestSizeZoom: 18,
-				matrix: { 13: 0.125, 15: 0.25, 17: 0.5, 18: 0.75 },
+				matrix: { 13: 0.2, 14: 0.25, 15: 0.30, 16: 0.35, 17: 0.5, 18: 0.75, 19: 1 },
 				iconTemplate: that.marker_template
 			}).bindPopup(popup, {maxWidth: "auto"});
 			that.featureGroup.addLayer(marker);
