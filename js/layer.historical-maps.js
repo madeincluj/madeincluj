@@ -6,15 +6,17 @@ MIC.HistoricalMapsLayer = {
 
 	metadata: {
 		data_name: 'historical-maps',
-		title: 'Hărți istorice',
+		name: 'Hărți istorice',
 		description: 'Documente vechi suprapuse peste harta actuală',
-		thumbnail_src: '',
-		sub_layers: [
+		thumbnail_url: '',
+		layers: [
 			{
-				title: 'Hartă',
+				data_name: 'harta-1680',
+				name: 'Hartă 1680',
 				description: 'Descriere'
 			}, {
-				title: 'Hartă',
+				data_name: 'harta-1869',
+				name: 'Hartă 1869',
 				description: 'Descriere'
 			}
 		]

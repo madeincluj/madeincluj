@@ -3,38 +3,31 @@ MIC.CollectionLayer = {
 	marker_template: 'tmpl-round-photo-marker',
 	item_template: 'tmpl-collection-item',
 
-	collections: [
-		{
-			name: "Colecția Fortepan",
-			geojson_url: "../collection/fortepan/json/fortepan.json",
-			img_base_url: "../s3/collection/fortepan/",
-			thumb_dir: "thumb/",
-			large_dir: "large/",
-			original_dir: "original/"
-		},
-		{
-			name: "Fotografii istorice",
-			geojson_url: "../collection/historical-photography/json/historical-photography.json",
-			img_base_url: "../s3/collection/historical-photography/",
-			thumb_dir: "thumb/",
-			large_dir: "large/",
-			original_dir: "original/"
-		}
-	],
-
-	// TODO: merge metadata with collections?
 	metadata: {
-		data_name: 'collection',
-		title: 'Colecția de fotografie',
+		data_name: 'colectia-fortepan',
+		name: 'Colecția de fotografie',
 		description: 'Imagini din arhivă.',
-		thumbnail_src: '',
-		sub_layers: [
+		thumbnail_url: '',
+		select_all: true,
+		layers: [
 			{
-				title: 'Fortepan',
-				description: 'Descriere'
+				data_name: 'colectia-fortepan',
+				name: "Colecția Fortepan",
+				description: 'Descriere',
+				geojson_url: "../collection/fortepan/json/fortepan.json",
+				img_base_url: "../s3/collection/fortepan/",
+				thumb_dir: "thumb/",
+				large_dir: "large/",
+				original_dir: "original/"
 			}, {
-				title: 'Arhiva madeincluj',
-				description: 'Descriere'
+				data_name: 'fotografii-istorice',
+				name: "Fotografii istorice",
+				description: 'Descriere',
+				geojson_url: "../collection/historical-photography/json/historical-photography.json",
+				img_base_url: "../s3/collection/historical-photography/",
+				thumb_dir: "thumb/",
+				large_dir: "large/",
+				original_dir: "original/"
 			}
 		]
 	},
@@ -55,13 +48,12 @@ MIC.CollectionLayer = {
 		if (!this.initialized) {
 			MIC.compileTemplate(this.item_template);
 			this.map = map;
-
-			for (var i = 0; i < this.collections.length; i++) {
-				var collection = this.collections[i];
+			for (var i = 0; i < this.metadata.layers.length; i++) {
+				var collection = this.metadata.layers[i];
 				collection.layer = new L.FeatureGroup();
 				this.fetch(collection);
-				this.map.addLayer(collection.layer);
 			}
+			MIC.LayerToggle.addLayerGroup(this.metadata);
 			this.initialized = true;
 		}
 		return this;

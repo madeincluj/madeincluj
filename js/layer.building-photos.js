@@ -11,9 +11,9 @@ MIC.BuildingPhotosLayer = {
 
 	metadata: {
 		data_name: 'building-photos',
-		title: 'Arhitectură sub comunism',
+		name: 'Arhitectură sub comunism',
 		description: 'Clădiri construite în perioada 1960-1980.',
-		thumbnail_src: '',
+		thumbnail_url: '',
 	},
 	
 	item_url : function(feature) {

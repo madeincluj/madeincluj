@@ -5,9 +5,9 @@ MIC.StreetNamesLayer = {
 
 	metadata: {
 		data_name: 'street-names',
-		title: 'Istoria străzilor',
+		name: 'Istoria străzilor',
 		description: 'Evoluția străzilor din Cluj-Napoca.',
-		thumbnail_src: '',
+		thumbnail_url: ''
 	},
 
 	geojson: null,
