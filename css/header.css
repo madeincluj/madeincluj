@@ -67,11 +67,11 @@
 	color: #555555;
 }
 
-#nav a:hover {
+#nav a:hover, #nav a.active {
 	color: #5dafdf;
 }
 
-#nav a.dropdown:hover {
+#nav a.dropdown:hover, #nav a.active {
 	background: #111;
 }
 
@@ -176,7 +176,7 @@
 	height: 16px;
 }
 
-.icon-arrow:hover, a:hover .icon-arrow {
+.icon-arrow:hover, a:hover .icon-arrow, a.active .icon-arrow {
 	background-position: -179px -18px;
 }
 

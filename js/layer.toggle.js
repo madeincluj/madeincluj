@@ -26,11 +26,28 @@ MIC.LayerToggle = {
 
 	initToggle: function(trigger_id) {
 		trigger_id = trigger_id || 'nav-layers';
-		var layerBtn = $('#' + trigger_id);
+		this._layerBtn = $('#' + trigger_id);
 		var that = this;
-		layerBtn.on('click', function() {
-			that._layerNav.toggle();
-		});
+		this._layerBtn.on('click', this.showLayerMenu);
+	},
+
+	showLayerMenu: function() {
+		var btn = MIC.LayerToggle._layerBtn;
+		btn.addClass('active');
+		MIC.LayerToggle._layerNav.css({
+			top: btn.outerHeight() + btn.position().top,
+			left: btn.position().left
+		}).addClass('visible');
+		$(window).on('click', MIC.LayerToggle.hideLayerMenu);
+		return false;
+	},
+	hideLayerMenu: function(e) {
+		if (!$(e.target).closest('#layers').length) {
+			MIC.LayerToggle._layerBtn.removeClass('active');
+			MIC.LayerToggle._layerNav.removeClass('visible');
+			$(window).off('click', MIC.LayerToggle.hideLayerMenu);
+		}
+		return false;
 	},
 
 	sublayerClick: function(e) {

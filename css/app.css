@@ -253,19 +253,23 @@ a:hover {
 #svg-streets.zoom-18 .highway-secondary {stroke-width: 1px;}
 #svg-streets.zoom-18 .highway-tertiary {stroke-width: 0.7px;}
 
-#nav-layers {
-	float: right;
-	margin-top: 0.5em;
-}
 
 #layers {
 	position:absolute;
 	z-index: 2000;
-	background: #222;
+	background: #111;
 	color: #ccc;
 	right: 0;
 	top: 3em;
-	display: none;
+	width: 30em;
+	opacity: 0;
+	-moz-transition: 0.1s opacity;
+	-webkit-transition: 0.1s opacity;
+	-o-transition: 0.1s opacity;
+}
+
+#layers.visible {
+	opacity:1;
 }
 
 #layers .layer {
