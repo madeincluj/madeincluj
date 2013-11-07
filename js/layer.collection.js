@@ -8,7 +8,6 @@ MIC.CollectionLayer = {
 		name: 'Colecția de fotografie',
 		description: 'Imagini din arhivă.',
 		thumbnail_url: '',
-		select_all: true,
 		layers: [
 			{
 				data_name: 'colectia-fortepan',
@@ -53,7 +52,9 @@ MIC.CollectionLayer = {
 				collection.layer = new L.FeatureGroup();
 				this.fetch(collection);
 			}
-			MIC.LayerToggle.addLayerGroup(this.metadata);
+			MIC.LayerToggle.addLayerGroup(this.metadata, {
+				toggle_all: true,
+			});
 			this.initialized = true;
 		}
 		return this;

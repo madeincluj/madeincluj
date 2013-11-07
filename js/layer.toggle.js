@@ -94,7 +94,7 @@ MIC.LayerToggle = {
 		this._layerNav.append(html);
 	},
 
-	addLayerGroup: function(data) {
+	addLayerGroup: function(data, options) {
 		for (var i=0; i < data.layers.length; i++) {
 			var layer = data.layers[i];
 			this.layers[layer.data_name] = layer.layer;
@@ -102,7 +102,7 @@ MIC.LayerToggle = {
 		var html = MIC.handlebars_templates[this.item_template](data);
 		var element = $(html).appendTo(this._layerNav);
 
-		if (data.select_all) {
+		if (options.toggle_all) {
 			element.on('click', '.sub-layer', {self: this}, this.sublayerClick);
 			element.on('click', {self: this}, this.layerToggleAll);
 		}
