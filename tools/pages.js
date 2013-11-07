@@ -6,7 +6,7 @@ var ejs = require('ejs');
 var markdown_pages_dir = 'content/md/';
 var html_pages_dir = 'content/html/';
 var templates_dir = 'templates/';
-var output_dir = 'obiective/';
+var output_dir = './';
 
 var md_pages = fs.readdirSync(markdown_pages_dir);
 
@@ -43,7 +43,7 @@ html_pages.forEach(function(filepath) {
 		filename: 'templates/' + filepath
 	});
 	var output = tmpl({
-		root: '../..'
+		root: '..'
 	});
 	fs.outputFile(output_path, output);
 });

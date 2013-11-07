@@ -107,7 +107,7 @@ a {
 
 .street-index {
 	font-size: 1.4em;
-	margin: 3em 0;
+	margin: 1em 0;
 }
 
 .street-index a {
@@ -185,6 +185,7 @@ a {
 	-o-box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
+	width: 100%;
 }
 
 .u-1-2 {
