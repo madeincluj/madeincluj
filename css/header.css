@@ -29,7 +29,7 @@
 }
 
 #nav li {
-	font-family: 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
+	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
 	display: inline-block;
 	border-right: 1px solid #ddd;
 }
@@ -54,7 +54,7 @@
 #search input {
 	border: none;
 	border-bottom: 1px solid #ddd;
-	font-family: 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
+	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
 	font-size: 1.1em;
 }
 
