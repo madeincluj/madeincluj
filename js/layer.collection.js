@@ -88,6 +88,7 @@ MIC.CollectionLayer = {
 				size: [100, 100],
 				smallestSizeZoom: 13,
 				largestSizeZoom: 18,
+				matrix: { 13: 0.2, 14: 0.25, 15: 0.30, 16: 0.35, 17: 0.5, 18: 0.75, 19: 1 },
 				iconTemplate: this.marker_template
 			});
 			marker.feature = feature;
