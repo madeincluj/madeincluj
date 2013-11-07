@@ -7,12 +7,6 @@ body {
 	padding: 0;
 }
 
-#header {
-	background: #ccc;
-	color: #777;
-	border: 1px solid transparent;
-}
-
 #footer {
 	color: #999;
 	text-align: center;

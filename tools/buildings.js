@@ -9,7 +9,7 @@ slug.charmap['â'] = 'a';
 slug.charmap['î'] = 'i';
 
 var json_dir = '../collection/dg/json/metadata/';
-var output_dir = 'site/cladiri/';
+var output_dir = 'obiective/cladiri/';
 var template = 'templates/building.html';
 
 var img_base_url = '../s3/collection/dg/';

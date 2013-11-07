@@ -28,7 +28,7 @@ var collections = {
 	}
 };
 
-var output_dir = 'site/colectie/';
+var output_dir = 'obiective/colectie/';
 var collection_tmpl_file = 'templates/collection.html';
 var item_tmpl_file = 'templates/collection_item.html';
 

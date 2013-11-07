@@ -10,6 +10,7 @@
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="css/adobe-blank.css"/>
 	<link rel="stylesheet" href="css/leaflet.slider.css" />
+	<link rel="stylesheet" href="css/header.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css"/>
 	
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
@@ -42,35 +43,15 @@
 </head>
 <body>
 
-	<div id='header' class='cf'>
-		<h1>madeincluj</h1>
-
-		<span class='icon icon-search'></span>
-		<span class='icon icon-list'></span>
-		<span class='icon icon-check'></span>
-		<span class='icon icon-arrow'></span>
-
-
-		<ul id="nav-time">
-			<li><a href='#' data-year='1680'></a></li><!--
-		 --><li class="selected"><a href='#' data-year="1848">1848</a></li><!--
-		 --><li><a href='#' data-year="1941">1941</a></li><!--
-		 --><li><a href='#' data-year="1990">1990</a></li>
-		</ul>
+	<div id='header'>
+		<h1><img src='svg/logo.svg'/> madeincluj</h1>
 		<ul id='nav'>
-			<li><a href='#'>Despre proiect</a></li>
-			<li><a href='#'>Echipa</a></li>
-			<li><a href='#'>Contact</a></li>
+			<li><a href='#' class='dropdown'>arată sau ascunde straturi <span class='icon icon-arrow icon-right'></span></a></li>
+			<li id='search'><span class='icon icon-search icon-left'></span><input type='text' placeholder='caută un obiectiv'/></li>
+			<li><a href='obiective/'><span class='icon icon-list icon-left'></span> explorează toate obiectivele</a></li>
+			<li><a href='3d/'>macheta orașului</a></li>
+			<li><a href='obiective/despre/'>despre proiect</a></li>
 		</ul>
-
-		<div id='nav-layers'>
-			<a href='#'>Straturi</a>
-		</div>
-
-		<div id='nav-3d' style='display:none;'>
-			<a href="#">3D</a>
-		</div>
-
 	</div>
 	<div id='map-container'>
 		<div id='map'></div>
