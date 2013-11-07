@@ -1,6 +1,6 @@
 MIC.CollectionLayer = {
 
-	marker_template: 'tmpl-round-photo-marker',
+	marker_template: 'tmpl-hex-photo-marker',
 	item_template: 'tmpl-collection-item',
 
 	metadata: {
