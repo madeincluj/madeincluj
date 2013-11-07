@@ -41,7 +41,7 @@ MIC.BuildingPhotosLayer = {
 			MIC.compileTemplate(this.item_template);
 			this.map = map;
 			this.featureGroup = new L.FeatureGroup();
-			MIC.LayerToggle.addLayer(this.featureGroup, this.metadata);
+			MIC.LayerToggle.addLayer(this.featureGroup, this.metadata, true);
 			this.initialized = true;
 			this.fetch();
 		}

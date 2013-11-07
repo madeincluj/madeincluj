@@ -79,7 +79,7 @@ MIC.StreetNamesLayer = {
 				if (response) that.showPopup(feature);
 			});
 		});
-		MIC.LayerToggle.addLayer(this.featureGroup, this.metadata);
+		MIC.LayerToggle.addLayer(this.featureGroup, this.metadata, true);
 	},
 
 	showPopup: function(feature) {
