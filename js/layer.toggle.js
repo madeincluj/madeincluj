@@ -1,5 +1,7 @@
 MIC.LayerToggle = {
 
+	// TODO: test this entire thing better !
+
 	item_template: 'tmpl-layer-toggle-item',
 
 	layers: {},
@@ -32,60 +34,87 @@ MIC.LayerToggle = {
 	},
 
 	sublayerClick: function(e) {
+		var that = e.data.self;
 		var data_name = $(this).attr('data-name');
-		var layer = e.data.self.layers[data_name];
-		var map = e.data.self.map;
+		var layer = that.layers[data_name];
+		var map = that.map;
+		var unique = e.data.unique;
 
 		$(this).toggleClass('active');
-		if  ($(this).hasClass('active')) {
+
+		if ($(this).hasClass('active')) {
+
+			if (unique) {
+				var activeSiblings = $(this).siblings('.active');
+				that._removeLayers(activeSiblings);
+			}
+
 			$(this).parent().addClass('active');
 			layer.addTo(map);
-			console.log('add to map ' + data_name);
 
 		} else {
-			if ($(this).siblings('.active').length < 1) {
+			var activeSiblings = $(this).siblings('.active');
+			if (activeSiblings.length == 0) {
 				$(this).parent().removeClass('active');
 			}
 			map.removeLayer(layer);
-			console.log('remove from map ' + data_name);
 		}
 		return false;
 	},
 
 	layerClick: function(e) {
+		var that = e.data.self;
 		var data_name = $(this).attr('data-name');
-		var layer = e.data.self.layers[data_name];
-		var map = e.data.self.map;
+		var layer = that.layers[data_name];
+		var map = that.map;
 
 		$(this).toggleClass('active');
-		if  ($(this).hasClass('active')) {
-			console.log('add to map ' + data_name);
-			$(this).children('[data-name='+ data_name +']').toggleClass('active');
+
+		if ($(this).hasClass('active')) {
 			layer.addTo(map);
+			var children = $(this).children('[data-name='+ data_name +']');
+			children.addClass('active');
 
 		} else {
-			console.log('remove from map ' + data_name);
-			$(this).children('.sub-layer').removeClass('active');
 			map.removeLayer(layer);
+			var activeChildren = $(this).children('.active');
+			that._removeLayers(activeChildren);
 		}
+		return false;
 	},
 
 	layerToggleAll: function(e) {
-		var layers = e.data.self.layers;
-		var map = e.data.self.map;
+		var that = e.data.self;
+
 		$(this).toggleClass('active');
+
 		if  ($(this).hasClass('active')) {
-			for (var i = 0; i < layers.length; i++) {
-				layers[i].addTo(map);
-			}
-			$(this).children('.sub-layer').addClass('active');
+			var children = $(this).children('.sub-layer');
+			that._addLayers(children);
+
 		} else {
-			for (var i = 0; i < layers.length; i++) {
-				map.removeLayer(layers[i]);
-			}
-			$(this).children('.sub-layer').removeClass('active');
+			var activeChildren = $(this).children('.active');
+			that._removeLayers(activeChildren);
 		}
 		return false;
+	},
+
+	_removeLayers: function(elements) {
+		for (var i = 0; i < elements.length; i++) {
+			var data_name = $(elements[i]).attr('data-name');
+			this.map.removeLayer(this.layers[data_name]);
+			console.log('remove from map ' + data_name);
+		}
+		elements.removeClass('active');
+	},
+
+	_addLayers: function(elements) {
+		for (var i = 0; i < elements.length; i++) {
+			var data_name = $(elements[i]).attr('data-name');
+			var layer = this.layers[data_name];
+			layer.addTo(this.map);
+		}
+		elements.addClass('active');
 	},
 
 	addLayer: function(layer, metadata) {
@@ -95,6 +124,7 @@ MIC.LayerToggle = {
 	},
 
 	addLayerGroup: function(data, options) {
+		options = options || {};
 		for (var i=0; i < data.layers.length; i++) {
 			var layer = data.layers[i];
 			this.layers[layer.data_name] = layer.layer;
@@ -105,6 +135,9 @@ MIC.LayerToggle = {
 		if (options.toggle_all) {
 			element.on('click', '.sub-layer', {self: this}, this.sublayerClick);
 			element.on('click', {self: this}, this.layerToggleAll);
+
+		} else if (options.unique_selection) {
+			element.on('click', '.sub-layer', {self: this, unique: true}, this.sublayerClick);
 		}
 	}
 };
