@@ -54,11 +54,11 @@ MIC.InstagramLayer = {
 			url: 'json/instagram-excluded.json',
 			dataType: 'json',
 			error: function(value) {
-				this.fetchInstagram();
+				that.fetchInstagram();
 			},
 			success: function(resp) {
 				that.excluded = resp;
-				this.fetchInstagram();
+				that.fetchInstagram();
 			}
 		});
 	},
