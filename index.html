@@ -10,6 +10,7 @@
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="css/adobe-blank.css"/>
 	<link rel="stylesheet" href="css/leaflet.slider.css" />
+	<link rel="stylesheet" href="css/header.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css"/>
 	
 	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
@@ -42,28 +43,15 @@
 </head>
 <body>
 
-	<div id='header' class='cf'>
-		<h1>madeincluj</h1>
-		<ul id="nav-time">
-			<li><a href='#' data-year='1680'></a></li><!--
-		 --><li class="selected"><a href='#' data-year="1848">1848</a></li><!--
-		 --><li><a href='#' data-year="1941">1941</a></li><!--
-		 --><li><a href='#' data-year="1990">1990</a></li>
-		</ul>
+	<div id='header'>
+		<h1><img src='svg/logo.svg'/> madeincluj</h1>
 		<ul id='nav'>
-			<li><a href='#'>Despre proiect</a></li>
-			<li><a href='#'>Echipa</a></li>
-			<li><a href='#'>Contact</a></li>
+			<li><a href='#' class='dropdown'>arată sau ascunde straturi <span class='icon icon-arrow icon-right'></span></a></li>
+			<!-- <li id='search'><span class='icon icon-search icon-left'></span><input type='text' placeholder='caută un obiectiv'/></li> -->
+			<li><a href='obiective/'><span class='icon icon-list icon-left'></span> explorează toate obiectivele</a></li>
+			<li><a href='3d/'>macheta orașului</a></li>
+			<li><a href='obiective/despre/'>despre proiect</a></li>
 		</ul>
-
-		<div id='nav-layers'>
-			<a href='#'>Straturi</a>
-		</div>
-
-		<div id='nav-3d' style='display:none;'>
-			<a href="#">3D</a>
-		</div>
-
 	</div>
 	<div id='map-container'>
 		<div id='map'></div>
@@ -93,14 +81,14 @@
 	<!-- Building and Collection photomarker template -->
 	<script id='tmpl-round-photo-marker' type='text/x-handlebars'>
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"> 
-		<image clip-path="url(#bubble-mask)" height="100%" width="100%" xlink:href="{{ url }}" />
+		<image clip-path="url(#bubble-mask)" height="100%" width="100%" xlink:href="{{ url }}" preserveAspectRatio="xMidYMid slice"/>
 		</svg>
 	</script>
 
 	<!-- Instagram marker template -->
 	<script id='tmpl-square-photo-marker' type='text/x-handlebars'>
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"> 
-		<image clip-path="url(#square-mask)" height="100%" width="100%" xlink:href="{{ url }}" />
+		<image clip-path="url(#square-mask)" height="100%" width="100%" xlink:href="{{ url }}"  preserveAspectRatio="xMidYMid slice"/>
 		</svg>
 	</script>
 

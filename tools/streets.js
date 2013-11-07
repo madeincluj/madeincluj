@@ -9,7 +9,7 @@ slug.charmap['â'] = 'a';
 slug.charmap['î'] = 'i';
 
 var streets_json_dir = '../street-names/json/metadata/';
-var output_dir = 'site/strazi/';
+var output_dir = 'obiective/strazi/';
 var template = 'templates/street.html';
 var geojson = JSON.parse(fs.readFileSync('../street-names/json/selected-streets.json', 'utf8'));
 
