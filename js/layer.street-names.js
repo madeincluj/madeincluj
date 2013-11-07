@@ -79,8 +79,7 @@ MIC.StreetNamesLayer = {
 				if (response) that.showPopup(feature);
 			});
 		});
-		// TODO: add to toggle control.
-		this.featureGroup.addTo(this.map);
+		MIC.LayerToggle.addLayer(this.featureGroup, this.metadata);
 	},
 
 	showPopup: function(feature) {
