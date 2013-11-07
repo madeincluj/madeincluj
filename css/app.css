@@ -27,8 +27,12 @@ a:hover {
 }
 
 #map-container {
-	height: 40em;
+	position:absolute;
 	background: #eee;
+	top: 3.4em;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 #map {
