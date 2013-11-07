@@ -127,68 +127,78 @@ a:hover {
 	top: 10%;
 	left: 10%;
 	right: 10%;
+	bottom: 10%;
 	background: #fff;
 	display: none;
 	box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 	color: #555;
 }
 
-#popup-container a {
-	color: #333;
-}
-
 #popup-container .close-popup {
 	position: absolute;
-	top: 0.3em;
-	right: 0.3em;
-	font-size:3em;
-	line-height:1;
+	top: 0;
+	right: 0;
+	font-size:2em;
+	line-height: 1;
+	padding: 0.1em 0.3em;
+	background: #fff;
+	color: #666;
 }
 
-.building-item {}
+#popup-container .close-popup:hover {
+	background: #222;
+	color: #ccc;
+}
+
+.building-item a {
+	color: #5dafdf;
+	border-bottom: 1px solid #ddd;
+}
 
 .building-item .item-gallery {
-	display: inline-block;
-	width: 50%;
-	vertical-align: top;
-	font-family: AdobeBlank;
-	background: #222;
+	background: #f0f0f0;
+	position: absolute;
+	bottom:0;
+	top: 0;
 }
 
 .building-item .item-info {
-	display: inline-block;
-	width: 45%;
-	vertical-align: top;
+	padding: 1.5em 2em;
+	line-height: 1.4;
+}
+
+.building-item .item-info h2 {
+	margin: 0;
+}
+
+.building-item .item-info h3 {
+	font-weight: normal;
+	color: #999;
+	margin: 0;
+}
+
+.building-item .item-description {
+	margin: 1em 0;
+	color: #666;
 }
 
 .building-item .item-gallery-view {
-	text-align: center;
-	height: 30em;
-	line-height: 30em;
-	overflow: hidden;
-}
-
-.building-item .item-gallery-view img {
-	display: inline-block;
-	max-width: 100%;
-	max-height: 100%;
-	vertical-align: middle;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 100%;
 }
 
 .building-item .item-gallery-thumbs {
-	margin-top: 3px;
-	margin-left: 3px;
-	text-align: center;
+	margin: 1em 0;
 }
 
-.building-item .item-gallery-thumbs img {
-	max-height:60px;
-	display: inline-block;
-	vertical-align: top;
-	margin-right:3px;
-	margin-bottom:3px;
+.building-item .item-gallery-thumbs span {
+	height: 4em;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
-
 
 .collection-item {
 	text-align: center;
@@ -232,14 +242,16 @@ a:hover {
 
 #svg-streets path {
   fill: none;
-  stroke: rgba(204,0,0, 0.2);
+  stroke: rgba(225,225,0, 0.2);
   cursor: pointer;
   vector-effect: non-scaling-stroke;
   stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #svg-streets path:hover {
-  stroke: rgba(204,0,0, 1);
+  stroke: rgba(225,225,0, 0.75);
 }
 
 #svg-streets .highway-primary { stroke-width: 4px; }

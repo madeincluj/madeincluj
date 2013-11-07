@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>madeincluj</title>
+	<title><%= building.name %> &middot; madeincluj</title>
 
 	<% include includes/head.html %>
 </head>
@@ -17,10 +17,13 @@
 			</div>
 		</div>
 
-		<div class='container'>
+		<div class='container building-content'>
+			<p class='building-credits'>
+				<%= building.year %>, <%= building.architect %>
+			</p>
 			<%- building.description %>
 			<% for (var i = 0; i < building.photos.length; i++) { %>
-				<p><img src='<%= root + '/' + building.photos[i].large %>' data-large='<%= root + '/' + building.photos[i].large %>'/></p>
+				<p><img src='<%= root + '/' + building.photos[i].original %>'/></p>
 			<% } %>
 		</div>
 	</div>

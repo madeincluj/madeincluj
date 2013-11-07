@@ -119,27 +119,23 @@
 	<script id='tmpl-building-item' type='text/x-handlebars'>
 
 
-		<div class='building-item'>
+		<div class='building-item grid'>
 
-			<div class='item-gallery'>
-
-				<div class='item-gallery-view'>
-					<img src={{ photos.0.large }}/>
-				</div>
-				
-				<div class='item-gallery-thumbs'>
-				{{#each photos}}
-					<img src='{{thumb}}' data-large='{{large}}'/>
-				{{/each}}
-				</div>
-
-			</div>
-
-			<div class='item-info'>
+			<div class='u u-1-3 item-info'>
 				<h2>{{ name }}</h2>
 				<h3>{{ architect }}, {{ year }}</h3>
-
 				<div class='item-description'>{{ description }}</div>
+				<a href='obiective/cladiri/{{ slug }}' target='_blank'>Deschide pagina clădirii &rarr;</a>
+				<div class='item-gallery-thumbs grid'>
+				{{#each photos}}
+					<span style='background-image: url({{thumb}})' data-large='{{large}}' class='u u-1-5'/>
+				{{/each}}
+				</div>
+			</div>
+
+			<div class='u u-2-3 item-gallery'>
+				<div class='item-gallery-view' style='background-image: url({{photos.0.large}})'>
+				</div>
 			</div>
 
 		</div>

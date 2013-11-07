@@ -92,13 +92,9 @@ var MIC = {
 		this.popup.on('click', '.close-popup', function() {
 			that.hidePopup();
 			return false;
-		}).on('click', '.item-gallery-thumbs img', function() {
+		}).on('click', '.item-gallery-thumbs span', function() {
 			var src = $(this).data('large');
-			var img = popup.find('.item-gallery-view img'); 
-			img.fadeOut('fast', function() {
-				img.attr('src', src);
-				img.fadeIn('fast');
-			});
+			var img = popup.find('.item-gallery-view').css('background-image', 'url(' + src + ')');
 		});
 	}
 };
