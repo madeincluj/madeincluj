@@ -8,15 +8,30 @@
 	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'helvetica', 'arial', sans-serif;
 }
 
-#header .container {
-	padding: 0 1em;
-	font-size: 0.8em;
+#mic-logo {
+	height: 35px;
+}
+
+#header.page-header {
 }
 
 #header h1 {
 	display: inline-block;
 	margin: 0 0 0 1em;
 	vertical-align: middle;
+}
+
+#header.page-header h1 {
+	margin-left: 0;
+}
+
+#header.page-header .container {
+	padding: 0 1em;
+}
+
+#header.page-header #nav {
+	font-size:1em;
+	margin-left: 1em;
 }
 
 #nav-time {
@@ -106,4 +121,67 @@
 
 #nav-time > li:first-child a {
 	margin-left: 0;
+}
+
+/* ICONS */
+
+.icon {
+	background-image: url('../img/nav/sprite.png');
+	background-repeat: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.icon-right {
+	margin-left: 1em;
+}
+
+.icon-left {
+	margin-right: 1em;
+}
+
+.icon-search {
+	background-position: -15px -67px;
+	width: 25px;
+	height: 25px;
+}
+
+.icon-search:hover, a:hover .icon-search {
+	background-position: -15px -13px;
+}
+
+.icon-check {
+	background-position: -73px -72px;
+	width: 20px;
+	height: 15px;
+}
+
+.icon-check:hover, a:hover .icon-check {
+	background-position: -73px -18px;
+}
+
+.icon-list {
+	background-position: -126px -67px;
+	width: 26px;
+	height: 25px;
+}
+
+.icon-list:hover, a:hover .icon-list {
+	background-position: -126px -13px;
+}
+
+.icon-arrow {
+	background-position: -179px -71px;
+	width: 16px;
+	height: 16px;
+}
+
+.icon-arrow:hover, a:hover .icon-arrow {
+	background-position: -179px -18px;
+}
+
+#nav-3d.disabled {
+	pointer-events: none;
+	text-decoration: line-through;
+	color: #aaa;
 }

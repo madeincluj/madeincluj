@@ -81,8 +81,8 @@ var MIC = {
 	},
 
 	_init3DLink: function() {
-		if (window.WebGLRenderingContext) {
-			$('#nav-3d').show();
+		if (!window.WebGLRenderingContext) {
+			$('#nav-3d').addClass('disabled');
 		}
 	},
 
