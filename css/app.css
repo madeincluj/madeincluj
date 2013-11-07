@@ -1,12 +1,12 @@
 body {
-	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'Helvetica', 'Arial', sans-serif;
 	color: #222;
 	margin: 0;
 	padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'Helvetica', 'Arial', sans-serif;
 }
 
 a {

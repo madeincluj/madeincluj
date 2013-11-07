@@ -4,6 +4,15 @@
 	font-family: AdobeBlank;
 }
 
+#nav li, #header h1 {
+	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'helvetica', 'arial', sans-serif;
+}
+
+#header .container {
+	padding: 0 1em;
+	font-size: 0.8em;
+}
+
 #header h1 {
 	display: inline-block;
 	margin: 0 0 0 1em;
@@ -29,7 +38,6 @@
 }
 
 #nav li {
-	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
 	display: inline-block;
 	border-right: 1px solid #ddd;
 }
@@ -41,6 +49,11 @@
 #nav a {
 	padding: 0.6em 1em 0.6em 1em;
 	display: block;
+	color: #555555;
+}
+
+#nav a:hover {
+	color: #5dafdf;
 }
 
 #nav a.dropdown:hover {
@@ -54,7 +67,7 @@
 #search input {
 	border: none;
 	border-bottom: 1px solid #ddd;
-	font-family: 'Brandon Grotesque', 'brandon-grotesque', 'helvetica', 'arial', sans-serif;
+	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'helvetica', 'arial', sans-serif;
 	font-size: 1.1em;
 }
 
