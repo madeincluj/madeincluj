@@ -91,10 +91,10 @@ MIC.BuildingPhotosLayer = {
 			var src = this.img_base_url + this.thumb_dir + feature.properties.id.replace('way/', '') + '/0.jpg';
 			var marker = L.photoMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
 				src: src,
-				size: [100, 100],
+				size: [150, 150],
 				smallestSizeZoom: 13,
 				largestSizeZoom: 18,
-				matrix: { 13: 0.2, 14: 0.25, 15: 0.30, 16: 0.35, 17: 0.5, 18: 0.75, 19: 1 },
+				matrix: { 13: 0.2, 14: 0.25, 15: 0.30, 16: 0.45, 17: 0.7, 18: 0.9, 19: 1 },
 				iconTemplate: this.marker_template
 			});
 			marker.feature = feature;
