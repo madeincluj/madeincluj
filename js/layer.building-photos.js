@@ -4,8 +4,8 @@ MIC.BuildingPhotosLayer = {
 	item_template: 'tmpl-building-item',
 
 	geojson_url: '../collection/dg/json/dg.json',
-	img_base_url: '../s3/collection/dg/',
-	// img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/dg/',
+	// img_base_url: '../s3/collection/dg/',
+	img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/dg/',
 	thumb_dir: 'thumb/',
 	large_dir: 'large/',
 	original_dir: 'original/',

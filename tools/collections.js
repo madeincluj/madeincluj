@@ -7,21 +7,21 @@ var fs = require('fs-extra');
 var collections = {
 	'fortepan' : {
 		json: '../collection/fortepan/json/fortepan.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/fortepan/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/fortepan/',
 		original_path: 'original/',
 		large_path: 'large/',
 		thumb_path: 'thumb/'
 	},
 	'fotografii-istorice': {
 		json: '../collection/historical-collection/json/historical-collection.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-collection/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/historical-collection/',
 		original_path: 'original/',
 		large_path: 'large/',
 		thumb_path: 'thumb/'
 	},
 	'arhiva' : {
 		json: '../collection/historical-photography/json/historical-photography.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-photography/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/historical-photography/',
 		original_path: 'original/',
 		large_path: 'large/',
 		thumb_path: 'thumb/'

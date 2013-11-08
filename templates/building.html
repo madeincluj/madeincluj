@@ -12,7 +12,7 @@
 	<div id='content'>
 
 		<div class='building-gallery'>
-			<div class='building-gallery-view' style='background-image:url(<%= root + '/' + building.photos[0].original %>)'>
+			<div class='building-gallery-view' style='background-image:url(<%= building.photos[0].original %>)'>
 				<h1><%= building.name %></h1>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 			</p>
 			<%- building.description %>
 			<% for (var i = 0; i < building.photos.length; i++) { %>
-				<p><img src='<%= root + '/' + building.photos[i].original %>'/></p>
+				<p><img src='<%= building.photos[i].original %>'/></p>
 			<% } %>
 
 			<%
