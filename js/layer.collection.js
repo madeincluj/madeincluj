@@ -14,7 +14,7 @@ MIC.CollectionLayer = {
 				name: "Colecția Fortepan",
 				description: 'Descriere',
 				geojson_url: "../collection/fortepan/json/fortepan.json",
-				img_base_url: "http://madeincluj.s3.amazonaws.com/s3/collection/fortepan/",
+				img_base_url: "http://madeincluj.s3.amazonaws.com/collection/fortepan/",
 				thumb_dir: "thumb/",
 				large_dir: "large/",
 				original_dir: "original/"
@@ -23,7 +23,7 @@ MIC.CollectionLayer = {
 				name: "Fotografii istorice",
 				description: 'Descriere',
 				geojson_url: "../collection/historical-photography/json/historical-photography.json",
-				img_base_url: "http://madeincluj.s3.amazonaws.com/s3/collection/historical-photography/",
+				img_base_url: "http://madeincluj.s3.amazonaws.com/collection/historical-photography/",
 				thumb_dir: "thumb/",
 				large_dir: "large/",
 				original_dir: "original/"
