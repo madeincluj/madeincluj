@@ -39,8 +39,7 @@ var MIC = {
 			zoom: 15,
 			minZoom: 13,
 			maxZoom: 20,
-			maxBounds: new L.LatLngBounds([46.3,23], [47, 24]),
-			scrollWheelZoom: false
+			maxBounds: new L.LatLngBounds([46.3,23], [47, 24])
 		});
 
 		var hash = L.hash(this.map);
