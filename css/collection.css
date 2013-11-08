@@ -61,6 +61,10 @@ a {
 	display: block;
 }
 
+.street-card img {
+	width: 100%;
+}
+
 .street-history {
 	background: #fff;
 	padding: 0.5em 1.5em;

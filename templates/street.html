@@ -17,7 +17,7 @@
 	<% include includes/header.html %>
 	<div id='content'>
 
-		<div class='container'>
+		<div class='container street-card'>
 
 			<h1><%= street.name.ro ? street.name.ro : street.name %></h1>
 		
@@ -35,6 +35,15 @@
 				</div>
 			<% } %>
 			</div>
+
+			<% if (street.photos && street.photos.length) { 
+				for (var i = 0; i < street.photos.length; i++) {
+			%>
+				<img src='<%= street.photos[i].original %>' />
+			<%
+				}
+			}
+			%>
 
 		</div>
 
