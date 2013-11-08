@@ -64,6 +64,12 @@ a {
 	width: 100%;
 }
 
+.street-card .street-description .hu {
+	font-size: 0.8em;
+	color: #999;
+	margin: 1em 0;
+}
+
 .street-history {
 	margin: 2em 0;
 }
