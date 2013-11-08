@@ -31,7 +31,7 @@
 			<div class='street-history'>
 			<% for (var i = 0; i < street.historical_names.length; i++) { %>
 				<div class='street-history-item'>
-					<h3><strong class='street-history-year'><%= street.historical_names[i].year %></strong> <%= street.historical_names[i].ro %></h3>
+					<h3><strong class='street-history-year'><%= street.historical_names[i].year || '?' %></strong> <%= street.historical_names[i].ro %></h3>
 				</div>
 			<% } %>
 			</div>

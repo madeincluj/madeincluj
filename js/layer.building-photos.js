@@ -3,7 +3,7 @@ MIC.BuildingPhotosLayer = {
 	marker_template: 'tmpl-round-photo-marker',
 	item_template: 'tmpl-building-item',
 
-	geojson_url: '../collection/dg/json/dg.json',
+	geojson_url: 'modules/collection/dg/json/dg.json',
 	// img_base_url: '../s3/collection/dg/',
 	img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/dg/',
 	thumb_dir: 'thumb/',
@@ -18,7 +18,7 @@ MIC.BuildingPhotosLayer = {
 	},
 	
 	item_url : function(feature) {
-		return '../collection/dg/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
+		return 'modules/collection/dg/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
 	},
 
 	geojson: null,

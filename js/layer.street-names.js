@@ -1,7 +1,7 @@
 MIC.StreetNamesLayer = {
 	
 	item_template: 'tmpl-street-name-item',
-	geojson_url: '../street-names/json/selected-streets.json',
+	geojson_url: 'modules/street-names/json/selected-streets.json',
 
 	metadata: {
 		data_name: 'street-names',
@@ -15,7 +15,7 @@ MIC.StreetNamesLayer = {
 	loaded_streets: {},
 
 	item_url: function(feature) {
-		return '../street-names/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
+		return 'modules/street-names/json/metadata/' + feature.properties.id.replace('way/', '') + '.json';
 	},
 
 	enable: function() {

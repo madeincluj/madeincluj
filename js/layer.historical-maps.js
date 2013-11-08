@@ -2,7 +2,7 @@ MIC.HistoricalMapsLayer = {
 
 	use_local_maps: false,
 	maps: {},
-	data_url: '../historical-maps/json/maps.json',
+	data_url: 'modules/historical-maps/json/maps.json',
 
 	metadata: {
 		name: 'Hărți istorice',
