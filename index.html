@@ -145,18 +145,21 @@
 	<!-- Street name popup template -->
 	<script id='tmpl-street-name-item' type='text/x-handlebars'>
 
-		<div class='street-item'>
-			<h2>{{ name }}</h2>
-			<div class='street-item-description'>
-				{{ description.ro }}
+		<div class='street-item grid'>
+			<div class='street-item-info u u-1-3'>
+				<h2>{{ name }}</h2>
+				<div class='street-item-description'>
+					{{ description.ro }}
+				</div>
+
+				<p><a href='obiective/strazi/{{slug}}' target='_blank'>Deschide pagina străzii &rarr;</a></p>
 			</div>
-			<ul class='street-item-history'>
+			<ul class='street-item-history u u-2-3'>
 				{{#each historical_names}}
 				<li><strong>{{ year }}</strong> {{ ro }}</li>
 				{{/each}}
 			</ul>
 
-			<a href='obiective/strazi/{{slug}}' target='_blank'>Deschide pagina străzii</a>
 		</div>
 
 	</script>

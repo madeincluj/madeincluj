@@ -17,6 +17,8 @@
 	<% include includes/header.html %>
 	<div id='content'>
 
+		<div id='map'></div>
+
 		<div class='container street-card'>
 
 			<h1><%= street.name.ro ? street.name.ro : street.name %></h1>
@@ -24,9 +26,6 @@
 			<div class='street-description'>
 				<%= street.description ? street.description.ro : '' %>
 			</div>
-
-			
-			<div id='map'></div>
 
 			<div class='street-history'>
 			<% for (var i = 0; i < street.historical_names.length; i++) { %>

@@ -13,9 +13,8 @@ body {
 }
 
 #map {
-	height: 200px;
+	height: 400px;
 	background: #eee;
-	margin: 1em 0;
 }
 
 .container {
@@ -66,8 +65,6 @@ a {
 }
 
 .street-history {
-	background: #fff;
-	padding: 0.5em 1.5em;
 	margin: 2em 0;
 }
 
