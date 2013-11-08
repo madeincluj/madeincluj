@@ -354,3 +354,10 @@ a:hover {
 #layers .layer p {
 	margin: 0;
 }
+
+#opacity-slider {
+    bottom: 2em;
+    left: 50%;
+    margin-left: -50px;
+    position: fixed;
+}
