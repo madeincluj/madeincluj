@@ -5,14 +5,14 @@ MIC.CollectionLayer = {
 
 	metadata: {
 		data_name: 'colectia-fortepan',
-		name: 'Colecția de fotografie',
-		description: 'Imagini din arhivă.',
+		name: 'Colecții de fotografie',
+		description: 'Imagini istorice din Cluj-Napoca',
 		thumbnail_url: '',
 		layers: [
 			{
 				data_name: 'colectia-fortepan',
 				name: "Colecția Fortepan",
-				description: 'Descriere',
+				description: '',
 				geojson_url: "modules/collection/fortepan/json/fortepan.json",
 				img_base_url: "http://madeincluj.s3.amazonaws.com/collection/fortepan/",
 				thumb_dir: "thumb/",
@@ -20,8 +20,8 @@ MIC.CollectionLayer = {
 				original_dir: "original/"
 			}, {
 				data_name: 'fotografii-istorice',
-				name: "Fotografii istorice",
-				description: 'Descriere',
+				name: "Arhiva de fotografie",
+				description: '',
 				geojson_url: "modules/collection/historical-photography/json/historical-photography.json",
 				img_base_url: "http://madeincluj.s3.amazonaws.com/collection/historical-photography/",
 				thumb_dir: "thumb/",

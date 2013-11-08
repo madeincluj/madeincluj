@@ -338,10 +338,11 @@ a:hover {
 #layers .layer.active .sub-layer .check {
 	background-image: url("../img/nav/dropdown-check-off.png");
 	background-repeat: no-repeat;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	width: 20px;
 	height: 15px;
-	margin: 1em 1.4em 0 0;
+	margin: 0.5em 1em 0 0;
 }
 
 #layers .layer.active .check,
@@ -353,6 +354,10 @@ a:hover {
 #layers .layer h4,
 #layers .layer p {
 	margin: 0;
+}
+
+#layers .sub-layer {
+	margin-left: 3em;
 }
 
 #opacity-slider {
