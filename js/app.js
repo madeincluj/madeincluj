@@ -62,6 +62,7 @@ var MIC = {
 		var historicalLayer = MIC.HistoricalMapsLayer.initialize(this.map).enable();
 		var buildingPhotosLayer = MIC.BuildingPhotosLayer.initialize(this.map).enable();
 		var collectionLayer = MIC.CollectionLayer.initialize(this.map).enable();
+		var monumentsLayer = MIC.MonumentsLayer.initialize(this.map).enable();
 	},
 
 	_initUI: function() {

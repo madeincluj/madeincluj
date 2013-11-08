@@ -36,6 +36,7 @@
 	<script type="text/javascript" src="js/layer.street-names.js"></script>
 	<script type="text/javascript" src="js/layer.historical-maps.js"></script>
 	<script type="text/javascript" src="js/layer.collection.js"></script>
+	<script type="text/javascript" src="js/layer.monuments.js"></script>
 	<script type="text/javascript" src="js/layer.toggle.js"></script>
 	<script type="text/javascript" src="js/gmaps.js"></script>
 	<script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
@@ -126,6 +127,31 @@
 				<h3>{{ architect }}, {{ year }}</h3>
 				<div class='item-description'>{{ description }}</div>
 				<a href='obiective/cladiri/{{ slug }}' target='_blank'>Deschide pagina clădirii &rarr;</a>
+				<div class='item-gallery-thumbs grid'>
+				{{#each photos}}
+					<span style='background-image: url({{thumb}})' data-large='{{large}}' class='u u-1-5'/>
+				{{/each}}
+				</div>
+			</div>
+
+			<div class='u u-2-3 item-gallery'>
+				<div class='item-gallery-view' style='background-image: url({{photos.0.large}})'>
+				</div>
+			</div>
+
+		</div>
+
+	</script>
+
+		<!-- Monument popup template -->
+	<script id='tmpl-monument-item' type='text/x-handlebars'>
+
+		<div class='building-item grid'>
+
+			<div class='u u-1-3 item-info'>
+				<h2>{{ name }}</h2>
+				<div class='item-description'>{{ description.ro }}</div>
+				<a href='obiective/monumente/{{ slug }}' target='_blank'>Deschide pagina monumentului &rarr;</a>
 				<div class='item-gallery-thumbs grid'>
 				{{#each photos}}
 					<span style='background-image: url({{thumb}})' data-large='{{large}}' class='u u-1-5'/>
