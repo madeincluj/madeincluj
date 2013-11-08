@@ -36,7 +36,7 @@ MIC.HistoricalMapsLayer = {
 		var layer = L.tileLayer(url, {
 			minZoom: 13,
 			maxZoom: 17,
-			opacity: 0.7,
+			opacity: 1,
 			tms: true,
 			bounds: new L.LatLngBounds(data.bounds[0], data.bounds[1])
 		});
