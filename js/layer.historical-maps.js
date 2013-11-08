@@ -1,8 +1,8 @@
 MIC.HistoricalMapsLayer = {
 
-	use_local_maps: true,
+	use_local_maps: false,
 	maps: {},
-	data_url: '../historical-maps/json/maps.json',
+	data_url: 'modules/historical-maps/json/maps.json',
 
 	metadata: {
 		name: 'Hărți istorice',
@@ -68,7 +68,7 @@ MIC.HistoricalMapsLayer = {
 			id: 'opacity-slider',
 			value: layer.options.opacity,
 			slider: function(value) {
-				value = value.toFixed(1);
+				value = value.toFixed(2);
 				layer.setOpacity(value);
 			}
 		});

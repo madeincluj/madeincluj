@@ -13,9 +13,8 @@ body {
 }
 
 #map {
-	height: 200px;
+	height: 400px;
 	background: #eee;
-	margin: 1em 0;
 }
 
 .container {
@@ -61,9 +60,17 @@ a {
 	display: block;
 }
 
+.street-card img {
+	width: 100%;
+}
+
+.street-card .street-description .hu {
+	font-size: 0.8em;
+	color: #999;
+	margin: 1em 0;
+}
+
 .street-history {
-	background: #fff;
-	padding: 0.5em 1.5em;
 	margin: 2em 0;
 }
 

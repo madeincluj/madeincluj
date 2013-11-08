@@ -7,30 +7,35 @@ var fs = require('fs-extra');
 var collections = {
 	'fortepan' : {
 		json: '../collection/fortepan/json/fortepan.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/fortepan/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/fortepan/',
 		original_path: 'original/',
 		large_path: 'large/',
-		thumb_path: 'thumb/'
+		thumb_path: 'thumb/',
+		name: 'Colecția Fortepan'
 	},
 	'fotografii-istorice': {
 		json: '../collection/historical-collection/json/historical-collection.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-collection/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/historical-collection/',
 		original_path: 'original/',
 		large_path: 'large/',
-		thumb_path: 'thumb/'
+		thumb_path: 'thumb/',
+		name: 'Fotografie istorică',
+		hide: true
 	},
 	'arhiva' : {
 		json: '../collection/historical-photography/json/historical-photography.json',
-		img_base_url: 'http://madeincluj.s3-website-eu-west-1.amazonaws.com/collection/historical-photography/',
+		img_base_url: 'http://madeincluj.s3.amazonaws.com/collection/historical-photography/',
 		original_path: 'original/',
 		large_path: 'large/',
-		thumb_path: 'thumb/'
+		thumb_path: 'thumb/',
+		name: 'Arhiva de fotografie'
 	}
 };
 
 var output_dir = 'obiective/colectie/';
 var collection_tmpl_file = 'templates/collection.html';
 var item_tmpl_file = 'templates/collection_item.html';
+var collections_tmpl_file = 'templates/collections.html';
 
 for (var slug in collections) {
 	var collection = collections[slug];
@@ -69,3 +74,15 @@ for (var slug in collections) {
 	});
 	fs.outputFile(output_dir + slug + '/index.html', output);
 };
+
+var collections_tmpl = fs.readFileSync(collections_tmpl_file, 'utf8');
+var collections_tmpl_f = ejs.compile(collections_tmpl, {
+	filename: collections_tmpl_file
+});
+
+var collections_output = collections_tmpl_f({
+	collections: collections,
+	root: '../..'
+});
+
+fs.outputFile(output_dir + 'index.html', collections_output);

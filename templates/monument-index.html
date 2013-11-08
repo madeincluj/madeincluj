@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>madeincluj</title>
+
+	<% include includes/head.html %>
+</head>
+<body>
+
+	<% include includes/header.html %>
+	<div id='content'>
+
+		<div class='container'>
+
+			<h1>Monumente</h1>
+			<ul class='building-index'>
+			<%
+				for (var i = 0; i < collection.length; i++) {
+			%>
+				<li <% if (collection[i].photos.length) {%> style='background-image: url(<%= collection[i].photos[0].large %>)'<%}%>>
+					<a href='<%= collection[i].slug %>/'><%= collection[i].name %></a>
+				</li>
+			<%
+				}
+			%>
+			</ul>
+		</div>
+
+	</div>
+
+	<% include includes/footer.html %>
+</body>
+</html>

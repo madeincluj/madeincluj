@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Macheta 3D &middot; madeincluj</title>
+	<% include includes/head.html %>
+	<script type='text/javascript' src='<%=root%>/js/lib/three.js'></script>
+	<script type='text/javascript' src='<%=root%>/js/lib/three.obj-loader.js'></script>
+	<script type='text/javascript' src='<%=root%>/js/lib/three.first-person-controls.js'></script>
+
+	<style type="text/css">
+			body {
+				margin:0;
+				padding: 0;
+			}
+			#loading {
+				background: url(<%=root%>/img/cover.jpg) no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				color: #ffffff;
+				font-family: 'brandon-grotesque','helvetica','arial',sans-serif;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				top: 0;
+				text-align: center;
+			}
+			#loading  img {
+				padding: 60px 0 30px;
+			}
+
+
+      #control-panel {
+        display: none;
+        position: absolute;
+        top: 3em;
+        z-index: 100;
+        width: 200px;
+        height: 100px;
+        left: 50%;
+        margin-left: -100px;
+        text-align: center;
+      }
+
+      button#back-home {
+        width: 180px;
+        background: #c8d7ef;
+        padding: 8px;
+        color: #fff;
+        margin-top: 20px;
+        border:none;
+      }
+
+      #three-container {
+      	height: 600px;
+      }
+
+		</style>
+
+</head>
+<body>
+
+	<% include includes/header.html %>
+
+		<div id='loading'>
+			<img src="<%=root%>/img/ilustratie.png" width='200'/>
+			<h2>Se încarcă oraşul 3D. Vă rugăm să aşteptați.</h2>
+		</div>
+
+	    <div id="control-panel">
+	    	<button id="back-home">Înapoi la început</button>
+	    </div>
+
+	    <div id='three-container'></div>
+
+	<% include includes/footer.html %>
+
+	<script type='text/javascript' src='<%=root%>/js/3d.js'></script>
+</body>
+</html>

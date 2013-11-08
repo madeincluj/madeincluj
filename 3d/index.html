@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Macheta 3D &middot; madeincluj</title>
+	<script type="text/javascript" src="//use.typekit.net/fda0kgu.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
+	<link rel="stylesheet" type="text/css" href="../css/adobe-blank.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/collection.css">
+	<script type='text/javascript' src='../js/lib/three.js'></script>
+	<script type='text/javascript' src='../js/lib/three.obj-loader.js'></script>
+	<script type='text/javascript' src='../js/lib/three.first-person-controls.js'></script>
+
+	<style type="text/css">
+			body {
+				margin:0;
+				padding: 0;
+			}
+			#loading {
+				background: url(../img/cover.jpg) no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				color: #ffffff;
+				font-family: 'brandon-grotesque','helvetica','arial',sans-serif;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				top: 0;
+				text-align: center;
+			}
+			#loading  img {
+				padding: 60px 0 30px;
+			}
+
+
+      #control-panel {
+        display: none;
+        position: absolute;
+        top: 3em;
+        z-index: 100;
+        width: 200px;
+        height: 100px;
+        left: 50%;
+        margin-left: -100px;
+        text-align: center;
+      }
+
+      button#back-home {
+        width: 180px;
+        background: #c8d7ef;
+        padding: 8px;
+        color: #fff;
+        margin-top: 20px;
+        border:none;
+      }
+
+      #three-container {
+      	height: 600px;
+      }
+
+		</style>
+
+</head>
+<body>
+
+	<div id='header' class='page-header'>
+	<div class='container'>
+		<h1><img src='../svg/logo.svg' id='mic-logo'/></h1>
+		<ul id='nav'>
+			<li><a href='../'>&larr; întoarce-te la hartă</a></li>
+			<li><a href='../obiective/'><span class='icon icon-list icon-left'></span> explorează toate obiectivele</a></li>
+			<li><a href='../3d/'>macheta orașului</a></li>
+			<li><a href='../despre/'>despre proiect</a></li>
+		</ul>
+	</div>
+</div>
+
+		<div id='loading'>
+			<img src="../img/ilustratie.png" width='200'/>
+			<h2>Se încarcă oraşul 3D. Vă rugăm să aşteptați.</h2>
+		</div>
+
+	    <div id="control-panel">
+	    	<button id="back-home">Înapoi la început</button>
+	    </div>
+
+	    <div id='three-container'></div>
+
+	<div id='footer'>
+	<div class='container'>
+		Un proiect finanțat cu sprijinul:	 
+		<a href='http://afcn.ro/'><img src='../img/parteneri/gri-50/afcn.png'/></a>
+		<a href='http://www.oartransilvania.ro/'><img src='../img/parteneri/gri-50/oar.png'/></a>
+	</div>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45313977-1', 'madeincluj.org');
+  ga('send', 'pageview');
+
+</script>
+
+	<script type='text/javascript' src='../js/3d.js'></script>
+</body>
+</html>

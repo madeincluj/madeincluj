@@ -39,12 +39,14 @@ MIC.LayerToggle = {
 			left: btn.position().left
 		}).addClass('visible');
 		$(window).on('click', MIC.LayerToggle.hideLayerMenu);
+		btn.on('click', MIC.LayerToggle.hideLayerMenu);
 		return false;
 	},
 	hideLayerMenu: function(e) {
 		if (!$(e.target).closest('#layers').length) {
 			MIC.LayerToggle._layerBtn.removeClass('active');
 			MIC.LayerToggle._layerNav.removeClass('visible');
+			MIC.LayerToggle._layerBtn.off('click', MIC.LayerToggle.hideLayerMenu);
 			$(window).off('click', MIC.LayerToggle.hideLayerMenu);
 		}
 		return false;

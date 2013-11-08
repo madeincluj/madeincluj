@@ -5,8 +5,8 @@ MIC.InstagramLayer = {
 
 	metadata: {
 		data_name: 'instagram',
-		name: '#madeincluj',
-		description: 'Concursul Instagram.',
+		name: 'Instagram #madeincluj',
+		description: 'Luni dimineața, de pe fereastra mea',
 		thumbnail_url: '',
 	},
 

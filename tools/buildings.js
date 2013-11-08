@@ -12,7 +12,8 @@ var json_dir = '../collection/dg/json/metadata/';
 var output_dir = 'obiective/cladiri/';
 var template = 'templates/building.html';
 
-var img_base_url = '../s3/collection/dg/';
+// var img_base_url = '../s3/collection/dg/';
+var img_base_url = 'http://madeincluj.s3.amazonaws.com/collection/dg/';
 var thumb_dir = 'thumb/';
 var large_dir = 'large/';
 var original_dir = 'original/';

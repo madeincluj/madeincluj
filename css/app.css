@@ -150,7 +150,7 @@ a:hover {
 	color: #ccc;
 }
 
-.building-item a {
+.building-item a, .street-item a {
 	color: #5dafdf;
 	border-bottom: 1px solid #ddd;
 }
@@ -212,37 +212,49 @@ a:hover {
 }
 
 .street-item {
-	padding: 2em;
-	background: #5dafdf;
-	color: #fff;
-	font-size: 1.4em;
+	color: #222;
+	font-size: 1.1em;
 }
 
 .street-item h2 {
-	margin: 0;
+	margin: 0 0 0.5em;
 	font-size: 2em;
 }
 
-.street-item-description {
-	font-size: 0.8em;
+.street-item-info {
+	padding: 2em;
 }
 
 .street-item-history {
-	margin:1em 0;
-	padding:0;
+	margin: 0;
+	padding: 2em;
+	background: #f0f0f0;
 	list-style-type:none;
+	font-size: 1.1em;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom: 0;
+	color: #666;
+}
+
+.street-item-history li {
 	font-size: 1.1em;
 }
 
 .street-item-history strong {
 	display: inline-block;
-	min-width: 3em;
-	font-size: 1.6em;
+	min-width: 4em;
+	font-size: 1.4em;
+	color: #5DAFDF;
+	opacity: 0.5;
+	text-align: right;
+	margin-right: 0.5em;
 }
 
 #svg-streets path {
   fill: none;
-  stroke: rgba(225,225,0, 0.3);
+  stroke: rgba(225,200,0, 0.3);
   cursor: pointer;
   vector-effect: non-scaling-stroke;
   stroke-width: 5px;
@@ -251,7 +263,7 @@ a:hover {
 }
 
 #svg-streets path:hover {
-  stroke: rgba(225,225,0, 0.75);
+  stroke: rgba(225,200,0, 0.75);
 }
 
 #svg-streets .highway-primary { stroke-width: 4px; }
@@ -338,10 +350,11 @@ a:hover {
 #layers .layer.active .sub-layer .check {
 	background-image: url("../img/nav/dropdown-check-off.png");
 	background-repeat: no-repeat;
-	float: left;
+	display: inline-block;
+	vertical-align: top;
 	width: 20px;
 	height: 15px;
-	margin: 1em 1.4em 0 0;
+	margin: 0.5em 1em 0 0;
 }
 
 #layers .layer.active .check,
@@ -353,6 +366,10 @@ a:hover {
 #layers .layer h4,
 #layers .layer p {
 	margin: 0;
+}
+
+#layers .sub-layer {
+	margin-left: 3em;
 }
 
 #opacity-slider {

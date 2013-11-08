@@ -17,24 +17,35 @@
 	<% include includes/header.html %>
 	<div id='content'>
 
-		<div class='container'>
+		<div id='map'></div>
+
+		<div class='container street-card'>
 
 			<h1><a href='..'>Istoria străzilor</a><span class='separator'>:</span> <%= street.name.ro ? street.name.ro : street.name %></h1>
 		
 			<div class='street-description'>
 				<%= street.description ? street.description.ro : '' %>
+				<div class='hu'>
+					<%= street.description ? street.description.hu : '' %>
+				</div>
 			</div>
-
-			
-			<div id='map'></div>
 
 			<div class='street-history'>
 			<% for (var i = 0; i < street.historical_names.length; i++) { %>
 				<div class='street-history-item'>
-					<h3><strong class='street-history-year'><%= street.historical_names[i].year %></strong> <%= street.historical_names[i].ro %></h3>
+					<h3><strong class='street-history-year'><%= street.historical_names[i].year || '?' %></strong> <%= street.historical_names[i].ro %></h3>
 				</div>
 			<% } %>
 			</div>
+
+			<% if (street.photos && street.photos.length) { 
+				for (var i = 0; i < street.photos.length; i++) {
+			%>
+				<img src='<%= street.photos[i].original %>' />
+			<%
+				}
+			}
+			%>
 
 		</div>
 

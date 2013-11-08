@@ -13,6 +13,11 @@ var output_dir = 'obiective/strazi/';
 var template = 'templates/street.html';
 var geojson = JSON.parse(fs.readFileSync('../street-names/json/selected-streets.json', 'utf8'));
 
+var img_base_url = 'http://madeincluj.s3.amazonaws.com/collection/historical-photography/';
+var thumb_dir = 'thumb/';
+var large_dir = 'large/';
+var original_dir = 'original/';
+
 var jsons = fs.readdirSync(streets_json_dir);
 var tmpl = fs.readFileSync(template, 'utf8');
 var tmpl_f = ejs.compile(tmpl, {
@@ -28,6 +33,20 @@ jsons.forEach(function(filepath) {
 	var feature = geojson.features.filter(function(feature) {
 		return feature.properties.id === 'way/' + json.id;
 	})[0];
+
+	json.photos = [];
+
+	if (json.media) {
+		if (json.media['historical-photography']) {
+			json.photos = json.photos.concat(json.media['historical-photography'].map(function (photoId) {
+				return {
+					thumb: img_base_url + thumb_dir + photoId + '.jpg',
+					large: img_base_url + large_dir + photoId + '.jpg',
+					original: img_base_url + original_dir + photoId + '.jpg'
+				}
+			}));
+		}
+	}
 
 	collection.push(json);
 
