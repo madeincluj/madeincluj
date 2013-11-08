@@ -171,20 +171,27 @@
 
 	<script id='tmpl-layer-toggle-item' type='text/x-handlebars'>
 		<div class='layer' {{#if data_name}} data-name='{{ data_name }}' {{/if}} data-multiple='{{ multiple }}'>
-			{{#if thumbnail_url}}
-			<img src='{{ thumbnail_url }}'/>
-			{{/if}}
-			{{#if name}}
-				<h3>{{ name }}</h3>
-			{{/if}}
-			{{#if description}}
-				<p>{{ description }}</p>
-			{{/if}}
+			<span class='check'></span>
+			<div class='layer-data'>
+				{{#if thumbnail_url}}
+				<img src='{{ thumbnail_url }}'/>
+				{{/if}}
+				{{#if name}}
+					<h3>{{ name }}</h3>
+				{{/if}}
+				{{#if description}}
+					<p>{{ description }}</p>
+				{{/if}}
+			</div>
+
 			{{#if layers}}
 				{{#each layers}}
 					<div class='sub-layer' data-name='{{ data_name }}'>
-						<h4>{{ name }}</h4>
-						<p>{{ description }}</p>
+						<span class='check'></span>
+						<div class='layer-data'>
+							<h4>{{ name }}</h4>
+							<p>{{ description }}</p>
+						</div>
 					</div>
 				{{/each}}
 			{{/if}}
