@@ -242,7 +242,7 @@ a:hover {
 
 #svg-streets path {
   fill: none;
-  stroke: rgba(225,225,0, 0.2);
+  stroke: rgba(225,225,0, 0.3);
   cursor: pointer;
   vector-effect: non-scaling-stroke;
   stroke-width: 5px;
