@@ -19,12 +19,20 @@
 
 		<div class='container building-content'>
 			<p class='building-credits'>
-				<%= building.year %>, <%= building.architect %>
+				<%= building.year || '?' %>, <%= building.architect || '?' %>
 			</p>
 			<%- building.description %>
 			<% for (var i = 0; i < building.photos.length; i++) { %>
 				<p><img src='<%= root + '/' + building.photos[i].original %>'/></p>
 			<% } %>
+
+			<%
+				if (building.source) {
+			%>
+				<p><em>Sursa: <%= building.source %></em></p>
+			<%
+				}
+			%>
 		</div>
 	</div>
 

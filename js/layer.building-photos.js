@@ -74,7 +74,7 @@ MIC.BuildingPhotosLayer = {
 	loadItem: function(feature, json) {
 		this.loaded_buildings[feature.properties.id] = json;
 		var id = json.id;
-		json.description = json.description.substring(0, 300) + '...';
+		json.description = json.excerpt || (json.description.substring(0, 300) + '...');
 		json.photos = json.photos.map(function(photo) {
 			return {
 				thumb: this.img_base_url + this.thumb_dir + id + '/' + photo,
