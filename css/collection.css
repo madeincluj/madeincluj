@@ -112,19 +112,37 @@ a {
 	right: 0;
 }
 
+.separator {
+	color: #ccc;
+}
+
 .street-index {
 	font-size: 1.4em;
 	margin: 1em 0;
+	text-align: justify;
 }
 
 .street-index a {
-	display: inline-block;
-	margin-right: 0.5em;
 	color: #999;
+}
+
+.street-index a:after {
+	content: ' · ';
+	color: #ccc;
 }
 
 .street-index a:hover {
 	color: #5dafdf;
+}
+
+.obiective-index {
+	font-size: 3em;
+	text-align: center;
+	padding: 1.5em 0;
+}
+
+.obiective-index .u {
+	border-bottom: 1px dashed #ddd;
 }
 
 #footer .container {
