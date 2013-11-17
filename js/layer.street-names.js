@@ -57,6 +57,7 @@ MIC.StreetNamesLayer = {
 	},
 
 	loadItem: function(feature, json) {
+		json.description.ro = json.description.ro.substring(0, 700) + '...';
 		this.loaded_streets[feature.properties.id] = json;
 	},
 

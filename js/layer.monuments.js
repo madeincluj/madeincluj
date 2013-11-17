@@ -74,7 +74,7 @@ MIC.MonumentsLayer = {
 	loadItem: function(feature, json) {
 		this.loaded_buildings[feature.properties.id] = json;
 		var id = json.slug;
-		json.description.ro = json.description.ro.substring(0, 1000) + '...';
+		json.description.ro = json.description.ro.substring(0, 800) + '...';
 		json.photos = json.photos.map(function(photo) {
 			return {
 				thumb: this.img_base_url + this.thumb_dir + id + '/' + photo,
