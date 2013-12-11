@@ -198,6 +198,7 @@ a:hover {
 #popup-container .gallery .item-info {
     box-sizing:border-box;
     -moz-box-sizing:border-box;
+    -webkit-box-sizing: border-box;
     float: left;
     overflow-y: auto;
 }
@@ -210,6 +211,7 @@ a:hover {
 
 #popup-container .gallery .item-image img {
     max-height: 100%;
+    max-width: 99%;
     vertical-align: middle;
 }
 

@@ -146,7 +146,7 @@ var MIC = {
 		// Set max-width of gallery images.
 		var width = this.popup.width();
 		// Information area should be 30%
-		this.popup.find('.gallery-item.item-info').width(width * 0.3);
+		this.popup.find('.gallery-item.item-info').css('width', width * 0.3);
 		// Images should not expand more than 70%. Panoramas should not overflow this width.
 		this.popup.find('.gallery-item.item-image').css('maxWidth', width * 0.7);
 
