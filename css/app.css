@@ -1,6 +1,11 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: 'brandon-grotesque', 'Brandon Grotesque', 'Helvetica', 'Arial', sans-serif;
 	color: #222;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -128,6 +133,7 @@ a:hover {
 	left: 5%;
 	right: 5%;
 	bottom: 10%;
+	height: 80%;
 	background: #fff;
 	display: none;
 	box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
@@ -185,7 +191,8 @@ a:hover {
 }
 
 #popup-container .gallery .gallery-item {
-    display: inline;
+    float: left;
+    height: 100%;
 }
 
 #popup-container .gallery .item-info {
@@ -195,8 +202,15 @@ a:hover {
     overflow-y: auto;
 }
 
+#popup-container .gallery .item-image .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
 #popup-container .gallery .item-image img {
     max-height: 100%;
+    vertical-align: middle;
 }
 
 .building-item a, .street-item a {
