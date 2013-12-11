@@ -125,8 +125,8 @@ a:hover {
 	position:absolute;
 	z-index: 1000;
 	top: 10%;
-	left: 10%;
-	right: 10%;
+	left: 5%;
+	right: 5%;
 	bottom: 10%;
 	background: #fff;
 	display: none;
@@ -143,11 +143,60 @@ a:hover {
 	padding: 0.1em 0.3em;
 	background: #fff;
 	color: #666;
+	z-index: 100;
+}
+
+#popup-container .popup-content {
+	height: 100%;
+	overflow: hidden;
 }
 
 #popup-container .close-popup:hover {
 	background: #222;
 	color: #ccc;
+}
+
+#popup-container .gallery-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3em;
+    cursor: pointer;
+}
+
+#popup-container .gallery-control.gallery-prev {
+    left: 0;
+    background: url('../img/nav/prev.png') no-repeat scroll 5px 120px #fff;
+    z-index: 0;
+}
+
+#popup-container .gallery-control.gallery-next {
+    right: 0;
+    background: url('../img/nav/next.png') no-repeat scroll 10px 120px #fff;
+    z-index: 100;
+}
+
+#popup-container .gallery {
+    background-color: #fff;
+    height: 100%;
+    width: 200%;
+    position: relative;
+    z-index: 90;
+}
+
+#popup-container .gallery .gallery-item {
+    display: inline;
+}
+
+#popup-container .gallery .item-info {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    float: left;
+    overflow-y: auto;
+}
+
+#popup-container .gallery .item-image img {
+    max-height: 100%;
 }
 
 .building-item a, .street-item a {
