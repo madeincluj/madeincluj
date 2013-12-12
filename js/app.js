@@ -135,6 +135,7 @@ var MIC = {
 			var from = $(that.popup).find('.gallery-item.active');
 			var to = from.next();
 			moveToItem(from, to);
+			MIC._load_next_images(to);
 
 		}).on('click', '.item-gallery-thumbs span', function() {
 			var src = $(this).data('large');
@@ -144,25 +145,47 @@ var MIC = {
 
 	_initPopupGallery: function() {
 		// Set max-width of gallery images.
-		var width = this.popup.width();
+		var popup_width = this.popup.width();
 		// Information area should be 30%
-		this.popup.find('.gallery-item.item-info').css('width', width * 0.3);
+		this.popup.find('.gallery-item.item-info').css('width', popup_width * 0.3);
 		// Images should not expand more than 70%. Panoramas should not overflow this width.
-		this.popup.find('.gallery-item.item-image').css('maxWidth', width * 0.7);
+		this.popup.find('.gallery-item.item-image').css('maxWidth', popup_width * 0.7);
 
 		// Initialize css helper classes.
 		this.popup.find('.gallery-item:first').addClass('first active');
 		this.popup.find('.gallery-item:last').addClass('last');
 
-		var gallery = this.popup.find('.gallery');
-		var item_images = gallery.find('.gallery-item.item-image:not(:has(img))')
+		var loaded_image = this.popup.find('.gallery-item.item-image:first');
+		MIC._load_next_images(loaded_image)
+	},
 
-		item_images.each(function() {
-			var that = this;
-			$('<img>').load(function(e) {
-				gallery.width(gallery.width() + this.width)
-				$(this).appendTo(that);
-			}).attr('src', $(this).attr('data-src'));
-		})
+	_load_next_images: function(start_image) {
+
+		var gallery = this.popup.find('.gallery');
+		var popup_width = this.popup.width();
+		var width = 0;
+
+		var load_image = function(next) {
+
+			if (next && (width < popup_width)) {
+
+				// This one is loaded, go to the next one
+				if ($(next).find('img').length) {
+					width += next.width();
+					load_image(next.next());
+
+				// Load this image
+				} else {
+					$('<img>').load(function(e) {
+						gallery.width(gallery.width() + this.width)
+						$(this).appendTo(next);
+						width += this.width;
+						load_image(next.next());
+					}).attr('src', $(next).attr('data-src'));
+				}
+			}
+		};
+
+		load_image(start_image);
 	}
 };
