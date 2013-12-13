@@ -1,9 +1,9 @@
 [submodule "modules/collection"]
 	path = modules/collection
-	url = git@github.com:madeincluj/collection.git
+	url = https://github.com/madeincluj/collection.git
 [submodule "modules/street-names"]
 	path = modules/street-names
-	url = git@github.com:madeincluj/street-names.git
+	url = https://github.com/madeincluj/street-names.git
 [submodule "modules/historical-maps"]
 	path = modules/historical-maps
-	url = git@github.com:madeincluj/historical-maps.git
+	url = https://github.com/madeincluj/historical-maps.git
